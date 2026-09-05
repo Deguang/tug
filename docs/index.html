@@ -471,6 +471,7 @@
       flex-wrap: wrap;
     }
 
+    pre { margin: 0; padding: 0; display: contents; }
     .hero-quick-install {
       display: inline-flex;
       align-items: center;
@@ -1343,7 +1344,7 @@
       <div style="margin-bottom: 2.75rem;">
         <div class="hero-quick-install">
           <span class="quick-install-prompt">$</span>
-          <code id="heroInstallCmd">curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash</code>
+          <pre><code id="heroInstallCmd" class="language-shell" data-raw="curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash">curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash</code></pre>
           <button class="btn-copy-install" onclick="copyHeroInstall(this)">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             <span class="copy-text" data-i18n="btn_copy">Copy</span>
@@ -1605,7 +1606,7 @@
         </div>
 
         <div class="install-snippet" id="installCmdSnippet">
-          <span id="installCmdText">curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash</span>
+          <pre><code id="installCmdText" class="language-shell" data-raw="curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash">curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash</code></pre>
           <button class="btn-copy" onclick="copyInstallTabCmd(this)" data-i18n="btn_copy_cmd">Copy Command</button>
         </div>
       </div>
@@ -1668,6 +1669,7 @@
     import { highlightAll } from 'https://esm.sh/microlighter@2.1.0';
     document.body.dataset.syntaxTheme = "github";
 
+    highlightAll();
     window.switchInstallTab = async function(type) {
       document.querySelectorAll('.install-tab-btn').forEach(b => b.classList.remove('active'));
       event.target.classList.add('active');
