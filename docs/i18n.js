@@ -988,6 +988,7 @@ let currentLang = 'en';
 function setLanguage(lang) {
   if (!translations[lang]) lang = 'en';
   currentLang = lang;
+  window.currentLang = lang;
   document.documentElement.setAttribute('lang', lang);
   localStorage.setItem('tug_lang', lang);
 
@@ -1019,17 +1020,12 @@ function setLanguage(lang) {
     el.setAttribute("href", docsUrl);
   });
 
-  // Refresh current active terminal tab output and description badge
+  // Refresh current active terminal tab output
   const activeBtn = document.querySelector('.term-tab.active');
   const activeTab = (activeBtn && activeBtn.getAttribute('data-tab')) || 'fill';
   const termOutput = document.getElementById('termOutput');
   if (termOutput && t.term_terminal && t.term_terminal[activeTab]) {
     termOutput.innerHTML = t.term_terminal[activeTab];
-  }
-
-  const pill = document.getElementById('termDescPill');
-  if (pill && t.term_desc && t.term_desc[activeTab]) {
-    pill.textContent = t.term_desc[activeTab];
   }
 
   // Update Language dropdown button label

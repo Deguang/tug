@@ -569,23 +569,10 @@
       height: 44px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       border-bottom: 1px solid #1E293B;
       user-select: none;
-      gap: 1rem;
-    }
-
-    .terminal-header-left {
-      display: flex;
-      align-items: center;
       gap: 1.25rem;
-      height: 100%;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    .terminal-header-left::-webkit-scrollbar {
-      display: none;
     }
 
     .terminal-controls {
@@ -609,7 +596,12 @@
       align-items: flex-end;
       height: 100%;
       gap: 4px;
-      flex-shrink: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .terminal-tabs::-webkit-scrollbar {
+      display: none;
     }
 
     .term-tab {
@@ -645,41 +637,6 @@
       border-top: 2px solid var(--accent);
       border-bottom: 1px solid #090D16;
       font-weight: 600;
-    }
-
-    .terminal-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-shrink: 0;
-    }
-
-    .term-desc-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: #94A3B8;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 6px;
-      padding: 0.2rem 0.65rem;
-      white-space: nowrap;
-    }
-
-    .term-desc-pill::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #10B981;
-    }
-
-    @media (max-width: 768px) {
-      .terminal-meta {
-        display: none;
-      }
     }
 
     .terminal-body {
@@ -1199,7 +1156,7 @@
       line-height: 1.7;
     }
   </style>
-  <script src="i18n.js"></script>
+  <script src="i18n.js?v=0.1.1"></script>
 </head>
 <body>
 
@@ -1310,22 +1267,16 @@
       <!-- 交互代码与终端视窗 (Code & Terminal Showcase) -->
       <div class="terminal-window">
         <div class="terminal-header">
-          <div class="terminal-header-left">
-            <div class="terminal-controls">
-              <div class="traffic-dot red"></div>
-              <div class="traffic-dot yellow"></div>
-              <div class="traffic-dot green"></div>
-            </div>
-            <div class="terminal-tabs">
-              <button class="term-tab" id="tab-btn-spec" data-tab="spec" onclick="switchTermTab('spec')"><span>📄</span> tug.yml</button>
-              <button class="term-tab active" id="tab-btn-fill" data-tab="fill" onclick="switchTermTab('fill')"><span>⚡</span> tug fill</button>
-              <button class="term-tab" id="tab-btn-scan" data-tab="scan" onclick="switchTermTab('scan')"><span>🛡️</span> tug scan</button>
-              <button class="term-tab" id="tab-btn-sync" data-tab="sync" onclick="switchTermTab('sync')"><span>🔄</span> tug sync</button>
-              <button class="term-tab" id="tab-btn-upgrade" data-tab="upgrade" onclick="switchTermTab('upgrade')"><span>🚀</span> tug upgrade</button>
-            </div>
+          <div class="terminal-controls">
+            <div class="traffic-dot red"></div>
+            <div class="traffic-dot yellow"></div>
+            <div class="traffic-dot green"></div>
           </div>
-          <div class="terminal-meta">
-            <span class="term-desc-pill" id="termDescPill">CDP 原生自动化填表与挂载</span>
+          <div class="terminal-tabs">
+            <button class="term-tab active" id="tab-btn-fill" data-tab="fill" onclick="switchTermTab('fill')"><span>⚡</span> tug fill</button>
+            <button class="term-tab" id="tab-btn-scan" data-tab="scan" onclick="switchTermTab('scan')"><span>🛡️</span> tug scan</button>
+            <button class="term-tab" id="tab-btn-sync" data-tab="sync" onclick="switchTermTab('sync')"><span>🔄</span> tug sync</button>
+            <button class="term-tab" id="tab-btn-upgrade" data-tab="upgrade" onclick="switchTermTab('upgrade')"><span>🚀</span> tug upgrade</button>
           </div>
         </div>
 
@@ -1611,15 +1562,9 @@
       const transObj = window.translations || (typeof translations !== 'undefined' ? translations : null);
       const cur = window.currentLang || (typeof currentLang !== 'undefined' ? currentLang : 'en');
       const t = transObj ? (transObj[cur] || transObj['en']) : null;
-      if (t) {
-        if (t.term_terminal && t.term_terminal[tab]) {
-          const out = document.getElementById('termOutput');
-          if (out) out.innerHTML = t.term_terminal[tab];
-        }
-        if (t.term_desc && t.term_desc[tab]) {
-          const pill = document.getElementById('termDescPill');
-          if (pill) pill.textContent = t.term_desc[tab];
-        }
+      if (t && t.term_terminal && t.term_terminal[tab]) {
+        const out = document.getElementById('termOutput');
+        if (out) out.innerHTML = t.term_terminal[tab];
       }
     }
 
