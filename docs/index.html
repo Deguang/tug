@@ -1029,9 +1029,16 @@
       display: flex;
       gap: 0.5rem;
       border-bottom: 1px solid var(--border-light);
-      padding-bottom: 1rem;
+      padding-bottom: 0.85rem;
       margin-bottom: 1.5rem;
-      flex-wrap: wrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      white-space: nowrap;
+      flex-wrap: nowrap;
+    }
+
+    .install-tabs::-webkit-scrollbar {
+      display: none;
     }
 
     .install-tab-btn {
@@ -1044,6 +1051,8 @@
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .install-tab-btn:hover {
@@ -1058,15 +1067,35 @@
 
     .install-snippet {
       background: var(--bg-terminal);
-      border-radius: 10px;
-      padding: 1.1rem 1.4rem;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 1.25rem;
       font-family: var(--font-mono);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: #F8FAFC;
+      border: 1px solid #1E293B;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    #installCmdText {
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      flex: 1;
+      padding-right: 0.5rem;
+    }
+
+    #installCmdText::-webkit-scrollbar {
+      display: none;
+    }
+
+    .install-snippet .btn-copy {
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     /* 页脚 */
@@ -1511,10 +1540,10 @@
 
       <div class="install-box">
         <div class="install-tabs">
-          <button class="install-tab-btn active" onclick="switchInstallTab('curl')" data-i18n="install_tab_curl">One-line Shell Script (Recommended)</button>
-          <button class="install-tab-btn" onclick="switchInstallTab('brew')" data-i18n="install_tab_brew">Homebrew (macOS)</button>
-          <button class="install-tab-btn" onclick="switchInstallTab('npm')" data-i18n="install_tab_npm">Install via GitHub Source</button>
-          <button class="install-tab-btn" onclick="switchInstallTab('npx')" data-i18n="install_tab_npx">Zero-install npx</button>
+          <button class="install-tab-btn active" onclick="switchInstallTab('curl')" data-i18n="install_tab_curl">Shell Script</button>
+          <button class="install-tab-btn" onclick="switchInstallTab('brew')" data-i18n="install_tab_brew">Homebrew</button>
+          <button class="install-tab-btn" onclick="switchInstallTab('npm')" data-i18n="install_tab_npm">GitHub Source</button>
+          <button class="install-tab-btn" onclick="switchInstallTab('npx')" data-i18n="install_tab_npx">npx</button>
         </div>
 
         <div class="install-snippet" id="installCmdSnippet">
