@@ -1,0 +1,47 @@
+version: "1.0"
+
+# 数据源配置 (可选，用于 tug update 获取发版日志)
+source:
+  repository: ""                        # 远端仓库，如 owner/repo 或完整 GitHub 地址
+  changelog_locale: "en"                # 默认写入哪个语言的 changelog
+
+# 基础信息配置（不区分语言的全局字段）
+global:
+  category: ""                          # 商店分类枚举值，如 developer_tools
+  support_email: ""                     # 支持邮箱
+  privacy_policy_url: ""                # 隐私政策 URL
+  home_page_url: ""                     # 首页 URL
+
+# 隐私与合规 (Privacy & Justifications)
+privacy:
+  # 对应 manifest.json 中的 permissions 和 host_permissions
+  # 键名必须与 manifest.json 保持一致
+  permissions: {}
+    # 示例:
+    # storage: "用于在本地保存用户的偏好设置，数据不上云。"
+  host_permissions: {}
+    # 示例:
+    # "*://*.example.com/*": "用于与服务器通信。"
+  data_usage:
+    single_purpose: true               # 确认满足单一用途原则
+    sell_data: false                   # 是否出售数据
+
+# 物料路径映射 (Assets)
+# 路径相对当前 tug.yml 所在目录
+assets:
+  icon_128: "./assets/icon-128.png"
+  screenshots:
+    - "./assets/screenshot-1.png"      # 强制要求 1280x800 或 640x400
+  promo_small: ""                      # 440x280 (Chrome 专用)
+  promo_large: ""                      # 1400x560
+
+# 多语言元数据 (i18n)
+# 键名遵循标准的 locale code (如 en, zh_CN, zh_TW)
+locales:
+  en:
+    name: ""
+    short_description: ""              # 限 132 字符
+    description: |
+      
+    changelog: |
+      
