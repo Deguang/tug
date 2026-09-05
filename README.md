@@ -1,100 +1,115 @@
-# tug - 浏览器插件上架助手
+<div align="center">
+  <img src="docs/assets/logo/tug-logo.jpg" alt="Tug Logo" width="120" style="border-radius: 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);" />
+  <h1>Tug ⚓</h1>
+  <p><strong>The Declarative Browser Extension Companion CLI</strong></p>
+  <p>Local YAML listing orchestration, zero-dependency asset pre-flight, and native CDP direct automation.</p>
 
-> 本地数据编排 CLI 与浏览器端填表脚本协同的工程化工具
+  <p>
+    <a href="./README.md"><b>English</b></a> •
+    <a href="./README.zh-CN.md">简体中文</a>
+  </p>
 
-## 概述
+  <p>
+    <a href="https://github.com/Deguang/tug/releases"><img src="https://img.shields.io/github/v/release/Deguang/tug?color=FA541C&label=release" alt="Release"></a>
+    <a href="https://github.com/Deguang/tug/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+    <img src="https://img.shields.io/badge/node-%3E%3D18.0.0-emerald.svg" alt="Node">
+    <img src="https://img.shields.io/badge/automation-Native%20CDP-orange.svg" alt="CDP">
+  </p>
+</div>
 
-`tug` 帮助浏览器扩展开发者自动化应用商店上架流程。它由两部分组成：
+---
 
-- **tug-cli**: 本地 Node.js CLI，读取配置、校验物料、启动数据服务
-- **tug-injector**: 浏览器端 Tampermonkey 脚本，自动填充商店表单
+## 💡 Why Tug?
 
-## 安装方式 (脱离 npm 独立分发)
+In busy maritime harbors, massive container ships cannot maneuver or dock safely on their own—they depend on compact, agile **tugboats** with immense torque to guide them into port.
 
-`tug` 采用 GitHub 独立分发，避免公网 npm 包名冲突与安全隐患：
+Similarly, modern extension store web dashboards (Chrome Web Store, Edge Partner Center) have grown bloated and tedious: repetitive multi-language dropdown clicking, fragile single-pixel rejection gates, and zero Git version history. **Tug** acts as your local CLI tugboat. Holding its signature orange towing ring, Tug bridges your local Git repo with remote store consoles, bearing the heavy mechanical friction on your behalf.
 
-### 方式 1：一键 Shell 脚本安装（推荐）
+---
+
+## ✨ Key Features
+
+- 📄 **Declarative Single Source of Truth**: Organize multilingual listing metadata, permissions, and promotional assets in a clean, version-controlled `tug.yml`.
+- ⚡ **Native CDP Direct Automation**: Drive your live, authenticated Chrome browser directly over localhost via Chrome DevTools Protocol—bypassing Google Cloud OAuth configurations, tokens, and API quotas.
+- 📐 **Zero-Dependency Byte Pre-flight**: Built-in pure JavaScript binary stream parser checks PNG/JPEG dimensions and compliance in milliseconds without `sharp` or `node-gyp` C++ build headaches.
+- 🛡️ **Human-in-the-Loop Safety**: Tug automates the tedious form fields and asset mounting in draft mode; the final "Submit for Review" click is always confirmed by you.
+- 🚀 **Decentralized Frictionless Upgrade**: Independent from public npm registry delays. Linked directly to official GitHub Releases for seamless, one-command self-upgrades via `tug upgrade`.
+
+---
+
+## 📦 Installation (Independent GitHub Distribution)
+
+Distributed directly via secure GitHub channels:
+
+### Option 1: One-line Shell Script (Recommended)
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash
 ```
 
-### 方式 2：Homebrew 安装
+### Option 2: Homebrew (macOS)
 ```bash
 brew install Deguang/tap/tug
 ```
 
-### 方式 3：直接通过 GitHub 仓库安装
+### Option 3: Global Install via GitHub Source
 ```bash
 npm install -g Deguang/tug
 ```
 
-### 方式 4：免安装即刻运行
+### Option 4: Zero-Install npx
 ```bash
 npx github:Deguang/tug fill
 ```
 
-### 使用流程
+---
 
+## 🚀 Quick Start
+
+### 1. Initialize Listing Blueprint
+Run in your extension repository root:
 ```bash
-# 1. 在扩展项目根目录初始化
 tug init
-
-# 2. 编辑 tug.yml 填写扩展信息
-
-# 3. 校验配置和物料
-tug scan
-
-# 4. 启动本地服务
-tug dock
 ```
+This scaffolds a standard declarative `tug.yml` configuration template.
 
-### 安装浏览器注入脚本
+### 2. Pre-flight Verification
+Before submitting, run pre-flight checks:
+```bash
+tug scan
+```
+Tug audits `manifest.json` permission justifications, validates multilingual length limits, and parses graphic dimensions via pure JS byte streams.
 
-1. 安装 [Tampermonkey](https://www.tampermonkey.net/) 扩展
-2. 创建新脚本，将 `src/injector/tug-injector.user.js` 的内容粘贴进去
-3. 保存并启用
+### 3. Automated Form Filling & Asset Mounting (CDP Mode)
 
-### 方案 A：CDP 自动化填报【推荐·免安装任何扩展】
-
-1. 用调试端口启动常用 Chrome（保留你的已登录账号）：
+1. Launch your regular Chrome browser with remote debugging enabled (keeps your active login session):
    ```bash
+   # macOS Example
    /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
    ```
-2. 打开 Chrome Web Store 或 Edge 后台插件详情页。
-3. 在终端执行：
+2. Navigate to your extension's draft page on the Chrome Web Store Developer Dashboard.
+3. Run in your terminal:
    ```bash
-   tug fill
+   tug fill -z ./release/my-extension-v1.0.0.zip
    ```
-   CDP 将自动接管并模拟原生输入，**同时原生挂载本地截图等图片物料**，无需人工干预！
+   Tug connects via native CDP, switches locales, populates all text fields, mounts promo images and screenshots, and uploads your zip package in seconds!
 
-### 方案 B：油猴脚本注入填报 (Tug in)
+---
 
-1. 执行 `tug dock` 启动本地服务
-2. 打开 Chrome Web Store 或 Edge Partner Center 开发者后台
-3. 在页面右下角的 Tug 控制台点击 "⚓ Tug in (填入当前语言)"
+## 🛠️ Command Reference
 
-### 反向读取与多语言同步 (Tug out)
+| Command | Description |
+|---------|-------------|
+| `tug fill` | **[Core]** Connects to Chrome via native CDP to automatically populate listings and mount assets |
+| `tug init` | Scaffolds a standard `tug.yml` listing configuration |
+| `tug scan` | Pre-flight validation for metadata integrity, manifest diffs, and image dimensions |
+| `tug dock` | Launches local HTTP data server (default port 4321) for Tampermonkey fallback injector |
+| `tug pull` | Listens for browser injector callbacks to reverse-extract store form data into `tug.yml` |
+| `tug sync` | Syncs release tags and changelogs from upstream GitHub Releases incrementally into `tug.yml` |
+| `tug upgrade` | Self-upgrades the Tug CLI binary directly from official GitHub Releases |
 
-1. 在插件源码根目录运行 `tug pull`
-2. 在浏览器后台打开任意插件详情页，Tug 控制台会自动亮起绿灯：
-   - **单语言同步**：切换到目标语言页面（或在面板中指定语言代码如 `zh_CN`），点击 "📤 Tug out (读出当前语言)"
-   - **多语言批量同步**：点击 "🌐 批量扫描并回传多语言"，脚本将自动遍历下拉菜单中的所有语言并依次拉取回写入本地 [tug.yml](file:///Users/duyu/Documents/Codespaces/tug/templates/tug.template.yml)
-3. 终端会实时提示收录进度和字段变动。
+---
 
-## CLI 命令
-
-| 命令 | 说明 |
-|------|------|
-| `tug fill` | **【推荐】** 通过 CDP 直连 Chrome 自动填表与挂载本地物料 (免装扩展) |
-| `tug init` | 生成 `tug.yml` 配置文件 |
-| `tug scan` | 校验配置、比对权限、检查物料 |
-| `tug dock` | 启动本地 HTTP 服务 (默认端口 4321) |
-| `tug dock -p 8080` | 指定端口启动服务 |
-| `tug pull` | 启动服务并等待浏览器回传表单数据，写入 tug.yml |
-| `tug sync` | 从插件发版源同步最新发版详情与 Changelog，增量更新本地 tug.yml |
-| `tug upgrade` | 检查并升级 tug CLI 工具自身 |
-
-## 配置文件 (tug.yml)
+## ⚙️ Configuration Blueprint (`tug.yml`)
 
 ```yaml
 version: "1.0"
@@ -106,7 +121,7 @@ global:
 
 privacy:
   permissions:
-    storage: "用于本地保存用户偏好设置"
+    storage: "Used to save user preferences locally"
   data_usage:
     single_purpose: true
     sell_data: false
@@ -114,49 +129,35 @@ privacy:
 assets:
   icon_128: "./assets/icon-128.png"
   screenshots:
-    - "./assets/screenshot-1.png"   # 1280x800 或 640x400
+    - "./assets/screenshot-1.png"   # 1280x800 or 640x400
+  small_promo_tile: "./assets/promo-440x280.png"
+  marquee_promo_tile: "./assets/promo-1400x560.png"
 
 locales:
   en:
     name: "My Extension"
-    short_description: "A useful tool"  # 限 132 字符
+    short_description: "A productivity tool for developers"  # max 132 chars
     description: |
-      Detailed description here.
+      Detailed description in markdown or plaintext.
+    changelog: "Bug fixes and performance improvements."
+  zh_CN:
+    name: "我的插件"
+    short_description: "面向开发者的生产力助手"
+    description: |
+      多语言详细介绍文案...
+    changelog: "修复已知问题，优化使用体验。"
 ```
 
-## 项目结构
+---
 
-```
-tug/
-├── src/
-│   ├── cli.ts                  # CLI 入口
-│   ├── schema/
-│   │   └── tug-scheme.ts       # Zod Schema 定义
-│   ├── modules/
-│   │   ├── parser.ts           # YAML 解析 + 校验
-│   │   ├── manifest.ts         # manifest.json 读取 + Diff
-│   │   ├── validator.ts        # 图片物料校验 (sharp)
-│   │   ├── server.ts           # 本地 HTTP 服务 (Koa)
-│   │   ├── writer.ts           # 回传数据合并写入 tug.yml
-│   │   └── updater.ts          # 远端发版日志拉取与增量合并
-│   ├── commands/
-│   │   ├── init.ts             # tug init
-│   │   ├── scan.ts             # tug scan
-│   │   ├── dock.ts             # tug dock
-│   │   ├── pull.ts             # tug pull
-│   │   ├── sync.ts             # tug sync (业务发版同步)
-│   │   └── upgrade.ts          # tug upgrade (CLI自身升级)
-│   └── injector/
-│       └── tug-injector.user.js  # Tampermonkey 脚本
-└── templates/
-    └── tug.template.yml        # 初始化模板
-```
+## 🌐 Supported Stores
 
-## 支持的商店
+- ✅ **Chrome Web Store** (Full native CDP automation & asset mounting)
+- ✅ **Microsoft Edge Partner Center** (Supported)
+- 🚧 **Firefox AMO** (On roadmap)
 
-- ✅ Chrome Web Store
-- ✅ Edge Partner Center (Microsoft Edge Add-ons)
+---
 
-## License
+## 📄 License
 
-MIT
+MIT © [Deguang](https://github.com/Deguang)

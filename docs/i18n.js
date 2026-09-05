@@ -1,6 +1,7 @@
 // Tug Official Multi-language Dictionary (9 Locales Polished)
 const translations = {
   "en": {
+    "nav_docs": "Docs",
     "name": "English",
     "meta_title": "Tug · Declarative Browser Extension Companion CLI",
     "meta_desc": "Streamline Chrome Web Store releases with single-source YAML, zero-dependency asset validation, and native CDP direct automation. No API keys required.",
@@ -23,10 +24,10 @@ const translations = {
     "mascot_eyebrow": "Brand Metaphor",
     "mascot_title": "Meet Tuggy · Small Hull, Massive Torque",
     "mascot_p": "<strong>Why named Tug?</strong><br>In busy maritime ports, massive container ships cannot dock or maneuver by themselves—they depend on compact, agile tugboats with immense pulling power to guide them safely into harbor. Similarly, modern browser extension dashboards have grown bloated and tedious. Tuggy holds its signature orange <strong>Towing Ring</strong>, forging a rock-solid link between your local Git workspace and remote extension stores, bearing the heavy mechanical friction on your behalf.",
-    "mascot_tag1": "Strict 3-Color Semantics",
-    "mascot_tag2": "Crisp at 32×32 Favicon",
-    "mascot_tag3": "Neo-Skeuomorphic Subtle Depth",
-    "mascot_tag4": "Developer-First Open Source",
+    "mascot_tag1": "Local-First YAML",
+    "mascot_tag2": "Native CDP Engine",
+    "mascot_tag3": "Zero C++ Builds",
+    "mascot_tag4": "100% Open Source",
     "comp_eyebrow": "Workflow Evolution",
     "comp_title": "Ditch Dashboard Friction. Adopt Modern Extension CI.",
     "comp_desc": "Slow web consoles, rigid pixel restrictions, and repetitive multiline copy-pasting shouldn’t bottleneck a developer’s creative momentum.",
@@ -41,7 +42,7 @@ const translations = {
     "comp_good_3": "<strong>Native CDP Direct Automation</strong>: Drives real browser sessions purely on localhost via Chrome DevTools Protocol—zero third-party proxy exposure.",
     "comp_good_4": "<strong>Human-in-the-Loop Safety</strong>: Tug populates draft fields and mounts assets; the final \"Submit for Review\" click is always confirmed by you.",
     "feat_eyebrow": "Core Architecture",
-    "feat_title": "Four Engineering Pillars Built for Extension Pros",
+    "feat_title": "Four Core Commands Built for Extension Pros",
     "feat_desc": "Engineered for zero-dependency purity, predictable ergonomics, and bulletproof safety.",
     "feat_1_title": "Declarative Listing Orchestration",
     "feat_1_desc": "Maintain product titles, multilingual descriptions, support channels, and compliance justifications in a clean, version-controlled tug.yml.",
@@ -76,6 +77,7 @@ const translations = {
     }
   },
   "zh-CN": {
+    "nav_docs": "使用文档",
     "name": "简体中文",
     "meta_title": "Tug ⚓ 浏览器插件声明式发版 CLI - 本地编排与 CDP 原生自动化",
     "meta_desc": "把繁琐的 Chrome Web Store 上架苦差事交给 Tug。基于本地 YAML 声明多语言文案与媒体素材，CDP 原生直连浏览器自动填表挂载，发版如 git push 般顺畅。",
@@ -98,10 +100,10 @@ const translations = {
     "mascot_eyebrow": "品牌象征与吉祥物",
     "mascot_title": "遇见 Tuggy · 小身躯蕴含大动力",
     "mascot_p": "<strong>为什么叫 Tug（拖船）？</strong><br>在现代海运港口，哪怕数万吨级的巨轮入港靠泊，也必须依赖身材小巧但马力凶猛的拖船（Tugboat）紧密牵引。面对日益庞杂繁复的 Chrome 商店提审后台，Tuggy 手中那枚醒目的橙色<strong>牵引缆环 (Towing Ring)</strong>，正是本地代码仓库直达远端商店的可靠纽带——把最繁重、最易出错的机械操作扛在肩上，护送你的插件稳妥入港。",
-    "mascot_tag1": "严谨 3 色语义规范",
-    "mascot_tag2": "32×32 极小尺寸清晰辨识",
-    "mascot_tag3": "Neo-Skeuomorphic 微体量感",
-    "mascot_tag4": "极客级开源设计品味",
+    "mascot_tag1": "本地优先 YAML",
+    "mascot_tag2": "原生 CDP 直驱",
+    "mascot_tag3": "零原生 C++ 依赖",
+    "mascot_tag4": "100% 开源 MIT",
     "comp_eyebrow": "工作流演进",
     "comp_title": "告别控制台重复折磨，拥抱现代扩展交付流",
     "comp_desc": "卡顿的管理后台、严苛的像素尺寸报错、以及繁复的多语言标签页，不应继续扼杀开发者的创造力。",
@@ -116,7 +118,7 @@ const translations = {
     "comp_good_3": "<strong>CDP 本地原生直驱</strong>：基于 Chrome DevTools Protocol 本地操控真实会话，无需配置繁琐的 Google Cloud OAuth。",
     "comp_good_4": "<strong>严格安全的最后确认权</strong>：Tug 仅负责草稿填充与物料精准挂载，最终的“提交审核”按钮由您亲自核验点击。",
     "feat_eyebrow": "核心架构",
-    "feat_title": "为专业扩展开发者量身定制的四大基石",
+    "feat_title": "专为扩展开发者打造的四大核心工作流",
     "feat_desc": "坚持极致轻量与完全自洽，从源头消除外部环境隐患。",
     "feat_1_title": "声明式元数据编排",
     "feat_1_desc": "将应用名称、简短描述、多段图文说明、支持渠道以及隐私权限声明统一收敛于 tug.yml，实现国际化物料的代码级集中维护。",
@@ -151,6 +153,7 @@ const translations = {
     }
   },
   "zh-TW": {
+    "nav_docs": "使用文件",
     "name": "繁體中文",
     "meta_title": "Tug ⚓ 瀏覽器擴充功能宣告式發版 CLI - 本地編排與 CDP 原生自動化",
     "meta_desc": "把繁瑣的 Chrome Web Store 上架苦差事交給 Tug。基於本地 YAML 宣告多語言文案與媒體素材，CDP 原生直連瀏覽器自動填表掛載，發版如 git push 般順暢。",
@@ -173,10 +176,10 @@ const translations = {
     "mascot_eyebrow": "品牌象徵與吉祥物",
     "mascot_title": "遇見 Tuggy · 小身軀蘊含大動力",
     "mascot_p": "<strong>為什麼叫 Tug（拖船）？</strong><br>在現代海運港口，哪怕數萬噸級的巨輪入港靠泊，也必須依賴身材小巧但馬力強勁的拖船（Tugboat）緊密牽引。面對日益龐雜繁瑣的 Chrome 商店審查後台，Tuggy 手中那枚醒目的橙色<strong>牽引纜環 (Towing Ring)</strong>，正是本地程式碼倉庫直達遠端商店的可靠紐帶——把最繁重、最易出錯的機械操作扛在肩上，護送你的擴充功能穩妥入港。",
-    "mascot_tag1": "嚴謹 3 色語意規範",
-    "mascot_tag2": "32×32 極小尺寸清晰辨識",
-    "mascot_tag3": "Neo-Skeuomorphic 微體量感",
-    "mascot_tag4": "極客級開源設計品味",
+    "mascot_tag1": "本地優先 YAML",
+    "mascot_tag2": "原生 CDP 直驅",
+    "mascot_tag3": "零原生 C++ 依賴",
+    "mascot_tag4": "100% 開源 MIT",
     "comp_eyebrow": "工作流演進",
     "comp_title": "告別控制台重複折磨，擁抱現代擴充功能交付流",
     "comp_desc": "緩慢的審查後台、嚴苛的像素尺寸報錯、以及繁雜的多語言分頁，不應繼續扼殺開發者的創造力。",
@@ -191,7 +194,7 @@ const translations = {
     "comp_good_3": "<strong>CDP 本地原生直驅</strong>：基於 Chrome DevTools Protocol 本地操控真實會話，無需設定繁雜的 Google Cloud OAuth。",
     "comp_good_4": "<strong>嚴格安全的最後確認權</strong>：Tug 僅負責草稿填充與素材精準掛載，最終的「提交審核」按鈕由您親自核驗點擊。",
     "feat_eyebrow": "核心架構",
-    "feat_title": "為專業擴充功能開發者量身打造的四大基石",
+    "feat_title": "專為擴充功能開發者打造的四大核心工作流程",
     "feat_desc": "堅持極致輕量與完全自洽，從源頭消除外部環境隱患。",
     "feat_1_title": "宣告式元數據編排",
     "feat_1_desc": "將應用名稱、簡短描述、多段圖文說明、支援管道以及隱私權限宣告統一收斂於 tug.yml，實現國際化素材的程式碼級集中維護。",
@@ -226,6 +229,7 @@ const translations = {
     }
   },
   "ja": {
+    "nav_docs": "ドキュメント",
     "name": "日本語",
     "meta_title": "Tug · 宣言型ブラウザ拡張機能リリース CLI",
     "meta_desc": "単一のYAMLによる多言語テキスト管理、純粋なJS画像バリデーション、CDPネイティブ直接自動化でChrome Web Storeの公開作業を効率化。APIキー漏洩リスクゼロ。",
@@ -248,10 +252,10 @@ const translations = {
     "mascot_eyebrow": "ブランドの魂",
     "mascot_title": "Tuggy（タギー）· 小さな船体に秘めた圧倒的パワー",
     "mascot_p": "<strong>なぜ Tug（タグボート）なのか？</strong><br>港湾において巨大なコンテナ船は単独では接岸できません。小柄ながら驚異的なトルクを持つタグボート（曳航船）に導かれて初めて安全に入港できます。肥大化し複雑を極めるストア審査画面に対し、Tuggyが掲げるオレンジの<strong>牽引リング (Towing Ring)</strong>は、Gitリポジトリとストアをつなぐ頼もしいパイプラインです。",
-    "mascot_tag1": "厳密な3色セマンティック",
-    "mascot_tag2": "32×32ファビコンでも鮮明",
-    "mascot_tag3": "ネオ・スキューアモーフィック微立体感",
-    "mascot_tag4": "開発者目線のオープンソースギーク精神",
+    "mascot_tag1": "ローカルYAML起点",
+    "mascot_tag2": "ネイティブCDP駆動",
+    "mascot_tag3": "C++依存ゼロ",
+    "mascot_tag4": "完全オープンソース",
     "comp_eyebrow": "ワークフローの進化",
     "comp_title": "手動管理画面の苦痛を捨て、モダンな拡張機能CIへ",
     "comp_desc": "重い管理コンソール、不毛な1pxエラー、何十言語もの反復コピペに開発者の創造的エネルギーを浪費させてはなりません。",
@@ -266,7 +270,7 @@ const translations = {
     "comp_good_3": "<strong>CDPネイティブ直接駆動</strong>：外部プロキシを介さず、ローカル完結のChrome DevTools Protocolで安全自動操作。",
     "comp_good_4": "<strong>安全第一の人間参加型確認</strong>：Tugは下書き作成と素材配置に徹し、最後の「審査に提出」は開発者自身が目視確認。",
     "feat_eyebrow": "コアアーキテクチャ",
-    "feat_title": "プロフェッショナル拡張機能開発者のための4大基盤",
+    "feat_title": "拡張機能開発者のための4大コアワークフロー",
     "feat_desc": "依存関係ゼロの純粋性と、予測可能な安全性へのこだわり。",
     "feat_1_title": "宣言的メタデータ管理",
     "feat_1_desc": "タイトル、多言語詳細、サポート窓口、権限利用理由をtug.ymlに集約。コードベースで国際化対応を一元管理。",
@@ -301,6 +305,7 @@ const translations = {
     }
   },
   "ko": {
+    "nav_docs": "문서",
     "name": "한국어",
     "meta_title": "Tug · 선언형 브라우저 확장 프로그램 배포 CLI",
     "meta_desc": "단일 YAML을 통한 다국어 설명 관리, 무의존 순수 JS 이미지 검증, CDP 네이티브 브라우저 자동화로 Chrome 웹 스토어 배포 과정을 간소화하세요.",
@@ -323,10 +328,10 @@ const translations = {
     "mascot_eyebrow": "브랜드 철학",
     "mascot_title": "Tuggy(터기)를 만나보세요 · 작은 체구에 담긴 강력한 토크",
     "mascot_p": "<strong>왜 이름이 Tug(예인선)일까요?</strong><br>항만에서 거대한 컨테이너선은 단독으로 정박할 수 없습니다. 작지만 막강한 추진력을 가진 예인선(Tugboat)이 이끌어주어야 안전하게 입항할 수 있습니다. 비대하고 복잡해진 스토어 심사 양식 앞에서 Tuggy가 손에 쥔 주황색 <strong>견인 링(Towing Ring)</strong>은 로컬 Git 저장소와 원격 스토어를 연결하는 가장 든든한 파이프라인입니다.",
-    "mascot_tag1": "엄격한 3색 시맨틱 규칙",
-    "mascot_tag2": "32×32 파비콘 선명도 극대화",
-    "mascot_tag3": "네오 스큐어모피즘 미세 입체감",
-    "mascot_tag4": "오픈소스 긱 감성",
+    "mascot_tag1": "로컬 우선 YAML",
+    "mascot_tag2": "네이티브 CDP 자동화",
+    "mascot_tag3": "C++ 의존성 제로",
+    "mascot_tag4": "100% 오픈소스",
     "comp_eyebrow": "워크플로우의 진화",
     "comp_title": "지루한 콘솔 노가다에서 벗어나 현대적인 확장 프로그램 CI로",
     "comp_desc": "느린 웹 콘솔, 1픽셀 차이로 거절당하는 이미지 규격, 수십 개 언어 양식에 개발자의 소중한 창의력을 소모하지 마세요.",
@@ -341,7 +346,7 @@ const translations = {
     "comp_good_3": "<strong>CDP 네이티브 직접 구동</strong>: 로컬 Chrome DevTools Protocol로 브라우저를 직접 조작해 외부 네트워크 프록시 노출 제로.",
     "comp_good_4": "<strong>인간 중심의 최종 안전 승인</strong>: Tug는 드래프트 입력과 파일 마운트만 수행하고, 최종 심사 제출 버튼은 개발자가 직접 확인.",
     "feat_eyebrow": "핵심 아키텍처",
-    "feat_title": "확장 프로그램 프로 개발자를 위한 4대 기술 기둥",
+    "feat_title": "확장 프로그램 개발자를 위한 4대 핵심 워크플로",
     "feat_desc": "외부 의존성 제로와 예측 가능한 안전성을 추구합니다.",
     "feat_1_title": "선언형 메타데이터 조율",
     "feat_1_desc": "앱 이름, 다국어 상세 설명, 지원 채널, 권한 사유를 깔끔한 tug.yml에 선언하여 코드 기반으로 일괄 유지보수.",
@@ -376,6 +381,7 @@ const translations = {
     }
   },
   "ru": {
+    "nav_docs": "Документация",
     "name": "Русский",
     "meta_title": "Tug · Декларативный CLI для публикации расширений браузера",
     "meta_desc": "Оркестрация многоязычных описаний через единый YAML, валидация графики на чистом JS и автоматизация через нативный CDP. Без утечки API токенов.",
@@ -398,10 +404,10 @@ const translations = {
     "mascot_eyebrow": "Философия бренда",
     "mascot_title": "Знакомьтесь: Tuggy · Компактный корпус, колоссальная тяга",
     "mascot_p": "<strong>Почему именно Tug (Буксир)?</strong><br>В морских портах гигантские контейнеровозы не могут пришвартоваться самостоятельно — им необходим мощный и маневренный буксир. Магазины расширений сегодня стали такими же перегруженными. Оранжевое буксировочное кольцо <strong>(Towing Ring)</strong> Тагги — это надежный мост между вашим Git-репозиторием и магазином расширений, берущий всю тяжелую механическую работу на себя.",
-    "mascot_tag1": "Строгая 3-цветная семантика",
-    "mascot_tag2": "Четкость фавикона 32×32",
-    "mascot_tag3": "Микро-объем нео-скевоморфизма",
-    "mascot_tag4": "Истинный дух Open Source",
+    "mascot_tag1": "Локальный YAML",
+    "mascot_tag2": "Нативный CDP движок",
+    "mascot_tag3": "Ноль C++ зависимостей",
+    "mascot_tag4": "100% Open Source",
     "comp_eyebrow": "Эволюция процессов",
     "comp_title": "Откажитесь от веб-рутины в пользу современного CI",
     "comp_desc": "Медленные консоли, нелепые ограничения в 1 пиксель и десятки вкладок не должны пожирать энергию разработчиков.",
@@ -416,7 +422,7 @@ const translations = {
     "comp_good_3": "<strong>Нативное локальное управление через CDP</strong>: прямое взаимодействие с сессией браузера без сторонних облачных прокси.",
     "comp_good_4": "<strong>Безопасный контроль человеком</strong>: Tug заполняет черновик и монтирует файлы; финальное подтверждение отправки всегда за вами.",
     "feat_eyebrow": "Архитектура",
-    "feat_title": "Четыре надежных столпа для создателей расширений",
+    "feat_title": "Четыре ключевых рабочих процесса для разработчиков",
     "feat_desc": "Спроектировано для полной автономности и предсказуемой надежности.",
     "feat_1_title": "Декларативное управление листингом",
     "feat_1_desc": "Названия, многоязычные описания, каналы поддержки и обоснования разрешений в едином файле tug.yml.",
@@ -451,6 +457,7 @@ const translations = {
     }
   },
   "de": {
+    "nav_docs": "Dokumentation",
     "name": "Deutsch",
     "meta_title": "Tug · Deklaratives CLI für Browser-Erweiterungen",
     "meta_desc": "Optimieren Sie Chrome Web Store Releases mit deklarativem YAML, nativer Bildprüfung ohne C++ und direkter CDP-Browser-Automatisierung ohne API-Schlüssel.",
@@ -473,10 +480,10 @@ const translations = {
     "mascot_eyebrow": "Markenphilosophie",
     "mascot_title": "Treffen Sie Tuggy · Kleiner Rumpf, gewaltiges Drehmoment",
     "mascot_p": "<strong>Warum eigentlich Tug (Schlepper)?</strong><br>In modernen Seehäfen können riesige Containerschiffe nicht alleine anlegen – sie vertrauen auf wendige, kraftvolle Schlepper (Tugboats), die sie sicher in den Hafen manövrieren. Genau wie der Schlepper Tuggy mit seinem markanten orangen <strong>Zugring (Towing Ring)</strong> baut Tug eine stabile Brücke zwischen Ihrem Git-Code und dem Store und nimmt Ihnen die mühsame manuelle Schwerstarbeit ab.",
-    "mascot_tag1": "Strikte 3-Farben-Semantik",
-    "mascot_tag2": "Messerscharfes 32×32 Favicon",
-    "mascot_tag3": "Dezente Neo-Skeuomorphismus-Tiefe",
-    "mascot_tag4": "Open-Source-Entwicklerkultur",
+    "mascot_tag1": "Local-First YAML",
+    "mascot_tag2": "Native CDP-Engine",
+    "mascot_tag3": "Null C++ Abhängigkeiten",
+    "mascot_tag4": "100% Open Source",
     "comp_eyebrow": "Workflow-Evolution",
     "comp_title": "Kein Dashboard-Frust mehr. Setzen Sie auf modernes Erweiterungs-CI.",
     "comp_desc": "Schleppende Webportale, starre Pixelregeln und Dutzende von Übersetzungsfeldern sollten die Innovationskraft von Entwicklern nicht bremsen.",
@@ -491,7 +498,7 @@ const translations = {
     "comp_good_3": "<strong>Native CDP-Direktsteuerung</strong>: Reines lokales Ausführen über das Chrome DevTools Protocol – keine Drittanbieter-Netzwerk-Risiken.",
     "comp_good_4": "<strong>Sicherheit durch Entwicklerkontrolle</strong>: Tug befüllt den Entwurf; der finale Klick auf „Zur Prüfung einreichen“ bleibt in Ihrer Hand.",
     "feat_eyebrow": "Kernarchitektur",
-    "feat_title": "Vier Grundpfeiler für professionelle Erweiterungs-Entwickler",
+    "feat_title": "Vier Kern-Workflows für Extension-Entwickler",
     "feat_desc": "Kompromisslose Leichtigkeit, null externe Abhängigkeiten und maximale Vorhersehbarkeit.",
     "feat_1_title": "Deklarative Metadaten-Pflege",
     "feat_1_desc": "Titel, mehrsprachige Beschreibungen, Support-URLs und Berechtigungsgründe sauber und versionskontrolliert in tug.yml verwalten.",
@@ -526,6 +533,7 @@ const translations = {
     }
   },
   "fr": {
+    "nav_docs": "Documentation",
     "name": "Français",
     "meta_title": "Tug · CLI déclaratif de publication d'extensions de navigateur",
     "meta_desc": "Simplifiez vos soumissions sur le Chrome Web Store grâce à un fichier YAML unique, une validation visuelle en pur JavaScript et l'automatisation native via CDP.",
@@ -548,10 +556,10 @@ const translations = {
     "mascot_eyebrow": "Philosophie de marque",
     "mascot_title": "Rencontrez Tuggy · Petit gabarit, puissance phénoménale",
     "mascot_p": "<strong>Pourquoi le nom Tug (Remorqueur) ?</strong><br>Dans les grands ports maritimes, les immenses porte-conteneurs ne peuvent pas manœuvrer seuls — ils s'en remettent à des remorqueurs (Tugboats) compacts mais d'une puissance colossale pour accoster en toute sécurité. Face à des consoles de store de plus en plus lourdes, l'anneau de remorquage orange <strong>(Towing Ring)</strong> de Tuggy incarne le trait d'union infaillible entre votre code Git et le magasin en ligne.",
-    "mascot_tag1": "Sémantique stricte à 3 couleurs",
-    "mascot_tag2": "Parfaite lisibilité en favicon 32×32",
-    "mascot_tag3": "Discrète profondeur néo-squeuomorphique",
-    "mascot_tag4": "Sensibilité open-source geek",
+    "mascot_tag1": "YAML Local-First",
+    "mascot_tag2": "Moteur CDP Natif",
+    "mascot_tag3": "Zéro Dépendance C++",
+    "mascot_tag4": "100% Open Source",
     "comp_eyebrow": "Évolution du workflow",
     "comp_title": "Oubliez les consoles manuelles. Adoptez un CI moderne.",
     "comp_desc": "Les tableaux de bord lents, les contraintes d'images tatillonnes et les dizaines de champs multilingues ne devraient pas freiner l'élan créatif des développeurs.",
@@ -566,7 +574,7 @@ const translations = {
     "comp_good_3": "<strong>Automatisation native locale CDP</strong> : pilotage direct de la session Chrome sans passer par des serveurs proxy tiers.",
     "comp_good_4": "<strong>Validation humaine sécurisée</strong> : Tug monte le brouillon et les fichiers ; vous gardez la main sur le clic final de soumission.",
     "feat_eyebrow": "Architecture",
-    "feat_title": "Quatre piliers pensés pour les développeurs professionnels",
+    "feat_title": "Quatre flux de travail essentiels pour les développeurs",
     "feat_desc": "Une légèreté absolue, aucune dépendance native et une sécurité irréprochable.",
     "feat_1_title": "Orchestration déclarative des fiches",
     "feat_1_desc": "Titres, descriptions multilingues, e-mails de support et justifications de permissions dans un fichier tug.yml clair et versionné.",
@@ -601,6 +609,7 @@ const translations = {
     }
   },
   "hi": {
+    "nav_docs": "दस्तावेज़",
     "name": "हिन्दी",
     "meta_title": "Tug · ब्राउज़र एक्सटेंशन के लिए आधुनिक डिक्लेरेटिव CLI",
     "meta_desc": "Chrome Web Store सबमिशन को आसान बनाएं: सिंगल-सोर्स YAML, बिना C++ के इमेज वेरिफिकेशन और सीधे CDP ब्राउज़र ऑटोमेशन।",
@@ -623,10 +632,10 @@ const translations = {
     "mascot_eyebrow": "ब्रांड का प्रतीक",
     "mascot_title": "मिलिए टग्गी से · छोटा आकार, अपार शक्ति",
     "mascot_p": "<strong>नाम Tug (टगबोट) क्यों?</strong><br>समुद्री बंदरगाहों में विशाल मालवाहक जहाज अकेले किनारे नहीं लग सकते — उन्हें सुरक्षित लाने के लिए शक्तिशाली और फुर्तीली टगबोट (Tugboat) की आवश्यकता होती है। आज के जटिल स्टोर डैशबोर्ड के सामने टग्गी की नारंगी <strong>टोइंग रिंग (Towing Ring)</strong> आपके Git कोड और स्टोर के बीच एक मजबूत सेतु है, जो सारा भारी काम खुद संभालती है।",
-    "mascot_tag1": "सख्त 3-रंग सिमेंटिक नियम",
-    "mascot_tag2": "32×32 फ़ेविकॉन पर स्पष्ट दृश्यता",
-    "mascot_tag3": "नियो-स्क्यूमॉर्फिक सूक्ष्म गहराई",
-    "mascot_tag4": "डेवलपर-केंद्रित ओपन सोर्स",
+    "mascot_tag1": "लोकल-फर्स्ट YAML",
+    "mascot_tag2": "नेटिव CDP इंजन",
+    "mascot_tag3": "शून्य C++ निर्भरता",
+    "mascot_tag4": "100% ओपन सोर्स",
     "comp_eyebrow": "कार्यप्रणाली का विकास",
     "comp_title": "डैशबोर्ड की परेशानी छोड़ें, आधुनिक CI अपनाएं",
     "comp_desc": "धीमी वेबसाइटें, पिक्सेल-पिक्सेल की बंदिशें और दर्जनों भाषाओं के फॉर्म डेवलपर की रचनात्मक ऊर्जा को नष्ट नहीं करने चाहिए।",
@@ -641,7 +650,7 @@ const translations = {
     "comp_good_3": "<strong>सीडीपी नेटिव डायरेक्ट ऑटोमेशन</strong>: किसी बाहरी प्रॉक्सी के बिना पूरी तरह से लोकल Chrome DevTools Protocol द्वारा संचालित।",
     "comp_good_4": "<strong>मानवीय सुरक्षा नियंत्रण</strong>: Tug फॉर्म भरकर फाइलें जोड़ता है; अंतिम सबमिट बटन हमेशा आपकी पुष्टि से दबता है।",
     "feat_eyebrow": "मुख्य आर्किटेक्चर",
-    "feat_title": "प्रोफेशनल एक्सटेंशन डेवलपर्स के लिए चार मजबूत आधारस्तंभ",
+    "feat_title": "एक्सटेंशन डेवलपर्स के लिए चार प्रमुख वर्कफ़्लो",
     "feat_desc": "शून्य-निर्भरता, शुद्धता और अचूक सुरक्षा के लिए निर्मित।",
     "feat_1_title": "डिक्लेरेटिव लिस्टिंग ऑर्केस्ट्रेशन",
     "feat_1_desc": "नाम, बहुभाषी विवरण, सपोर्ट ईमेल और परमिशन के कारणों को एक साफ-सुथरी tug.yml में कोड की तरह मैनेज करें।",
@@ -721,6 +730,15 @@ function setLanguage(lang) {
   if (tabSync) tabSync.textContent = t.term_tab_sync;
   const tabUpgrade = document.getElementById('tab-btn-upgrade');
   if (tabUpgrade) tabUpgrade.textContent = t.term_tab_upgrade;
+
+  // Update Documentation links according to language
+  const isChinese = (lang === "zh-CN" || lang === "zh-TW");
+  const docsUrl = isChinese
+    ? "https://github.com/Deguang/tug/blob/main/README.zh-CN.md"
+    : "https://github.com/Deguang/tug#readme";
+  document.querySelectorAll(".docs-link").forEach(el => {
+    el.setAttribute("href", docsUrl);
+  });
 
   // Refresh current active terminal tab output
   const activeBtn = document.querySelector('.term-tab.active');

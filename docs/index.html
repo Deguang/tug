@@ -874,10 +874,10 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#features" data-i18n="nav_features">Features</a></li>
         <li><a href="#comparison" data-i18n="nav_comparison">Why Tug</a></li>
-        <li><a href="#mascot" data-i18n="nav_mascot">Mascot</a></li>
+        <li><a href="#features" data-i18n="nav_features">Commands</a></li>
         <li><a href="#install" data-i18n="nav_install">Install</a></li>
+        <li><a href="https://github.com/Deguang/tug#readme" target="_blank" class="docs-link" data-i18n="nav_docs">Docs</a></li>
       </ul>
 
       <div class="header-actions">
@@ -948,7 +948,7 @@
           </svg>
           <span data-i18n="hero_cta_install">Install Tug CLI</span>
         </a>
-        <a href="https://github.com/Deguang/tug#readme" target="_blank" class="btn-secondary" data-i18n="hero_cta_docs">
+        <a href="https://github.com/Deguang/tug#readme" target="_blank" class="btn-secondary docs-link" id="heroDocsBtn" data-i18n="hero_cta_docs">
           View Documentation
         </a>
       </div>
@@ -992,32 +992,7 @@
     </div>
   </section>
 
-  <!-- IP 品牌故事与吉祥物说明 -->
-  <section class="ip-story" id="mascot">
-    <div class="container">
-      <div class="ip-card">
-        <div class="ip-visual-box">
-          <img src="assets/logo/tug-logo.jpg" alt="Tuggy the Tugboat">
-        </div>
-        <div class="ip-content">
-          <span class="section-eyebrow" data-i18n="mascot_eyebrow">Brand Metaphor</span>
-          <h3 data-i18n="mascot_title">Meet Tuggy · Small Hull, Massive Torque</h3>
-          <p data-i18n="mascot_p" data-i18n-html="true">
-            <strong>Why named Tug?</strong><br>
-            In busy maritime ports, massive container ships cannot dock or maneuver by themselves—they depend on compact, agile tugboats with immense pulling power to guide them safely into harbor. Similarly, modern browser extension dashboards have grown bloated and tedious. Tuggy holds its signature orange <strong>Towing Ring</strong>, forging a rock-solid link between your local Git workspace and remote extension stores, bearing the heavy mechanical friction on your behalf.
-          </p>
-          <div class="ip-badges">
-            <span class="ip-tag" data-i18n="mascot_tag1">Strict 3-Color Semantics</span>
-            <span class="ip-tag" data-i18n="mascot_tag2">Crisp at 32×32 Favicon</span>
-            <span class="ip-tag" data-i18n="mascot_tag3">Neo-Skeuomorphic Subtle Depth</span>
-            <span class="ip-tag" data-i18n="mascot_tag4">Developer-First Open Source</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 体验对比 -->
+  <!-- 体验对比与品牌隐喻 (Why Tug) -->
   <section class="comparison" id="comparison">
     <div class="container">
       <span class="section-eyebrow" data-i18n="comp_eyebrow">Workflow Evolution</span>
@@ -1077,29 +1052,44 @@
           </ul>
         </div>
       </div>
+
+      <!-- 吉祥物品牌隐喻卡片 -->
+      <div class="ip-card" style="margin-top: 3.5rem;">
+        <div class="ip-visual-box">
+          <img src="assets/logo/tug-logo.jpg" alt="Tuggy the Tugboat">
+        </div>
+        <div class="ip-content">
+          <span class="section-eyebrow" data-i18n="mascot_eyebrow">Brand Metaphor</span>
+          <h3 data-i18n="mascot_title">Meet Tuggy · Small Hull, Massive Torque</h3>
+          <p data-i18n="mascot_p" data-i18n-html="true">
+            <strong>Why named Tug?</strong><br>
+            In busy maritime ports, massive container ships cannot dock or maneuver by themselves—they depend on compact, agile tugboats with immense pulling power to guide them safely into harbor. Similarly, modern browser extension dashboards have grown bloated and tedious. Tuggy holds its signature orange <strong>Towing Ring</strong>, forging a rock-solid link between your local Git workspace and remote extension stores, bearing the heavy mechanical friction on your behalf.
+          </p>
+          <div class="ip-badges">
+            <span class="ip-tag" data-i18n="mascot_tag1">Local-First YAML</span>
+            <span class="ip-tag" data-i18n="mascot_tag2">Native CDP Engine</span>
+            <span class="ip-tag" data-i18n="mascot_tag3">Zero C++ Builds</span>
+            <span class="ip-tag" data-i18n="mascot_tag4">100% Open Source</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 核心能力 -->
+  <!-- 核心命令与工作流 (Commands & Architecture) -->
   <section class="features" id="features">
     <div class="container">
       <span class="section-eyebrow" data-i18n="feat_eyebrow">Core Architecture</span>
-      <h2 class="section-title" data-i18n="feat_title">Four Engineering Pillars Built for Extension Pros</h2>
+      <h2 class="section-title" data-i18n="feat_title">Four Core Commands Built for Extension Pros</h2>
       <p class="section-desc" data-i18n="feat_desc">
         Engineered for zero-dependency purity, predictable ergonomics, and bulletproof safety.
       </p>
 
-      <div class="features-grid">
+      <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
         <div class="feat-card">
           <div class="feat-icon-box">⚓</div>
           <h4 data-i18n="feat_1_title">Declarative Listing Orchestration</h4>
           <p data-i18n="feat_1_desc">Maintain product titles, multilingual descriptions, support channels, and compliance justifications in a clean, version-controlled tug.yml.</p>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-icon-box">⚡</div>
-          <h4 data-i18n="feat_2_title">Native CDP Automation Engine</h4>
-          <p data-i18n="feat_2_desc">Drive real Chrome DevTools Protocol events directly into store dashboard draft pages—bypassing cumbersome Google Cloud OAuth and API quotas.</p>
         </div>
 
         <div class="feat-card">
@@ -1109,21 +1099,15 @@
         </div>
 
         <div class="feat-card">
+          <div class="feat-icon-box">⚡</div>
+          <h4 data-i18n="feat_2_title">Native CDP Automation Engine</h4>
+          <p data-i18n="feat_2_desc">Drive real Chrome DevTools Protocol events directly into store dashboard draft pages—bypassing cumbersome Google Cloud OAuth and API quotas.</p>
+        </div>
+
+        <div class="feat-card">
           <div class="feat-icon-box">🚀</div>
           <h4 data-i18n="feat_4_title">Frictionless Self-Upgrade</h4>
           <p data-i18n="feat_4_desc">Free from public npm registry bottlenecks. Directly linked to official GitHub Releases for seamless, instant self-upgrades via `tug upgrade`.</p>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-icon-box">🛡️</div>
-          <h4 data-i18n="feat_5_title">Mount First, Review Safely</h4>
-          <p data-i18n="feat_5_desc">Draft inputs and media files are mounted safely in your live browser for full visual verification before final review submission.</p>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-icon-box">📦</div>
-          <h4 data-i18n="feat_6_title">Cross-Store Universal Blueprint</h4>
-          <p data-i18n="feat_6_desc">Engineered with a universal listing schema ready for Chrome Web Store, Microsoft Edge Add-ons, and Firefox AMO.</p>
         </div>
       </div>
     </div>
@@ -1170,6 +1154,7 @@
       </div>
       <div class="footer-links">
         <a href="https://github.com/Deguang/tug" target="_blank">GitHub</a>
+        <a href="https://github.com/Deguang/tug#readme" target="_blank" class="docs-link" data-i18n="nav_docs">Docs</a>
         <a href="https://github.com/Deguang/tug/releases" target="_blank">Releases</a>
         <a href="https://github.com/Deguang/tug/issues" target="_blank" data-i18n="footer_feedback">Issues & Feedback</a>
       </div>
