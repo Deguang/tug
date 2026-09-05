@@ -327,11 +327,12 @@
     }
 
     p.hero-desc {
-      font-size: 1.22rem;
+      font-size: 1.2rem;
       color: var(--text-muted);
-      max-width: 720px;
+      max-width: 860px;
       margin: 0 auto 2.5rem;
       line-height: 1.75;
+      text-wrap: balance;
     }
 
     .hero-actions {
@@ -339,7 +340,7 @@
       align-items: center;
       justify-content: center;
       gap: 1rem;
-      margin-bottom: 2.2rem;
+      margin-bottom: 3.5rem;
       flex-wrap: wrap;
     }
 
@@ -383,25 +384,6 @@
       background: var(--bg-card-hover);
       border-color: var(--text-muted);
       transform: translateY(-1px);
-    }
-
-    /* 一键安装代码胶囊 */
-    .quick-install-bar {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: 10px;
-      padding: 0.45rem 0.5rem 0.45rem 1rem;
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 3.5rem;
-    }
-
-    .quick-install-bar code {
-      font-family: var(--font-mono);
-      font-size: 0.94rem;
-      color: var(--text-main);
     }
 
     .btn-copy {
@@ -958,11 +940,6 @@
         </a>
       </div>
 
-      <div class="quick-install-bar">
-        <code>curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash</code>
-        <button class="btn-copy" onclick="copyInstallCmd(this, 'curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash')" data-i18n="btn_copy">Copy</button>
-      </div>
-
       <!-- 交互终端模拟器 -->
       <div class="terminal-window">
         <div class="terminal-header">
@@ -1216,18 +1193,7 @@
       });
     }
 
-    function copyInstallCmd(btn, text) {
-      const t = window.translations[window.currentLang || 'en'];
-      navigator.clipboard.writeText(text).then(() => {
-        const orig = btn.textContent;
-        btn.textContent = t.btn_copied;
-        btn.style.color = '#10B981';
-        setTimeout(() => {
-          btn.textContent = orig;
-          btn.style.color = '';
-        }, 2000);
-      });
-    }
+
 
     // 页面初始化加载多语言与终端内容
     function initLanding() {
