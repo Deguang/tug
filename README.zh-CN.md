@@ -40,12 +40,12 @@
 
 `tug` 采用 GitHub 独立分发，避免公网 npm 包名冲突与安全隐患：
 
-### 方式 1：一键 Shell 脚本安装（推荐）
+### 方式 1：一键 Shell 脚本安装
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash
 ```
 
-### 方式 2：Homebrew 安装 (macOS)
+### 方式 2：Homebrew 安装
 ```bash
 brew install Deguang/tap/tug
 ```

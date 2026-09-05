@@ -41,12 +41,12 @@ Similarly, modern extension store web dashboards (Chrome Web Store, Edge Partner
 
 Distributed directly via secure GitHub channels:
 
-### Option 1: One-line Shell Script (Recommended)
+### Option 1: One-line Shell Script
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash
 ```
 
-### Option 2: Homebrew (macOS)
+### Option 2: Homebrew
 ```bash
 brew install Deguang/tap/tug
 ```
