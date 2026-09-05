@@ -19,7 +19,7 @@ const program = new Command();
 program
   .name('tug')
   .description('浏览器插件上架助手 - 本地数据编排 CLI')
-  .version('0.1.0');
+  .version('0.2.0');
 
 program
   .command('init')

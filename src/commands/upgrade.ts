@@ -107,7 +107,7 @@ export interface UpgradeCommandOptions {
 export async function upgradeCommand(options: UpgradeCommandOptions = {}): Promise<void> {
   console.log(chalk.bold('\n🚀 tug upgrade - 检查并执行 CLI 自我升级 (GitHub Releases)\n'));
 
-  let currentVersion = '0.1.0';
+  let currentVersion = '0.2.0';
   let repo = 'Deguang/tug';
 
   try {
