@@ -27,13 +27,13 @@ Similarly, modern extension store web dashboards (Chrome Web Store, Edge Partner
 
 ---
 
-## ✨ Key Features
+## ✨ Core Selling Points & Efficiency Gains
 
-- 📄 **Declarative Single Source of Truth**: Organize multilingual listing metadata, permissions, and promotional assets in a clean, version-controlled `tug.yml`.
-- ⚡ **Native CDP Direct Automation**: Drive your live, authenticated Chrome browser directly over localhost via Chrome DevTools Protocol—bypassing Google Cloud OAuth configurations, tokens, and API quotas.
-- 📐 **Zero-Dependency Byte Pre-flight**: Built-in pure JavaScript binary stream parser checks PNG/JPEG dimensions and compliance in milliseconds without `sharp` or `node-gyp` C++ build headaches.
-- 🛡️ **Human-in-the-Loop Safety**: Tug automates the tedious form fields and asset mounting in draft mode; the final "Submit for Review" click is always confirmed by you.
-- 🚀 **Decentralized Frictionless Upgrade**: Independent from public npm registry delays. Linked directly to official GitHub Releases for seamless, one-command self-upgrades via `tug upgrade`.
+- ⚡ **1-Click Multilingual Rollout (Save 90% Manual Churn)**: Eliminate the nightmare of switching across 10+ language dropdowns and copy-pasting paragraph by paragraph. Populate complete multilingual descriptions, support channels, and metadata in seconds from a single local YAML file.
+- 🛡️ **Pre-flight Verification, Zero Rejections**: Automatically audit screenshot resolutions, marquee banner aspect ratios, and character limits before uploading. Catch discrepancies in milliseconds so you never waste a multi-day review cycle on a 1-pixel mismatch.
+- 🔑 **Zero-Config, No Cloud API Keys Needed**: No cumbersome Google Cloud Console project setups, OAuth client configurations, or expiring refresh tokens. Direct localhost mounting uses your already-authenticated browser session with zero credential leakage risk.
+- 🌐 **Write Once, Multi-Store GitOps**: A single declarative specification targets Chrome Web Store, Microsoft Edge Add-ons, and Firefox AMO. Store listings and changelogs stay version-controlled in Git alongside your codebase.
+- 👁️ **Human-in-the-Loop Safety**: Automation populates inputs and mounts media in draft mode; the final "Submit for Review" click is always confirmed by your own eyes.
 
 ---
 

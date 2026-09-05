@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/logo/tug-a2.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-warm: #F8FAFC;
@@ -34,13 +34,24 @@
       --green-dark: #15803D;
       --green-light: #DCFCE7;
       
-      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-mono: 'JetBrains Mono', SFMono-Regular, Consolas, monospace;
+      --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC', 'Microsoft YaHei', 'Noto Sans JP', 'Noto Sans KR', sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       
       --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
       --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
       --shadow-lg: 0 10px 25px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
       --shadow-xl: 0 20px 35px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
+    }
+
+    /* 针对东亚多语言字体的原生排版微调 */
+    html[lang="zh-CN"], html[lang="zh-TW"] {
+      --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+    }
+    html[lang="ja"] {
+      --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Meiryo', sans-serif;
+    }
+    html[lang="ko"] {
+      --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
     }
 
     * {
@@ -316,11 +327,11 @@
     }
 
     p.hero-desc {
-      font-size: 1.15rem;
+      font-size: 1.22rem;
       color: var(--text-muted);
       max-width: 720px;
       margin: 0 auto 2.5rem;
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
     .hero-actions {
@@ -344,7 +355,7 @@
       font-weight: 700;
       text-decoration: none;
       box-shadow: 0 4px 14px rgba(250, 84, 28, 0.35);
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .btn-primary:hover {
@@ -357,20 +368,19 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: var(--bg-card);
+      background: #FFFFFF;
       color: var(--navy-darker);
       border: 1px solid var(--border-light);
-      padding: 0.8rem 1.6rem;
+      padding: 0.8rem 1.75rem;
       border-radius: 10px;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.15s ease;
+      transition: all 0.15s;
     }
 
     .btn-secondary:hover {
-      background: #FFFFFF;
+      background: var(--bg-card-hover);
       border-color: var(--text-muted);
       transform: translateY(-1px);
     }
@@ -390,7 +400,7 @@
 
     .quick-install-bar code {
       font-family: var(--font-mono);
-      font-size: 0.88rem;
+      font-size: 0.94rem;
       color: var(--text-main);
     }
 
@@ -460,8 +470,8 @@
       border: none;
       color: #94A3B8;
       font-family: var(--font-mono);
-      font-size: 0.82rem;
-      padding: 0.4rem 0.8rem;
+      font-size: 0.88rem;
+      padding: 0.45rem 0.85rem;
       border-radius: 6px;
       cursor: pointer;
       transition: all 0.15s;
@@ -481,8 +491,8 @@
     .terminal-body {
       padding: 1.6rem;
       font-family: var(--font-mono);
-      font-size: 0.88rem;
-      line-height: 1.7;
+      font-size: 0.94rem;
+      line-height: 1.75;
       color: #E2E8F0;
       min-height: 380px;
       overflow-x: auto;
@@ -566,8 +576,8 @@
 
     .ip-content p {
       color: var(--text-muted);
-      font-size: 1.02rem;
-      line-height: 1.7;
+      font-size: 1.08rem;
+      line-height: 1.75;
       margin-bottom: 1.25rem;
     }
 
@@ -579,9 +589,9 @@
 
     .ip-tag {
       font-family: var(--font-mono);
-      font-size: 0.78rem;
+      font-size: 0.84rem;
       font-weight: 600;
-      padding: 0.25rem 0.65rem;
+      padding: 0.3rem 0.75rem;
       border-radius: 6px;
       background: var(--bg-warm);
       border: 1px solid var(--border-light);
@@ -597,7 +607,7 @@
     .section-eyebrow {
       text-transform: uppercase;
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.84rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       color: var(--accent);
@@ -670,9 +680,9 @@
       display: flex;
       align-items: flex-start;
       gap: 0.75rem;
-      font-size: 0.95rem;
+      font-size: 1.02rem;
       color: var(--text-muted);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .comp-list li strong {
@@ -710,23 +720,18 @@
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.75rem;
-    }
-
-    @media (max-width: 900px) {
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
+      margin-top: 3.5rem;
     }
 
     .feat-card {
-      background: var(--bg-card);
-      border-radius: 14px;
-      padding: 2rem;
+      background: #FFFFFF;
       border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 2.25rem 2rem;
       box-shadow: var(--shadow-sm);
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .feat-card:hover {
@@ -750,16 +755,16 @@
     }
 
     .feat-card h4 {
-      font-size: 1.15rem;
+      font-size: 1.22rem;
       font-weight: 700;
       color: var(--navy-darker);
       margin-bottom: 0.6rem;
     }
 
     .feat-card p {
-      font-size: 0.92rem;
+      font-size: 0.98rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     /* 安装区域 */
@@ -926,7 +931,7 @@
           <img src="assets/logo/tug-logo.jpg" alt="Tug Mascot">
         </div>
         <span data-i18n="hero_badge_prefix">Official Companion CLI · </span>
-        <span class="hero-badge-tag" data-i18n="hero_badge_tag">Native CDP Automation</span>
+        <span class="hero-badge-tag" data-i18n="hero_badge_tag">10x Faster Store Shipping</span>
       </div>
 
       <h1 class="hero-title">
@@ -1076,38 +1081,38 @@
     </div>
   </section>
 
-  <!-- 核心命令与工作流 (Commands & Architecture) -->
+  <!-- 用户核心效率与收益 (Productivity Gains) -->
   <section class="features" id="features">
     <div class="container">
-      <span class="section-eyebrow" data-i18n="feat_eyebrow">Core Architecture</span>
-      <h2 class="section-title" data-i18n="feat_title">Four Core Commands Built for Extension Pros</h2>
+      <span class="section-eyebrow" data-i18n="feat_eyebrow">Productivity Gains</span>
+      <h2 class="section-title" data-i18n="feat_title">Built to Save Hours on Every Store Release</h2>
       <p class="section-desc" data-i18n="feat_desc">
-        Engineered for zero-dependency purity, predictable ergonomics, and bulletproof safety.
+        Eliminate repetitive manual entry, prevent costly rejection delays, and keep yourself in the creative building flow.
       </p>
 
       <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
         <div class="feat-card">
-          <div class="feat-icon-box">⚓</div>
-          <h4 data-i18n="feat_1_title">Declarative Listing Orchestration</h4>
-          <p data-i18n="feat_1_desc">Maintain product titles, multilingual descriptions, support channels, and compliance justifications in a clean, version-controlled tug.yml.</p>
-        </div>
-
-        <div class="feat-card">
-          <div class="feat-icon-box">📐</div>
-          <h4 data-i18n="feat_3_title">Zero-Dependency Byte Parser</h4>
-          <p data-i18n="feat_3_desc">Zero native C++ build headaches (no sharp or node-gyp). Pure JavaScript byte-stream parsing guarantees instant execution across macOS, Linux, and Windows.</p>
-        </div>
-
-        <div class="feat-card">
           <div class="feat-icon-box">⚡</div>
-          <h4 data-i18n="feat_2_title">Native CDP Automation Engine</h4>
-          <p data-i18n="feat_2_desc">Drive real Chrome DevTools Protocol events directly into store dashboard draft pages—bypassing cumbersome Google Cloud OAuth and API quotas.</p>
+          <h4 data-i18n="feat_1_title">1-Click Multilingual Rollout</h4>
+          <p data-i18n="feat_1_desc">Populate store listings across 10+ languages in seconds from a single YAML file. Cut repetitive manual copy-pasting from hours down to a single keystroke.</p>
         </div>
 
         <div class="feat-card">
-          <div class="feat-icon-box">🚀</div>
-          <h4 data-i18n="feat_4_title">Frictionless Self-Upgrade</h4>
-          <p data-i18n="feat_4_desc">Free from public npm registry bottlenecks. Directly linked to official GitHub Releases for seamless, instant self-upgrades via `tug upgrade`.</p>
+          <div class="feat-icon-box">🛡️</div>
+          <h4 data-i18n="feat_2_title">Pre-flight Verification, Zero Rejections</h4>
+          <p data-i18n="feat_2_desc">Catch resolution mismatches, aspect ratio errors, and length limit violations before uploading. Never waste a multi-day review cycle on a 1-pixel discrepancy.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon-box">🔑</div>
+          <h4 data-i18n="feat_3_title">Zero-Config, No Cloud API Keys</h4>
+          <p data-i18n="feat_3_desc">No Google Cloud projects, no OAuth client credentials, and no expiring tokens. Connects directly to your active browser session on localhost with zero credential leakage risk.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon-box">🌐</div>
+          <h4 data-i18n="feat_4_title">Unified Multi-Store GitOps</h4>
+          <p data-i18n="feat_4_desc">Target Chrome Web Store, Edge Add-ons, and Firefox AMO with one unified specification. Keep your changelogs, listings, and assets fully version-controlled alongside your code.</p>
         </div>
       </div>
     </div>
