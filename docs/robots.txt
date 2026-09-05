@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deguang.github.io/tug/sitemap.xml

@@ -4,8 +4,94 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tug · Declarative Browser Extension Companion CLI</title>
-  <meta name="description" content="Streamline Chrome Web Store releases with single-source YAML, zero-dependency asset validation, and native CDP direct automation. No API keys required.">
+  <meta name="description" content="Ship browser extensions 10x faster. Single-source YAML metadata, zero-rejection pre-flight asset validation, and native CDP direct automation without API keys.">
+  <meta name="keywords" content="browser extension, chrome extension, chrome web store, edge add-ons, firefox amo, extension publishing, store submission automation, cdp automation, extension cli, tug cli">
+  <meta name="author" content="Deguang">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://deguang.github.io/tug/">
   <link rel="icon" type="image/svg+xml" href="assets/logo/tug-a2.svg">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://deguang.github.io/tug/">
+  <meta property="og:site_name" content="Tug">
+  <meta property="og:title" content="Tug · Declarative Browser Extension Companion CLI">
+  <meta property="og:description" content="Ship browser extensions 10x faster. Single-source YAML metadata, zero-rejection pre-flight asset validation, and native CDP direct automation without API keys.">
+  <meta property="og:image" content="https://deguang.github.io/tug/assets/logo/tug-logo.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://deguang.github.io/tug/">
+  <meta name="twitter:title" content="Tug · Declarative Browser Extension Companion CLI">
+  <meta name="twitter:description" content="Ship browser extensions 10x faster. Single-source YAML metadata, zero-rejection pre-flight asset validation, and native CDP direct automation without API keys.">
+  <meta name="twitter:image" content="https://deguang.github.io/tug/assets/logo/tug-logo.jpg">
+
+  <!-- JSON-LD Structured Data for Search & Generative Engine Optimization (GEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Tug",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS, Linux, Windows",
+        "description": "Declarative browser extension companion CLI for automating Chrome Web Store and Edge Add-ons submissions via native CDP.",
+        "url": "https://deguang.github.io/tug/",
+        "downloadUrl": "https://github.com/Deguang/tug/releases",
+        "author": {
+          "@type": "Person",
+          "name": "Deguang",
+          "url": "https://github.com/Deguang"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "softwareVersion": "0.1.0"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Tug?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tug is an open-source companion CLI for browser extension developers that automates store listing submissions, multilingual description form-filling, and asset pre-flight validation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does Tug automate store submissions without Google Cloud API keys?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tug connects directly to your active, authenticated Chrome browser session via Chrome DevTools Protocol (CDP) on localhost, eliminating the need for Google Cloud Console projects, OAuth client secrets, or API quota configurations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which browser extension stores are supported by Tug?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tug provides native automation for the Chrome Web Store and Microsoft Edge Partner Center (Edge Add-ons), with universal blueprint support designed for Firefox AMO."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Tug store or leak my extension developer credentials?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Tug runs 100% locally on your machine and never transmits credentials, tokens, or listing drafts to any third-party server."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -702,9 +788,15 @@
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.75rem;
       margin-top: 3.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .feat-card {
@@ -844,6 +936,57 @@
     .footer-links a:hover {
       color: var(--accent);
     }
+
+    /* FAQ 常见问题区 */
+    section.faq-section {
+      padding: 5rem 0;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+      margin-top: 3.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .faq-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .faq-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: #CBD5E1;
+    }
+
+    .faq-card h3 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--navy-darker);
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.45;
+    }
+
+    .faq-card p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
   </style>
   <script src="i18n.js"></script>
 </head>
@@ -863,6 +1006,7 @@
       <ul class="nav-links">
         <li><a href="#comparison" data-i18n="nav_comparison">Why Tug</a></li>
         <li><a href="#features" data-i18n="nav_features">Commands</a></li>
+        <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
         <li><a href="#install" data-i18n="nav_install">Install</a></li>
         <li><a href="https://github.com/Deguang/tug#readme" target="_blank" class="docs-link" data-i18n="nav_docs">Docs</a></li>
       </ul>
@@ -1067,7 +1211,7 @@
         Eliminate repetitive manual entry, prevent costly rejection delays, and keep yourself in the creative building flow.
       </p>
 
-      <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+      <div class="features-grid">
         <div class="feat-card">
           <div class="feat-icon-box">⚡</div>
           <h4 data-i18n="feat_1_title">1-Click Multilingual Rollout</h4>
@@ -1090,6 +1234,61 @@
           <div class="feat-icon-box">🌐</div>
           <h4 data-i18n="feat_4_title">Unified Multi-Store GitOps</h4>
           <p data-i18n="feat_4_desc">Target Chrome Web Store, Edge Add-ons, and Firefox AMO with one unified specification. Keep your changelogs, listings, and assets fully version-controlled alongside your code.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常见问题解答 (FAQ) -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span class="section-eyebrow" data-i18n="faq_eyebrow">Common Questions</span>
+        <h2 class="section-title" data-i18n="faq_title">Frequently Asked Questions</h2>
+        <p class="section-desc" style="margin-left: auto; margin-right: auto;" data-i18n="faq_desc">
+          Everything you need to know about Tug architecture, security, and store automation.
+        </p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-card">
+          <h3>
+            <span>⚡</span>
+            <span data-i18n="faq_q1">How does Tug automate store submissions without cloud API keys?</span>
+          </h3>
+          <p data-i18n="faq_a1">
+            Tug connects directly to your active, authenticated Chrome browser session via Chrome DevTools Protocol (CDP) on localhost. It directly drives draft form fields and mounts assets just like a developer would, bypassing complex Google Cloud OAuth setups, client secrets, and API quota bottlenecks.
+          </p>
+        </div>
+
+        <div class="faq-card">
+          <h3>
+            <span>🛡️</span>
+            <span data-i18n="faq_q2">Does Tug store or leak my developer credentials?</span>
+          </h3>
+          <p data-i18n="faq_a2">
+            Never. Tug runs 100% locally on your machine. It requires zero account tokens or cloud proxy relays, meaning no third-party server ever touches your credentials, listings, or extension source code.
+          </p>
+        </div>
+
+        <div class="faq-card">
+          <h3>
+            <span>🌐</span>
+            <span data-i18n="faq_q3">Which browser extension stores are supported?</span>
+          </h3>
+          <p data-i18n="faq_a3">
+            Tug supports full automated filling and asset mounting for the Chrome Web Store and Microsoft Edge Partner Center (Edge Add-ons), with universal schema blueprint support for Firefox AMO.
+          </p>
+        </div>
+
+        <div class="faq-card">
+          <h3>
+            <span>📐</span>
+            <span data-i18n="faq_q4">How does pre-flight validation prevent store rejections?</span>
+          </h3>
+          <p data-i18n="faq_a4">
+            Tug parses image binary headers in milliseconds before uploading, verifying pixel dimensions for screenshots (1280x800 / 640x400) and promotional tiles (440x280 / 1400x560), while checking text length limits to prevent costly rejection delays.
+          </p>
         </div>
       </div>
     </div>

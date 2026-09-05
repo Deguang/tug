@@ -1,0 +1,25 @@
+# Tug
+
+> Declarative Browser Extension Release Companion CLI
+
+Tug is an open-source, local-first CLI tool that automates browser extension store listings, asset pre-flight validation, and multilingual form submissions.
+
+## Value Proposition
+- **10x Faster Store Shipping**: Automate repetitive multilingual form entries across 10+ languages in seconds from a single YAML blueprint.
+- **Zero-Rejection Asset Pre-flight**: Built-in pure JavaScript byte parser audits PNG/JPEG resolutions (e.g. 1280x800, 1400x560) before upload, preventing multi-day rejection delays.
+- **Zero-Config Native CDP Direct Automation**: Connects locally to live, authenticated Chrome browser sessions via Chrome DevTools Protocol (CDP). No Google Cloud OAuth projects, API keys, or expiring tokens required.
+- **Universal Multi-Store Blueprint**: Single declarative schema targeting Chrome Web Store, Microsoft Edge Add-ons, and Firefox AMO.
+- **Human-in-the-Loop Safety**: Fills draft forms and mounts media safely; the final "Submit for Review" click is always confirmed by the developer.
+
+## Core CLI Commands
+- `tug init`: Scaffolds standard declarative `tug.yml` configuration template.
+- `tug scan`: Pre-flight verification for manifest diffs, permission justifications, and graphic dimensions.
+- `tug fill`: Automates store draft field population and media asset mounting via native CDP.
+- `tug sync`: Incrementally merges release changelogs and git tags into `tug.yml`.
+- `tug upgrade`: Self-upgrades the CLI binary directly from official GitHub Releases.
+
+## Official Resources
+- Canonical Homepage: https://deguang.github.io/tug/
+- GitHub Repository: https://github.com/Deguang/tug
+- English Documentation: https://github.com/Deguang/tug/blob/main/README.md
+- Chinese Documentation: https://github.com/Deguang/tug/blob/main/README.zh-CN.md
