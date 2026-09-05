@@ -975,7 +975,18 @@
         </div>
 
         <div class="terminal-body" id="termOutput">
-          <!-- 终端内容将由 i18n 动态填充 -->
+          <div class="term-line"><span class="term-prompt">❯</span><span class="term-cmd">tug fill -z ./release/gemini-polish-v1.3.0.zip</span></div>
+          <div class="term-dim">┌   ⚓ TUG FILL  Connecting to Chrome via native CDP session</div>
+          <div class="term-dim">│</div>
+          <div class="term-green">◇  Located store draft: Store Listing (ajboihpfgk...)</div>
+          <div class="term-dim">│</div>
+          <div class="term-bold">◆ Submission Telemetry</div>
+          <div class="term-line">  <span class="term-green">✔</span> Multilingual locales ............... <span class="term-cyan">7 languages injected</span> (en, zh_CN, zh_TW, ja, hi, de, fr)</div>
+          <div class="term-line">  <span class="term-green">✔</span> Form metadata fields ............... <span class="term-cyan">13 inputs populated</span> (site, support, privacy policy)</div>
+          <div class="term-line">  <span class="term-green">✔</span> Store assets mounted ............... <span class="term-cyan">8 local media mounted</span> (icon, marquee banner, 4 screenshots)</div>
+          <div class="term-line">  <span class="term-green">✔</span> Extension package uploaded ......... release/gemini-polish-v1.3.0.zip</div>
+          <div class="term-dim">│</div>
+          <div class="term-green">└  🎉 Success! All listings &amp; media mounted with 0 errors. Inspect browser and click submit!</div>
         </div>
       </div>
     </div>
@@ -1178,9 +1189,12 @@
       const btn = document.getElementById('tab-btn-' + tab);
       if (btn) btn.classList.add('active');
       
-      const t = window.translations[window.currentLang || 'en'];
+      const transObj = window.translations || (typeof translations !== 'undefined' ? translations : null);
+      const cur = window.currentLang || (typeof currentLang !== 'undefined' ? currentLang : 'en');
+      const t = transObj ? (transObj[cur] || transObj['en']) : null;
       if (t && t.term_terminal && t.term_terminal[tab]) {
-        document.getElementById('termOutput').innerHTML = t.term_terminal[tab];
+        const out = document.getElementById('termOutput');
+        if (out) out.innerHTML = t.term_terminal[tab];
       }
     }
 
@@ -1225,10 +1239,22 @@
       });
     }
 
-    // 页面初始化加载多语言
-    window.addEventListener('DOMContentLoaded', () => {
-      setLanguage(window.currentLang || 'en');
-    });
+    // 页面初始化加载多语言与终端内容
+    function initLanding() {
+      const savedLang = window.currentLang || (typeof currentLang !== 'undefined' ? currentLang : 'en');
+      if (typeof setLanguage === 'function') {
+        setLanguage(savedLang);
+      }
+      const activeBtn = document.querySelector('.term-tab.active');
+      const activeTab = (activeBtn && activeBtn.getAttribute('data-tab')) || 'fill';
+      switchTermTab(activeTab);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLanding);
+    } else {
+      initLanding();
+    }
   </script>
 </body>
 </html>

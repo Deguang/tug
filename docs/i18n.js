@@ -677,13 +677,20 @@ const translations = {
   }
 };
 
-let currentLang = localStorage.getItem('tug_lang') || 'en';
+let currentLang = 'en';
+try {
+  currentLang = localStorage.getItem('tug_lang') || 'en';
+} catch (e) {
+  currentLang = 'en';
+}
 
 function setLanguage(lang) {
   if (!translations[lang]) return;
   currentLang = lang;
   window.currentLang = lang;
-  localStorage.setItem('tug_lang', lang);
+  try {
+    localStorage.setItem('tug_lang', lang);
+  } catch (e) {}
   document.documentElement.lang = lang;
 
   const t = translations[lang];
@@ -716,9 +723,10 @@ function setLanguage(lang) {
   if (tabUpgrade) tabUpgrade.textContent = t.term_tab_upgrade;
 
   // Refresh current active terminal tab output
-  const activeTab = document.querySelector('.term-tab.active')?.getAttribute('data-tab') || 'fill';
+  const activeBtn = document.querySelector('.term-tab.active');
+  const activeTab = (activeBtn && activeBtn.getAttribute('data-tab')) || 'fill';
   const termOutput = document.getElementById('termOutput');
-  if (termOutput && t.term_terminal[activeTab]) {
+  if (termOutput && t.term_terminal && t.term_terminal[activeTab]) {
     termOutput.innerHTML = t.term_terminal[activeTab];
   }
 
