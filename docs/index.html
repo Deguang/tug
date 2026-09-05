@@ -471,7 +471,25 @@
       flex-wrap: wrap;
     }
 
-    pre { margin: 0; padding: 0; display: contents; }
+    pre { margin: 0; padding: 0; display: contents; color-scheme: dark; }
+    /* Force dark theme colors for the dark terminal boxes */
+    .hero-quick-install pre, .install-snippet pre {
+      --syntax-foreground: #c9d1d9;
+      --syntax-comment: #8b949e;
+      --syntax-keyword: #ff7b72;
+      --syntax-operator: #c9d1d9;
+      --syntax-string: #a5d6ff;
+      --syntax-constant: #79c0ff;
+      --syntax-function: #d2a8ff;
+      --syntax-type: #d2a8ff;
+      --syntax-variable: #ffa657;
+      --syntax-property: #79c0ff;
+      --syntax-tag: #7ee787;
+      --syntax-selector: #d2a8ff;
+      --syntax-inserted: #7ee787;
+      --syntax-deleted: #ff7b72;
+    }
+
     .hero-quick-install {
       display: inline-flex;
       align-items: center;
@@ -502,7 +520,6 @@
     .hero-quick-install code {
       font-family: var(--font-mono);
       font-size: 0.86rem;
-      color: #F1F5F9;
       overflow-x: auto;
       white-space: nowrap;
     }
@@ -1607,7 +1624,7 @@
 
         <div class="install-snippet" id="installCmdSnippet">
           <pre><code id="installCmdText" class="language-shell" data-raw="curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash">curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash</code></pre>
-          <button class="btn-copy" onclick="copyInstallTabCmd(this)" data-i18n="btn_copy_cmd">Copy Command</button>
+          <button class="btn-copy" onclick="copyInstallTabCmd(this)" data-i18n="btn_copy">Copy</button>
         </div>
       </div>
     </div>
