@@ -96,7 +96,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    @import url("https://unpkg.com/microlighter@0.1.2/themes/github-dark.css");
+    @import url("https://unpkg.com/microlighter@2.1.0/dist/themes/github.css");
     :root {
       --bg-warm: #F8FAFC;
       --bg-card: #FFFFFF;
@@ -1665,8 +1665,8 @@
 
 
 
-    import { highlightElement } from 'https://esm.sh/microlighter@0.1.2';
-    document.body.dataset.syntaxTheme = "github-dark";
+    import { highlightAll } from 'https://esm.sh/microlighter@2.1.0';
+    document.body.dataset.syntaxTheme = "github";
 
     window.switchInstallTab = async function(type) {
       document.querySelectorAll('.install-tab-btn').forEach(b => b.classList.remove('active'));
@@ -1676,7 +1676,7 @@
       codeEl.textContent = text;
       codeEl.className = "language-shell";
       codeEl.setAttribute('data-raw', text);
-      await highlightElement(codeEl);
+      await highlightAll();
     };
 
     window.copyInstallTabCmd = function(btn) {
