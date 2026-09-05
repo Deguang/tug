@@ -129,8 +129,8 @@ assets:
   icon_128: "./assets/icon-128.png"
   screenshots:
     - "./assets/screenshot-1.png"   # 1280x800 或 640x400
-  small_promo_tile: "./assets/promo-440x280.png"
-  marquee_promo_tile: "./assets/promo-1400x560.png"
+  promo_small: "./assets/promo-440x280.png"
+  promo_large: "./assets/promo-1400x560.png"
 
 locales:
   en:

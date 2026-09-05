@@ -64,8 +64,8 @@ export async function scanCommand(): Promise<void> {
   }
 
   // 3. 物料校验
-  printSection('媒体物料规格校验 (Assets)');
-  s.start('通过 sharp 计算图片分辨率与文件大小...');
+  printSection('媒体物料规格校验 (零依赖纯 JS 解析)');
+  s.start('解析图片二进制数据与分辨率...');
   const baseDir = parser.getBaseDir();
   const validator = new AssetValidator(baseDir);
   const errors = await validator.validate(scheme.assets);
@@ -104,5 +104,5 @@ export async function scanCommand(): Promise<void> {
     );
   }
 
-  p.outro(chalk.green.bold('✨ 所有物料与配置核验完毕！可直接运行 ') + chalk.cyan.bold('tug dock') + chalk.green.bold(' 开始自动填表。'));
+  p.outro(chalk.green.bold('✨ 所有物料与配置核验完毕！可直接运行 ') + chalk.cyan.bold('tug fill') + chalk.green.bold(' 开始自动挂载。'));
 }
