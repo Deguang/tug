@@ -11,6 +11,7 @@ import { scanCommand } from './commands/scan.js';
 import { syncCommand } from './commands/sync.js';
 import { upgradeCommand } from './commands/upgrade.js';
 import { fillCommand } from './commands/fill.js';
+import { pullCommand } from './commands/pull.js';
 import { banner } from './modules/ui.js';
 
 const program = new Command();
@@ -65,6 +66,7 @@ if (process.argv.length <= 2) {
         { value: 'scan', label: '🔍 tug scan', hint: '校验本地配置、物料尺寸与权限' },
         { value: 'sync', label: '🔄 tug sync', hint: '从远端发版源拉取最新 Changelog' },
         { value: 'init', label: '✨ tug init', hint: '初始化生成 tug.yml 模板' },
+        { value: 'pull', label: '📥 tug pull', hint: '通过 CDP 直连提取现有线上配置回写本地' },
         { value: 'upgrade', label: '🚀 tug upgrade', hint: '检查并升级 tug CLI 工具自身' },
       ],
     });
@@ -86,6 +88,9 @@ if (process.argv.length <= 2) {
         break;
       case 'init':
         await initCommand();
+        break;
+      case 'pull':
+        await pullCommand({});
         break;
       case 'upgrade':
         await upgradeCommand();
