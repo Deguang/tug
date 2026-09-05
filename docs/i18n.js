@@ -10,12 +10,12 @@ const translations = {
     "nav_mascot": "Mascot",
     "nav_install": "Install",
     "hero_badge_prefix": "Official Companion CLI · ",
-    "hero_badge_tag": "10x Faster Store Shipping",
+    "hero_badge_tag": "Zero-Dashboard Velocity",
     "hero_title_1": "Ship browser extensions ",
-    "hero_title_2": "as seamlessly as ",
+    "hero_title_2": "like ",
     "hero_title_em": "git push",
     "hero_title_3": "",
-    "hero_desc": "Say goodbye to repetitive form-filling and pixel-dimension errors in the Chrome Web Store dashboard.<br>Define multilingual listings and store graphics in a single local YAML file—Tug handles native browser mounting and validation in seconds.",
+    "hero_desc": "Say goodbye to 45 minutes of manual form-filling, 10+ language dropdowns, and 1-pixel rejection agony.<br>Single-source YAML, native localhost CDP direct automation, 3 seconds to ship.",
     "hero_cta_install": "Install Tug CLI",
     "hero_cta_docs": "View Documentation",
     "btn_copied": "Copied!",
@@ -32,15 +32,15 @@ const translations = {
     "comp_title": "Ditch Dashboard Friction. Adopt Modern Extension CI.",
     "comp_desc": "Slow web consoles, rigid pixel restrictions, and repetitive multiline copy-pasting shouldn’t bottleneck a developer’s creative momentum.",
     "comp_bad_title": "Traditional Manual Dashboard Grind",
-    "comp_bad_1": "<strong>Repetitive Locale Churn</strong>: Switching across 10+ language dropdowns on every release, copying and pasting descriptions paragraph by paragraph.",
-    "comp_bad_2": "<strong>Fragile Dimension Gates</strong>: A single-pixel mismatch abruptly rejects screenshot uploads; strict 1400×560 marquee banners get clipped.",
-    "comp_bad_3": "<strong>Zero Version History</strong>: Dashboard updates leave no Git diff audit trail, completely divorced from code commit history.",
-    "comp_bad_4": "<strong>Token & Privacy Liabilities</strong>: Third-party CI services demand highly privileged Store API refresh tokens and credentials.",
+    "comp_bad_1": "<strong>Soul-crushing Multilingual Churn</strong>: Switching across 10+ language dropdowns on every single release, copying and pasting descriptions paragraph by paragraph.",
+    "comp_bad_2": "<strong>1-Pixel Discrepancy Rejections</strong>: Waiting 3 business days for review, only to be rejected instantly because a screenshot was 1 pixel off or a banner aspect ratio clipped.",
+    "comp_bad_3": "<strong>The Dashboard Version Black Hole</strong>: Console edits leave zero Git diffs, zero changelog tracking, and zero synchronization with your actual codebase commits.",
+    "comp_bad_4": "<strong>OAuth Setup Hell & Credential Exposure</strong>: Cloud CI services demand highly privileged Store API refresh tokens and GCP project setup, inviting severe security liabilities.",
     "comp_good_title": "The Modern Tug Workflow",
-    "comp_good_1": "<strong>Declarative Single Source</strong>: One <code>tug.yml</code> consolidates all multilingual copy and assets under rigorous Git version control.",
-    "comp_good_2": "<strong>Zero-Dependency Asset Pre-flight</strong>: Built-in pure JavaScript byte parser validates PNG and JPEG dimensions in milliseconds before upload.",
-    "comp_good_3": "<strong>Native CDP Direct Automation</strong>: Drives real browser sessions purely on localhost via Chrome DevTools Protocol—zero third-party proxy exposure.",
-    "comp_good_4": "<strong>Human-in-the-Loop Safety</strong>: Tug populates draft fields and mounts assets; the final \"Submit for Review\" click is always confirmed by you.",
+    "comp_good_1": "<strong>Declarative Single Source of Truth</strong>: One clean <code>tug.yml</code> centralizes all multilingual copy and assets under rigorous, auditable Git version control.",
+    "comp_good_2": "<strong>Sub-Millisecond Zero-Dep Pre-flight</strong>: Pure JS binary byte parser verifies PNG/JPEG dimensions and length limits locally in 5ms before upload.",
+    "comp_good_3": "<strong>Native CDP Localhost Drive</strong>: Connects directly to your active browser session via Chrome DevTools Protocol—zero Cloud API keys, 100% credential privacy.",
+    "comp_good_4": "<strong>Human-in-the-Loop Confidence</strong>: Tug handles all tedious form injection and asset uploads with live visual feedback; the final \"Submit\" click is always yours.",
     "feat_eyebrow": "Productivity Gains",
     "feat_title": "Built to Save Hours on Every Store Release",
     "feat_desc": "Eliminate repetitive manual entry, prevent costly rejection delays, and keep yourself in the creative building flow.",
@@ -65,15 +65,16 @@ const translations = {
     "install_tab_npx": "Zero-install npx",
     "footer_sub": "MIT License · Official Mascot Tuggy (Concept A2)",
     "footer_feedback": "Issues & Feedback",
-    "term_tab_fill": "tug fill (Automated Filling)",
-    "term_tab_scan": "tug scan (Asset Pre-flight)",
-    "term_tab_sync": "tug sync (Release Sync)",
-    "term_tab_upgrade": "tug upgrade (Self-Upgrade)",
+    "term_tab_fill": "tug fill",
+    "term_tab_scan": "tug scan",
+    "term_tab_sync": "tug sync",
+    "term_tab_upgrade": "tug upgrade",
     "term_terminal": {
       "fill": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug fill -z ./release/gemini-polish-v1.3.0.zip</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG FILL  Connecting to Chrome via native CDP session</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Located store draft: Store Listing (ajboihpfgk...)</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-bold\">◆ Submission Telemetry</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Multilingual locales ............... <span class=\"term-cyan\">7 languages injected</span> (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Form metadata fields ............... <span class=\"term-cyan\">13 inputs populated</span> (site, support, privacy policy)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Store assets mounted ............... <span class=\"term-cyan\">8 local media mounted</span> (icon, marquee banner, 4 screenshots)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Extension package uploaded ......... release/gemini-polish-v1.3.0.zip</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Success! All listings & media mounted with 0 errors. Inspect browser and click submit!</div>\n      ",
       "scan": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug scan</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SCAN  Pre-flight verification for listing specifications & compliance</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  tug.yml schema validation passed</div>\n<div class=\"term-bold\">◆ Extension Metadata Overview</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Supported locales ................... 7 languages (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Permission justifications .......... 4 declaration items fully compliant</div>\n<div class=\"term-bold\">◆ Media Specification Check (Zero-dependency pure JS byte parser)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Icon (icon_128) ..................... ./icon-128.png (128x128)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Screenshots [4 images] .............. ./preview/store/01~04.png (1280x800)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Small Promo Tile (440x280) .......... ./preview/promo-cover-440x280.png</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Marquee Promo Banner (1400x560) ..... ./preview/promo-cover-1400x560.png</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  ✨ All assets verified! Run tug fill to commence automated submission.</div>\n      ",
       "sync": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug sync</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SYNC  Synchronizing release changelog & remote repository metadata</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Identified remote upstream: Deguang/gemini-graph-viewer (GitHub Releases)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Latest Release Tag .................. v1.3.0</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Release Title ....................... Release v1.3.0 (Comfortable & Focus Styles)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Published Date ...................... 2026-09-05</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Incrementally merged changelog into tug.yml (locales.en.changelog)</div>\n<div class=\"term-green\">└  ✔ Release synchronization complete! Formatting preserved.</div>\n      ",
-      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - Checking & performing CLI self-upgrade (GitHub Releases)</div>\n<div class=\"term-dim\">  Current installed version: v0.1.0</div>\n<div class=\"term-cyan\">  Querying GitHub (Deguang/tug) remote release feed...</div>\n<div class=\"term-green\">  New version detected: v0.1.1 [Patch release]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ Upgrade complete! Smoothly migrated to v0.1.1</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Congratulations! Tug is up to date. Run tug anytime to explore new features.</div>\n      "
+      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - Checking & performing CLI self-upgrade (GitHub Releases)</div>\n<div class=\"term-dim\">  Current installed version: v0.1.0</div>\n<div class=\"term-cyan\">  Querying GitHub (Deguang/tug) remote release feed...</div>\n<div class=\"term-green\">  New version detected: v0.1.1 [Patch release]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ Upgrade complete! Smoothly migrated to v0.1.1</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Congratulations! Tug is up to date. Run tug anytime to explore new features.</div>\n      ",
+      "spec": "<div class=\"code-line\"><span class=\"token-comment\"># tug.yml · The single declarative blueprint for your extension</span></div>\n<div class=\"code-line\"><span class=\"token-key\">name</span>: <span class=\"token-str\">\"Gemini Polish Pro\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">version</span>: <span class=\"token-str\">\"1.3.0\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">store_id</span>: <span class=\"token-str\">\"ajboihpfgkcohkpmckojf...\"</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">locales</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">en</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - AI Browser Assistant\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"Contextual AI writing assistant for Chrome.\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">description</span>: <span class=\"token-str\">|</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Instant drafting & grammar refinement powered by Gemini.</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Highlight text anywhere to rewrite, summarize, or translate.</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">zh-CN</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - 沉浸式 AI 写作伴侣\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"划词即润色，秒级重构你的中英文表达。\"</span></div>\n<div class=\"code-line\">  <span class=\"token-comment\"># ... 10+ locales tracked under Git revision control</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">assets</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">icon</span>: <span class=\"token-str\">\"./assets/icon-128.png\"</span>          <span class=\"token-comment\"># 128x128 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">marquee</span>: <span class=\"token-str\">\"./assets/promo-1400x560.png\"</span> <span class=\"token-comment\"># 1400x560 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">screenshots</span>:</div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-1-1280x800.png\"</span></div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-2-1280x800.png\"</span></div>"
     },
     "nav_faq": "FAQ",
     "faq_eyebrow": "Common Questions",
@@ -86,7 +87,27 @@ const translations = {
     "faq_q3": "Which browser extension stores are supported?",
     "faq_a3": "Tug supports full automated filling and asset mounting for the Chrome Web Store and Microsoft Edge Partner Center (Edge Add-ons), with universal schema blueprint support for Firefox AMO.",
     "faq_q4": "How does pre-flight validation prevent store rejections?",
-    "faq_a4": "Tug parses image binary headers in milliseconds before uploading, verifying pixel dimensions for screenshots (1280x800 / 640x400) and promotional tiles (440x280 / 1400x560), while checking text length limits to prevent costly rejection delays."
+    "faq_a4": "Tug parses image binary headers in milliseconds before uploading, verifying pixel dimensions for screenshots (1280x800 / 640x400) and promotional tiles (440x280 / 1400x560), while checking text length limits to prevent costly rejection delays.",
+    "term_tab_spec": "tug.yml",
+    "metric_1_val": "45m → 3s",
+    "metric_1_label": "Release Velocity",
+    "metric_1_desc": "From 45-min dashboard form-filling to a 3-second instant mount.",
+    "metric_2_val": "0 API Keys",
+    "metric_2_label": "Zero Credential Risk",
+    "metric_2_desc": "Direct localhost CDP connection. No tokens, no secrets leaked.",
+    "metric_3_val": "10+ Locales",
+    "metric_3_label": "Declarative Single Source",
+    "metric_3_desc": "One tug.yml governs all languages. Zero copy-paste churn.",
+    "metric_4_val": "0-Pixel Tolerance",
+    "metric_4_label": "Pre-flight Verification",
+    "metric_4_desc": "Pure JS byte parser stops dimension errors before review delay.",
+    "term_desc": {
+      "spec": "Declarative Blueprint Specification",
+      "fill": "Native CDP Direct Automation",
+      "scan": "Zero-Dep Asset Pre-flight",
+      "sync": "Release Changelog Synchronization",
+      "upgrade": "CLI Self-Upgrade Engine"
+    }
   },
   "zh-CN": {
     "nav_docs": "使用文档",
@@ -97,13 +118,13 @@ const translations = {
     "nav_comparison": "体验对比",
     "nav_mascot": "品牌拖船",
     "nav_install": "立即安装",
-    "hero_badge_prefix": "官方 CLI 拖船就位 · ",
-    "hero_badge_tag": "插件发版提速 10 倍",
-    "hero_title_1": "让插件提审发版，",
+    "hero_badge_prefix": "官方伴生 CLI · ",
+    "hero_badge_tag": "全自动声明式交付",
+    "hero_title_1": "告别后台填表折磨，",
     "hero_title_2": "像 ",
     "hero_title_em": "git push",
-    "hero_title_3": " 一样自然顺畅",
-    "hero_desc": "告别在数十种语言间机械复制粘贴，杜绝因截图相差 1 像素被拒的折磨。<br>本地一份 YAML 编排多语言文案与物料，Tug 直驱浏览器自动挂载校验，全程零凭据泄露风险。",
+    "hero_title_3": " 一样发版扩展",
+    "hero_desc": "45 分钟的机械复制粘贴、十几种语言下拉菜单与尺寸微差拒审，统统归结为一条本地命令。<br>单份 <code>tug.yml</code> 蓝图，CDP 原生直连本地 Chrome 会话，3 秒无感铺设全商店。",
     "hero_cta_install": "一键安装 Tug",
     "hero_cta_docs": "阅读官方文档",
     "btn_copied": "已复制！",
@@ -120,15 +141,15 @@ const translations = {
     "comp_title": "告别控制台重复折磨，拥抱现代扩展交付流",
     "comp_desc": "卡顿的管理后台、严苛的像素尺寸报错、以及繁复的多语言标签页，不应继续扼杀开发者的创造力。",
     "comp_bad_title": "传统网页后台手工提审的噩梦",
-    "comp_bad_1": "<strong>机械化的多语言反复粘贴</strong>：每次发版，都要在十几种语言切换菜单间机械穿梭，逐段粘贴多行简介。",
-    "comp_bad_2": "<strong>令人抓狂的物料尺寸碰壁</strong>：截图相差 1 个像素就被拒之门外，大推广图要求严苛的 1400×560 且极易被裁切。",
-    "comp_bad_3": "<strong>与 Git 脱节的无序变更</strong>：控制台里的修改无法生成可审计的 diff，发版记录与代码仓库完全割裂。",
-    "comp_bad_4": "<strong>高危凭证泄露隐患</strong>：第三方 CI 插件服务必须获取高权限 Store API 密钥与 OAuth Refresh Token。",
+    "comp_bad_1": "<strong>数十次机械切换折磨</strong>：每次发版都要在 10+ 语言下拉列表里来回翻找，逐段复制粘贴，格式错乱与漏填难以避免。",
+    "comp_bad_2": "<strong>1 像素微差毁灭一个周末</strong>：辛辛苦苦等了 3 天审核，因一张宣传图差了 1 像素或比例偏差直接被拒，打回重来。",
+    "comp_bad_3": "<strong>与 Git 彻底割裂的版本黑洞</strong>：网页后台里的每一次修改都没有 Git diff 审计记录，发版历史与代码仓库各自为战。",
+    "comp_bad_4": "<strong>凭证泄露与云控制台梦魇</strong>：第三方 CI 方案强制索取高权限 Google Cloud API 密钥与 OAuth 刷新令牌，配置繁琐且暗藏安全风险。",
     "comp_good_title": "Tug 现代自动化工作流",
-    "comp_good_1": "<strong>本地声明式单源 (YAML)</strong>：一份 <code>tug.yml</code> 集中收敛全部多语言文案与媒体物料，纳入严密 Git 版本受控。",
-    "comp_good_2": "<strong>零依赖纯 JS 物料自检</strong>：内置轻量原生二进制字节流解析器，在上传前毫秒级拦截尺寸与比例错误。",
-    "comp_good_3": "<strong>CDP 本地原生直驱</strong>：基于 Chrome DevTools Protocol 本地操控真实会话，无需配置繁琐的 Google Cloud OAuth。",
-    "comp_good_4": "<strong>严格安全的最后确认权</strong>：Tug 仅负责草稿填充与物料精准挂载，最终的“提交审核”按钮由您亲自核验点击。",
+    "comp_good_1": "<strong>本地声明式单源 (Single Source)</strong>：一份优雅的 <code>tug.yml</code> 统领全球多语言文案与媒体素材，天然享受 Git 版本追溯与 Diff 掌控。",
+    "comp_good_2": "<strong>毫秒级零依赖拦截网</strong>：内建纯原生 JS 字节流解析引擎，上传前 5 毫秒本地拦截所有尺寸超标、比例失配与文字超限。",
+    "comp_good_3": "<strong>原生 CDP 直驱本地会话</strong>：通过 Chrome DevTools Protocol 直连本机已登录浏览器，免配 Google Cloud API，凭据永不出机。",
+    "comp_good_4": "<strong>人机协同的终极安心感</strong>：Tug 扛下枯燥的机械填表与物料装载，浏览器画面实时可视，最终提审确认权永远握在你的手中。",
     "feat_eyebrow": "效率与体验飞跃",
     "feat_title": "专为解决发版痛点而生，省去繁琐机械劳作",
     "feat_desc": "告别枯燥重复的后台复制粘贴，杜绝因格式瑕疵打回重审，让提审发版轻盈顺畅。",
@@ -153,15 +174,16 @@ const translations = {
     "install_tab_npx": "免安装 npx",
     "footer_sub": "MIT License · 官方吉祥物 Tuggy (方案 A2)",
     "footer_feedback": "反馈与建议",
-    "term_tab_fill": "tug fill (自动化填表)",
-    "term_tab_scan": "tug scan (物料自检)",
-    "term_tab_sync": "tug sync (同步发版)",
-    "term_tab_upgrade": "tug upgrade (自我升级)",
+    "term_tab_fill": "tug fill",
+    "term_tab_scan": "tug scan",
+    "term_tab_sync": "tug sync",
+    "term_tab_upgrade": "tug upgrade",
     "term_terminal": {
       "fill": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug fill -z ./release/gemini-polish-v1.3.0.zip</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG FILL  正在通过 CDP 直连 Chrome 会话执行全自动化挂载</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  已定位现有插件草稿页: Store Listing (ajboihpfgk...)</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-bold\">◆ 填报流水线执行反馈</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 多语言本地化文案 .................... <span class=\"term-cyan\">7 种语言切换录入完毕</span> (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 基础表单属性填报 .................... <span class=\"term-cyan\">13 个字段模拟原生输入</span> (官方网站、支持邮箱、隐私协议)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 媒体物料原生注入 .................... <span class=\"term-cyan\">8 项本地资产已挂载</span> (图标、宣传图、4 张高清截图)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 扩展安装包上传 ...................... release/gemini-polish-v1.3.0.zip</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 恭喜！草稿表单与物料已自动挂载就绪，网页 0 报错。请在浏览器中核对并点击提交！</div>\n      ",
       "scan": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug scan</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SCAN  正在进行发版前物料规格与合规性严格自检</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  tug.yml 架构校验通过</div>\n<div class=\"term-bold\">◆ 扩展元数据概览</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 国际化支持语言 ...................... 7 种语言 (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 权限使用理由声明 .................... 4 项声明完全合规</div>\n<div class=\"term-bold\">◆ 媒体物料规格校验 (零依赖纯 JS 二进制流解析)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 图标 (icon_128) ..................... ./icon-128.png (128x128)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 高清截图 [4 张] ..................... ./preview/store/01~04.png (1280x800)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 小推广图 (440x280) .................. ./preview/promo-cover-440x280.png</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 大推广图 (1400x560) ................. ./preview/promo-cover-1400x560.png</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  ✨ 所有物料与配置核验完毕！可直接运行 tug fill 开启全自动挂载。</div>\n      ",
       "sync": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug sync</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SYNC  正在同步远端代码仓发版日志与元数据</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  已识别远端上游: Deguang/gemini-graph-viewer (GitHub Releases)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 最新发版标签 ........................ v1.3.0</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 发布标题 ............................ Release v1.3.0 (Comfortable & Focus Styles)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 发布时间 ............................ 2026/09/05</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  已增量将 Changelog 合并写入 tug.yml (locales.en.changelog)</div>\n<div class=\"term-green\">└  ✔ 插件发版信息同步完成！格式与注释无损保留。</div>\n      ",
-      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - 检查并执行 CLI 自我升级 (GitHub Releases)</div>\n<div class=\"term-dim\">  当前安装版本: v0.1.0</div>\n<div class=\"term-cyan\">  正在检查 GitHub (Deguang/tug) 远端发版状态...</div>\n<div class=\"term-green\">  发现新版本: v0.1.1 [补丁小版本 (Patch)]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ 自动升级完成！已平滑迁移至 v0.1.1</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 恭喜！tug 已完成自我升级，可随时输入 tug 体验新特性。</div>\n      "
+      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - 检查并执行 CLI 自我升级 (GitHub Releases)</div>\n<div class=\"term-dim\">  当前安装版本: v0.1.0</div>\n<div class=\"term-cyan\">  正在检查 GitHub (Deguang/tug) 远端发版状态...</div>\n<div class=\"term-green\">  发现新版本: v0.1.1 [补丁小版本 (Patch)]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ 自动升级完成！已平滑迁移至 v0.1.1</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 恭喜！tug 已完成自我升级，可随时输入 tug 体验新特性。</div>\n      ",
+      "spec": "<div class=\"code-line\"><span class=\"token-comment\"># tug.yml · The single declarative blueprint for your extension</span></div>\n<div class=\"code-line\"><span class=\"token-key\">name</span>: <span class=\"token-str\">\"Gemini Polish Pro\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">version</span>: <span class=\"token-str\">\"1.3.0\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">store_id</span>: <span class=\"token-str\">\"ajboihpfgkcohkpmckojf...\"</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">locales</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">en</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - AI Browser Assistant\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"Contextual AI writing assistant for Chrome.\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">description</span>: <span class=\"token-str\">|</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Instant drafting & grammar refinement powered by Gemini.</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Highlight text anywhere to rewrite, summarize, or translate.</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">zh-CN</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - 沉浸式 AI 写作伴侣\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"划词即润色，秒级重构你的中英文表达。\"</span></div>\n<div class=\"code-line\">  <span class=\"token-comment\"># ... 10+ locales tracked under Git revision control</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">assets</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">icon</span>: <span class=\"token-str\">\"./assets/icon-128.png\"</span>          <span class=\"token-comment\"># 128x128 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">marquee</span>: <span class=\"token-str\">\"./assets/promo-1400x560.png\"</span> <span class=\"token-comment\"># 1400x560 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">screenshots</span>:</div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-1-1280x800.png\"</span></div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-2-1280x800.png\"</span></div>"
     },
     "nav_faq": "常见问题",
     "faq_eyebrow": "常见疑问",
@@ -174,7 +196,27 @@ const translations = {
     "faq_q3": "目前支持哪些浏览器应用商店？",
     "faq_a3": "Tug 全面支持 Chrome Web Store 与 Microsoft Edge Partner Center（Edge 扩展商店）的原生自动化，并设计了面向 Firefox AMO 的通用蓝图数据规范。",
     "faq_q4": "物料预检（Pre-flight）如何避免提审被拒？",
-    "faq_a4": "在提审前，Tug 瞬间解析本地截图和宣传封面的二进制字节流，精准比对像素尺寸（如 1280x800、1400x560）与各字段字数限制，在上传前拦截一切格式硬伤，杜绝驳回重审。"
+    "faq_a4": "在提审前，Tug 瞬间解析本地截图和宣传封面的二进制字节流，精准比对像素尺寸（如 1280x800、1400x560）与各字段字数限制，在上传前拦截一切格式硬伤，杜绝驳回重审。",
+    "term_tab_spec": "tug.yml",
+    "metric_1_val": "45m → 3s",
+    "metric_1_label": "发布极速压缩",
+    "metric_1_desc": "从痛苦繁琐的后台填表，到 3 秒全自动挂载",
+    "metric_2_val": "0 API 密钥",
+    "metric_2_label": "零凭证泄露隐患",
+    "metric_2_desc": "CDP 直连本地 Chrome 会话，凭证与数据永不出机",
+    "metric_3_val": "10+ 语种",
+    "metric_3_label": "单源 YAML 声明",
+    "metric_3_desc": "一份蓝图统管全球多语言文案，彻底告别复制粘贴",
+    "metric_4_val": "0 像素公差",
+    "metric_4_label": "毫秒级预检拦截",
+    "metric_4_desc": "纯 JS 字节级解析，在上传前杜绝任何尺寸拒审风险",
+    "term_desc": {
+      "spec": "声明式蓝图配置",
+      "fill": "CDP 原生自动化填表与挂载",
+      "scan": "毫秒级轻量物料预检",
+      "sync": "增量同步 Git 版本日志",
+      "upgrade": "CLI 极速自我升级引擎"
+    }
   },
   "zh-TW": {
     "nav_docs": "使用文件",
@@ -185,13 +227,13 @@ const translations = {
     "nav_comparison": "體驗對比",
     "nav_mascot": "品牌拖船",
     "nav_install": "立即安裝",
-    "hero_badge_prefix": "官方 CLI 拖船就位 · ",
-    "hero_badge_tag": "擴充功能發版提速 10 倍",
-    "hero_title_1": "讓擴充功能提審發版，",
+    "hero_badge_prefix": "官方伴生 CLI · ",
+    "hero_badge_tag": "全自動聲明式交付",
+    "hero_title_1": "告別後台填表折磨，",
     "hero_title_2": "像 ",
     "hero_title_em": "git push",
-    "hero_title_3": " 一樣自然順暢",
-    "hero_desc": "告別在數十種語言間機械複製貼上，杜絕因螢幕截圖相差 1 像素被拒的折磨。<br>本地一份 YAML 編排多語言文案與素材，Tug 直驅瀏覽器自動掛載校驗，全程零憑證洩漏隱患。",
+    "hero_title_3": " 一樣發版擴充",
+    "hero_desc": "45 分鐘的機械複製貼上、十幾種語言下拉選單與尺寸微差拒審，統統歸結為一條本機命令。<br>單份 <code>tug.yml</code> 藍圖，CDP 原生直連本機 Chrome 會話，3 秒無感鋪設全商店。",
     "hero_cta_install": "一鍵安裝 Tug",
     "hero_cta_docs": "閱讀官方文檔",
     "btn_copied": "已複製！",
@@ -208,15 +250,15 @@ const translations = {
     "comp_title": "告別控制台重複折磨，擁抱現代擴充功能交付流",
     "comp_desc": "緩慢的審查後台、嚴苛的像素尺寸報錯、以及繁雜的多語言分頁，不應繼續扼殺開發者的創造力。",
     "comp_bad_title": "傳統網頁後台手動審查的惡夢",
-    "comp_bad_1": "<strong>機械式的多語言反覆貼上</strong>：每次發版，都要在十幾種語言切換選單間機械穿梭，逐段貼上多行簡介。",
-    "comp_bad_2": "<strong>令人抓狂的素材尺寸碰壁</strong>：螢幕截圖相差 1 個像素就被拒之門外，大推廣圖要求嚴格的 1400×560 且極易被裁切。",
-    "comp_bad_3": "<strong>與 Git 脫節的無序變更</strong>：控制台裡的修改無法生成可審計的 diff，發版記錄與程式碼倉庫完全割裂。",
-    "comp_bad_4": "<strong>高風險憑證洩漏隱患</strong>：第三方 CI 外掛服務必須取得高權限 Store API 金鑰與 OAuth Refresh Token。",
+    "comp_bad_1": "<strong>數十次機械切換折磨</strong>：每次發版都要在 10+ 語言下拉選單裡來回翻找，逐段複製貼上，格式錯亂與漏填難以避免。",
+    "comp_bad_2": "<strong>1 像素微差毀滅一個週末</strong>：辛辛苦苦等了 3 天審核，因一張宣傳圖差了 1 像素或比例偏差直接被拒，打回重來。",
+    "comp_bad_3": "<strong>與 Git 徹底割裂的版本黑洞</strong>：網頁後台裡的每一次修改都沒有 Git diff 審計記錄，發版歷史與代碼倉庫各自為戰。",
+    "comp_bad_4": "<strong>憑證洩漏與雲控制台夢魘</strong>：第三方 CI 方案強制索取高權限 Google Cloud API 密鑰與 OAuth 刷新令牌，配置繁瑣且暗藏安全風險。",
     "comp_good_title": "Tug 現代自動化工作流",
-    "comp_good_1": "<strong>本地宣告式單源 (YAML)</strong>：一份 <code>tug.yml</code> 集中收斂全部多語言文案與媒體素材，納入嚴密 Git 版本受控。",
-    "comp_good_2": "<strong>零依賴純 JS 素材自檢</strong>：內建輕量原生二進位位元組流解析器，在上傳前毫秒級攔截尺寸與比例錯誤。",
-    "comp_good_3": "<strong>CDP 本地原生直驅</strong>：基於 Chrome DevTools Protocol 本地操控真實會話，無需設定繁雜的 Google Cloud OAuth。",
-    "comp_good_4": "<strong>嚴格安全的最後確認權</strong>：Tug 僅負責草稿填充與素材精準掛載，最終的「提交審核」按鈕由您親自核驗點擊。",
+    "comp_good_1": "<strong>本機聲明式單源 (Single Source)</strong>：一份優雅的 <code>tug.yml</code> 統領全球多語言文案與媒體素材，天然享受 Git 版本追溯與 Diff 掌控。",
+    "comp_good_2": "<strong>毫秒級零依賴攔截網</strong>：內建純原生 JS 字節流解析引擎，上傳前 5 毫秒本機攔截所有尺寸超標、比例失配與文字超限。",
+    "comp_good_3": "<strong>原生 CDP 直驅本機會話</strong>：通過 Chrome DevTools Protocol 直連本機已登錄瀏覽器，免配 Google Cloud API，憑證永不出機。",
+    "comp_good_4": "<strong>人機協同的終極安心感</strong>：Tug 扛下枯燥的機械填表與物料裝載，瀏覽器畫面實時可視，最終提審確認權永遠握在你的手中。",
     "feat_eyebrow": "效率與體驗飛躍",
     "feat_title": "專為解決發版痛點而生，省去繁瑣機械勞動",
     "feat_desc": "告別枯燥重複的後台複製貼上，杜絕因格式瑕疵打回重審，讓審查發版輕盈順暢。",
@@ -241,15 +283,16 @@ const translations = {
     "install_tab_npx": "免安裝 npx",
     "footer_sub": "MIT License · 官方吉祥物 Tuggy (方案 A2)",
     "footer_feedback": "反饋與建議",
-    "term_tab_fill": "tug fill (自動化填表)",
-    "term_tab_scan": "tug scan (素材自檢)",
-    "term_tab_sync": "tug sync (同步發版)",
-    "term_tab_upgrade": "tug upgrade (自我升級)",
+    "term_tab_fill": "tug fill",
+    "term_tab_scan": "tug scan",
+    "term_tab_sync": "tug sync",
+    "term_tab_upgrade": "tug upgrade",
     "term_terminal": {
       "fill": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug fill -z ./release/gemini-polish-v1.3.0.zip</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG FILL  正在透過 CDP 直連 Chrome 會話執行全自動化掛載</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  已定位現有擴充功能草稿頁: Store Listing (ajboihpfgk...)</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-bold\">◆ 填報流水線執行反饋</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 多語言本地化文案 .................... <span class=\"term-cyan\">7 種語言切換錄入完畢</span> (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 基礎表單屬性填報 .................... <span class=\"term-cyan\">13 個欄位模擬原生輸入</span> (官方網站、支援信箱、隱私協議)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 媒體素材原生注入 .................... <span class=\"term-cyan\">8 項本地資產已掛載</span> (圖標、宣傳圖、4 張高畫質截圖)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 擴充功能安裝包上傳 .................. release/gemini-polish-v1.3.0.zip</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 恭喜！草稿表單與素材已自動掛載就緒，網頁 0 報錯。請在瀏覽器中核對並點擊提交！</div>\n      ",
       "scan": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug scan</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SCAN  正在進行發版前素材規格與合規性嚴格自檢</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  tug.yml 架構校驗通過</div>\n<div class=\"term-bold\">◆ 擴充功能元數據概覽</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 國際化支援語言 ...................... 7 種語言 (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 權限使用理由宣告 .................... 4 項宣告完全合規</div>\n<div class=\"term-bold\">◆ 媒體素材規格校驗 (零依賴純 JS 二進位流解析)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 圖標 (icon_128) ..................... ./icon-128.png (128x128)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 高畫質截圖 [4 張] ................... ./preview/store/01~04.png (1280x800)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 小推廣圖 (440x280) .................. ./preview/promo-cover-440x280.png</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 大推廣圖 (1400x560) ................. ./preview/promo-cover-1400x560.png</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  ✨ 所有素材與配置核驗完畢！可直接執行 tug fill 開啟全自動掛載。</div>\n      ",
       "sync": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug sync</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SYNC  正在同步遠端程式碼倉發版日誌與元數據</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  已識別遠端上游: Deguang/gemini-graph-viewer (GitHub Releases)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 最新發版標籤 ........................ v1.3.0</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 發布標題 ............................ Release v1.3.0 (Comfortable & Focus Styles)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 發布時間 ............................ 2026/09/05</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  已增量將 Changelog 合併寫入 tug.yml (locales.en.changelog)</div>\n<div class=\"term-green\">└  ✔ 擴充功能發版資訊同步完成！格式與註釋無損保留。</div>\n      ",
-      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - 檢查並執行 CLI 自我升級 (GitHub Releases)</div>\n<div class=\"term-dim\">  目前安裝版本: v0.1.0</div>\n<div class=\"term-cyan\">  正在檢查 GitHub (Deguang/tug) 遠端發版狀態...</div>\n<div class=\"term-green\">  發現新版本: v0.1.1 [修補小版本 (Patch)]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ 自動升級完成！已平滑遷移至 v0.1.1</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 恭喜！tug 已完成自我升級，可隨時輸入 tug 體驗新特性。</div>\n      "
+      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - 檢查並執行 CLI 自我升級 (GitHub Releases)</div>\n<div class=\"term-dim\">  目前安裝版本: v0.1.0</div>\n<div class=\"term-cyan\">  正在檢查 GitHub (Deguang/tug) 遠端發版狀態...</div>\n<div class=\"term-green\">  發現新版本: v0.1.1 [修補小版本 (Patch)]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ 自動升級完成！已平滑遷移至 v0.1.1</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 恭喜！tug 已完成自我升級，可隨時輸入 tug 體驗新特性。</div>\n      ",
+      "spec": "<div class=\"code-line\"><span class=\"token-comment\"># tug.yml · The single declarative blueprint for your extension</span></div>\n<div class=\"code-line\"><span class=\"token-key\">name</span>: <span class=\"token-str\">\"Gemini Polish Pro\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">version</span>: <span class=\"token-str\">\"1.3.0\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">store_id</span>: <span class=\"token-str\">\"ajboihpfgkcohkpmckojf...\"</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">locales</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">en</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - AI Browser Assistant\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"Contextual AI writing assistant for Chrome.\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">description</span>: <span class=\"token-str\">|</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Instant drafting & grammar refinement powered by Gemini.</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Highlight text anywhere to rewrite, summarize, or translate.</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">zh-CN</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - 沉浸式 AI 写作伴侣\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"划词即润色，秒级重构你的中英文表达。\"</span></div>\n<div class=\"code-line\">  <span class=\"token-comment\"># ... 10+ locales tracked under Git revision control</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">assets</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">icon</span>: <span class=\"token-str\">\"./assets/icon-128.png\"</span>          <span class=\"token-comment\"># 128x128 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">marquee</span>: <span class=\"token-str\">\"./assets/promo-1400x560.png\"</span> <span class=\"token-comment\"># 1400x560 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">screenshots</span>:</div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-1-1280x800.png\"</span></div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-2-1280x800.png\"</span></div>"
     },
     "nav_faq": "常見問題",
     "faq_eyebrow": "常見疑問",
@@ -262,7 +305,27 @@ const translations = {
     "faq_q3": "目前支援哪些瀏覽器應用程式商店？",
     "faq_a3": "Tug 全面支援 Chrome Web Store 與 Microsoft Edge Partner Center（Edge 擴充功能商店）的原生自動化，並設計了面向 Firefox AMO 的通用藍圖資料規範。",
     "faq_q4": "素材預檢（Pre-flight）如何避免送審被駁回？",
-    "faq_a4": "在送審前，Tug 瞬間解析本機截圖和宣傳封面的二進位位元組流，精準比對像素尺寸（如 1280x800、1400x560）與各欄位字數限制，在送審前攔截一切格式硬傷，杜絕駁回重審。"
+    "faq_a4": "在送審前，Tug 瞬間解析本機截圖和宣傳封面的二進位位元組流，精準比對像素尺寸（如 1280x800、1400x560）與各欄位字數限制，在送審前攔截一切格式硬傷，杜絕駁回重審。",
+    "term_tab_spec": "tug.yml",
+    "metric_1_val": "45m → 3s",
+    "metric_1_label": "發布極速壓縮",
+    "metric_1_desc": "從痛苦繁瑣的後台填表，到 3 秒全自動掛載",
+    "metric_2_val": "0 API 密鑰",
+    "metric_2_label": "零憑證洩漏隱患",
+    "metric_2_desc": "CDP 直連本機 Chrome 會話，憑證與數據永不出機",
+    "metric_3_val": "10+ 語種",
+    "metric_3_label": "單源 YAML 聲明",
+    "metric_3_desc": "一份藍圖統管全球多語言文案，徹底告別複製貼上",
+    "metric_4_val": "0 像素公差",
+    "metric_4_label": "毫秒級預檢攔截",
+    "metric_4_desc": "純 JS 字節級解析，在上傳前杜絕任何尺寸拒審風險",
+    "term_desc": {
+      "spec": "聲明式藍圖配置",
+      "fill": "CDP 原生自動化填表與掛載",
+      "scan": "毫秒級輕量素材預檢",
+      "sync": "增量同步 Git 版本日誌",
+      "upgrade": "CLI 極速自我升級引擎"
+    }
   },
   "ja": {
     "nav_docs": "ドキュメント",
@@ -273,13 +336,13 @@ const translations = {
     "nav_comparison": "比較と強み",
     "nav_mascot": "公式マスコット",
     "nav_install": "インストール",
-    "hero_badge_prefix": "公式CLIタグボート就役 · ",
-    "hero_badge_tag": "リリース作業を10倍高速化",
-    "hero_title_1": "ブラウザ拡張機能のリリースを、",
-    "hero_title_2": "",
+    "hero_badge_prefix": "公式コンパニオン CLI · ",
+    "hero_badge_tag": "完全自動の宣言型デプロイ",
+    "hero_title_1": "拡張機能のリリースを、",
+    "hero_title_2": "like ",
     "hero_title_em": "git push",
-    "hero_title_3": " のように軽快かつ確実に",
-    "hero_desc": "Chrome Web Store管理画面での不毛なコピペ作業と、1pxのズレで弾かれる画像サイズエラーにサヨナラ。<br>ローカルの単一YAMLで多言語文案と画像をコード管理。TugがCDPでブラウザを直接駆動し、数秒で下書きを完成させます。",
+    "hero_title_3": " のように極限までスムーズに",
+    "hero_desc": "45分間の手動入力、10カ国語以上のドロップダウン切り替え、1pxのズレによる審査却下の苦痛から解放。<br>単一の <code>tug.yml</code> とローカルCDP接続で、わずか3秒でストア反映を完了。",
     "hero_cta_install": "Tug をインストール",
     "hero_cta_docs": "公式ドキュメント",
     "btn_copied": "コピー完了！",
@@ -296,10 +359,10 @@ const translations = {
     "comp_title": "手動管理画面の苦痛を捨て、モダンな拡張機能CIへ",
     "comp_desc": "重い管理コンソール、不毛な1pxエラー、何十言語もの反復コピペに開発者の創造的エネルギーを浪費させてはなりません。",
     "comp_bad_title": "従来のWeb管理画面手動運用の悲劇",
-    "comp_bad_1": "<strong>不毛な反復コピペ地獄</strong>：アップデートごとに10言語以上のメニューを往復し、長文テキストを1ブロックずつ手作業で貼付け。",
-    "comp_bad_2": "<strong>理不尽な画像エラー</strong>：スクショのサイズが1pxずれただけでアップロード拒絶。1400x560バナーの端が切れる。",
-    "comp_bad_3": "<strong>Gitと切り離された管理</strong>：画面上の変更は履歴に残らず、コミットログと完全に乖離した状態に。",
-    "comp_bad_4": "<strong>高リスクな認証情報の委譲</strong>：外部CIを使うには特権ストアAPIキーやOAuth Refresh Tokenの預け入れが必須。",
+    "comp_bad_1": "<strong>果てしない多言語コピペ地獄</strong>：リリースごとに10以上の言語ドロップダウンを切り替え、手作業で文章を貼り付ける消耗戦。",
+    "comp_bad_2": "<strong>1ピクセルの狂いによるリジェクト</strong>：数日間の審査待ちの末、バナー画像のわずかな比率ミスで即座に却下される絶望。",
+    "comp_bad_3": "<strong>Gitと乖離した履歴のブラックホール</strong>：管理画面での変更はGit差分に残らず、コードの変更履歴と完全に断絶。",
+    "comp_bad_4": "<strong>OAuthの認証設定と漏洩リスク</strong>：外部CIツールが要求する高権限のGoogle Cloud APIキーと更新トークンの管理リスク。",
     "comp_good_title": "Tug によるモダンな自動化体験",
     "comp_good_1": "<strong>宣言的シングルソース (YAML)</strong>：1つの <code>tug.yml</code> に全言語と画像仕様を集約し、Gitバージョン管理下で安全に運用。",
     "comp_good_2": "<strong>依存ゼロの純JS画像バリデータ</strong>：内蔵の軽量バイナリパーサーが、アップロード前にPNG/JPEGの寸法と比率をミリ秒で判定。",
@@ -329,15 +392,16 @@ const translations = {
     "install_tab_npx": "インストール不要 npx",
     "footer_sub": "MIT License · 公式マスコット Tuggy (デザイン A2)",
     "footer_feedback": "フィードバック & イシュー",
-    "term_tab_fill": "tug fill (自動入力)",
-    "term_tab_scan": "tug scan (素材検証)",
-    "term_tab_sync": "tug sync (リリース同期)",
-    "term_tab_upgrade": "tug upgrade (自動更新)",
+    "term_tab_fill": "tug fill",
+    "term_tab_scan": "tug scan",
+    "term_tab_sync": "tug sync",
+    "term_tab_upgrade": "tug upgrade",
     "term_terminal": {
       "fill": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug fill -z ./release/gemini-polish-v1.3.0.zip</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG FILL  CDP経由でChromeセッションに接続し、自動反映を実行中</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  下書きページを検出: Store Listing (ajboihpfgk...)</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-bold\">◆ 実行テレメトリレポート</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 多言語テキスト入力 .................... <span class=\"term-cyan\">7言語を自動切り替え入力完了</span> (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> フォームフィールド入力 ................ <span class=\"term-cyan\">13項目をネイティブ模擬入力</span> (URL, メール, プライバシー)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> メディア素材マウント ................ <span class=\"term-cyan\">8件のローカル素材を自動配置</span> (アイコン, プロモ画像, スクショ4枚)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 拡張機能ZIPアップロード ............. release/gemini-polish-v1.3.0.zip</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 完了！エラーなしで下書きが完成しました。ブラウザで確認の上、提出ボタンを押してください！</div>\n      ",
       "scan": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug scan</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SCAN  拡張機能素材の仕様および適合性を厳格チェック中</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  tug.yml スキーマ検証合格</div>\n<div class=\"term-bold\">◆ メタデータ概要</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 対応言語数 ........................... 7言語 (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 権限利用理由 ......................... 4項目の宣言が完全に適合</div>\n<div class=\"term-bold\">◆ メディア素材規格チェック (依存ゼロの純JSバイナリパーサー)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> アイコン (icon_128) ................. ./icon-128.png (128x128)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> スクリーンショット [4枚] ............ ./preview/store/01~04.png (1280x800)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 小型プロモ画像 (440x280) ............ ./preview/promo-cover-440x280.png</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 大型プロモ画像 (1400x560) ........... ./preview/promo-cover-1400x560.png</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  ✨ すべての素材が仕様に合致しています！tug fill を実行して自動申請を開始できます。</div>\n      ",
       "sync": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug sync</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SYNC  リモートリリースログとメタデータを同期中</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  リモートソースを認識: Deguang/gemini-graph-viewer (GitHub Releases)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 最新リリースタグ ..................... v1.3.0</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> タイトル ............................ Release v1.3.0 (Comfortable & Focus Styles)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 公開日時 ............................ 2026/09/05</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Changelogを tug.yml (locales.en.changelog) に差分マージ完了</div>\n<div class=\"term-green\">└  ✔ リリース情報の同期が完了しました！フォーマットは保護されています。</div>\n      ",
-      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - CLIの自己アップデートをチェック中 (GitHub Releases)</div>\n<div class=\"term-dim\">  現在のインストールバージョン: v0.1.0</div>\n<div class=\"term-cyan\">  GitHub (Deguang/tug) リモートリリースを確認中...</div>\n<div class=\"term-green\">  新バージョンを発見: v0.1.1 [パッチリリース (Patch)]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ 自動アップデート完了！v0.1.1 へ正常に移行しました</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Tug の最新版への更新が完了しました。tug コマンドで新機能をお試しください。</div>\n      "
+      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - CLIの自己アップデートをチェック中 (GitHub Releases)</div>\n<div class=\"term-dim\">  現在のインストールバージョン: v0.1.0</div>\n<div class=\"term-cyan\">  GitHub (Deguang/tug) リモートリリースを確認中...</div>\n<div class=\"term-green\">  新バージョンを発見: v0.1.1 [パッチリリース (Patch)]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ 自動アップデート完了！v0.1.1 へ正常に移行しました</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Tug の最新版への更新が完了しました。tug コマンドで新機能をお試しください。</div>\n      ",
+      "spec": "<div class=\"code-line\"><span class=\"token-comment\"># tug.yml · The single declarative blueprint for your extension</span></div>\n<div class=\"code-line\"><span class=\"token-key\">name</span>: <span class=\"token-str\">\"Gemini Polish Pro\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">version</span>: <span class=\"token-str\">\"1.3.0\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">store_id</span>: <span class=\"token-str\">\"ajboihpfgkcohkpmckojf...\"</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">locales</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">en</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - AI Browser Assistant\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"Contextual AI writing assistant for Chrome.\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">description</span>: <span class=\"token-str\">|</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Instant drafting & grammar refinement powered by Gemini.</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Highlight text anywhere to rewrite, summarize, or translate.</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">zh-CN</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - 沉浸式 AI 写作伴侣\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"划词即润色，秒级重构你的中英文表达。\"</span></div>\n<div class=\"code-line\">  <span class=\"token-comment\"># ... 10+ locales tracked under Git revision control</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">assets</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">icon</span>: <span class=\"token-str\">\"./assets/icon-128.png\"</span>          <span class=\"token-comment\"># 128x128 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">marquee</span>: <span class=\"token-str\">\"./assets/promo-1400x560.png\"</span> <span class=\"token-comment\"># 1400x560 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">screenshots</span>:</div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-1-1280x800.png\"</span></div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-2-1280x800.png\"</span></div>"
     },
     "nav_faq": "よくある質問",
     "faq_eyebrow": "疑問にお答えします",
@@ -350,7 +414,27 @@ const translations = {
     "faq_q3": "どのブラウザ拡張機能ストアに対応していますか？",
     "faq_a3": "現在Chrome Web StoreおよびMicrosoft Edge Partner Center（Edge Add-ons）のネイティブ自動化に対応しており、Firefox AMO向けの共通スキーマ設計も備えています。",
     "faq_q4": "事前検証（Pre-flight）はどのようにリジェクトを防ぎますか？",
-    "faq_a4": "アップロード前に画像ヘッダーのバイト列を直接パースし、スクリーンショットやプロモ画像のピクセル寸法（1280x800、1400x560など）や文字数制限を瞬時にチェック。1pxの誤差によるリジェクトを未然に防ぎます。"
+    "faq_a4": "アップロード前に画像ヘッダーのバイト列を直接パースし、スクリーンショットやプロモ画像のピクセル寸法（1280x800、1400x560など）や文字数制限を瞬時にチェック。1pxの誤差によるリジェクトを未然に防ぎます。",
+    "term_tab_spec": "tug.yml",
+    "metric_1_val": "45分 → 3秒",
+    "metric_1_label": "圧倒的な公開速度",
+    "metric_1_desc": "手動の管理画面入力から、3秒の自動マウントへ",
+    "metric_2_val": "0 API キー",
+    "metric_2_label": "認証情報の漏洩リスクゼロ",
+    "metric_2_desc": "ローカルChromeセッションにCDP直結。クラウド秘密鍵不要",
+    "metric_3_val": "10+ 言語",
+    "metric_3_label": "単一YAMLによる宣言的管理",
+    "metric_3_desc": "1つのファイルで世界各国の言語を同期。コピペ作業撲滅",
+    "metric_4_val": "0 ピクセル許容",
+    "metric_4_label": "ミリ秒単位の事前検証",
+    "metric_4_desc": "純JSバイトパーサーが寸法の不整合を事前検知し却下を防止",
+    "term_desc": {
+      "spec": "宣言型ブループリント仕様",
+      "fill": "CDPによる自動入力・アセット登録",
+      "scan": "ミリ秒単位の画像事前検証",
+      "sync": "リリース履歴の増分同期",
+      "upgrade": "CLI自己アップデート機能"
+    }
   },
   "ko": {
     "nav_docs": "문서",
@@ -361,13 +445,13 @@ const translations = {
     "nav_comparison": "비교 및 장점",
     "nav_mascot": "공식 마스코트",
     "nav_install": "설치하기",
-    "hero_badge_prefix": "공식 CLI 예인선 출동 완료 · ",
-    "hero_badge_tag": "스토어 배포 10배 가속",
-    "hero_title_1": "확장 프로그램 등록을,",
-    "hero_title_2": "",
+    "hero_badge_prefix": "공식 컴패니언 CLI · ",
+    "hero_badge_tag": "완전 자동 선언형 배포",
+    "hero_title_1": "확장 프로그램 배포를 ",
+    "hero_title_2": "like ",
     "hero_title_em": "git push",
-    "hero_title_3": " 처럼 가볍고 안정적으로",
-    "hero_desc": "Chrome 웹 스토어 관리 콘솔의 반복적인 복사 붙여넣기와 1픽셀 오차로 거절당하는 이미지 규격 오류에서 해방되세요.<br>로컬의 단일 YAML로 다국어 문구와 리소스를 관리하고, Tug가 CDP로 브라우저를 직접 구동하여 몇 초 만에 완벽한 드래프트를 완성합니다.",
+    "hero_title_3": " 처럼 극도로 자연스럽게",
+    "hero_desc": "45분간의 지루한 폼 입력, 10개 이상의 언어 메뉴 전환, 1픽셀 오차로 인한 반려의 고통에서 해방되세요.<br>단 하나의 <code>tug.yml</code> 파일과 로컬 CDP 연결로 3초 만에 스토어 반영 완료.",
     "hero_cta_install": "Tug 간편 설치",
     "hero_cta_docs": "공식 문서 보기",
     "btn_copied": "복사 완료!",
@@ -417,15 +501,16 @@ const translations = {
     "install_tab_npx": "무설치 실행 npx",
     "footer_sub": "MIT License · 공식 마스코트 Tuggy (디자인 A2)",
     "footer_feedback": "피드백 및 이슈 제보",
-    "term_tab_fill": "tug fill (자동 입력)",
-    "term_tab_scan": "tug scan (리소스 검증)",
-    "term_tab_sync": "tug sync (배포 동기화)",
-    "term_tab_upgrade": "tug upgrade (자체 업데이트)",
+    "term_tab_fill": "tug fill",
+    "term_tab_scan": "tug scan",
+    "term_tab_sync": "tug sync",
+    "term_tab_upgrade": "tug upgrade",
     "term_terminal": {
       "fill": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug fill -z ./release/gemini-polish-v1.3.0.zip</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG FILL  CDP를 통해 Chrome 세션에 직접 연결하여 자동 반영 중</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  확장 프로그램 임시저장 페이지 감지: Store Listing (ajboihpfgk...)</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-bold\">◆ 파이프라인 실행 텔레메트리</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 다국어 텍스트 입력 .................... <span class=\"term-cyan\">7개 언어 순차 전환 입력 완료</span> (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 양식 필드 자동 작성 .................. <span class=\"term-cyan\">13개 컴포넌트 네이티브 시뮬레이션</span> (URL, 지원 이메일 등)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 미디어 파일 주입 ...................... <span class=\"term-cyan\">8개 로컬 리소스 자동 등록</span> (아이콘, 프로모션, 스크린샷 4장)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 확장 프로그램 압축파일 업로드 ......... release/gemini-polish-v1.3.0.zip</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 성공! 모든 양식과 리소스가 오류 없이 채워졌습니다. 브라우저 확인 후 제출을 클릭하세요!</div>\n      ",
       "scan": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug scan</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SCAN  확장 프로그램 리소스 규격 및 적합성 사전 점검 중</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  tug.yml 스키마 검사 통과</div>\n<div class=\"term-bold\">◆ 확장 프로그램 메타데이터 개요</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 지원 언어 수 ........................... 7개 언어 (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 권한 사유 적합성 ....................... 4개 항목 적합 확인</div>\n<div class=\"term-bold\">◆ 미디어 규격 점검 (무의존 순수 JS 바이트 파서)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 아이콘 (icon_128) ................... ./icon-128.png (128x128)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 스크린샷 [4장] ....................... ./preview/store/01~04.png (1280x800)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 소형 프로모션 타일 (440x280) ......... ./preview/promo-cover-440x280.png</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 대형 프로모션 배너 (1400x560) ........ ./preview/promo-cover-1400x560.png</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  ✨ 모든 리소스가 규격에 부합합니다! tug fill 명령어로 자동 등록을 시작할 수 있습니다.</div>\n      ",
       "sync": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug sync</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SYNC  원격 릴리즈 변경사항 및 메타데이터 동기화 중</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  원격 저장소 확인: Deguang/gemini-graph-viewer (GitHub Releases)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 최신 릴리즈 태그 ..................... v1.3.0</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 제목 ................................ Release v1.3.0 (Comfortable & Focus Styles)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> 릴리즈 일자 .......................... 2026/09/05</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Changelog를 tug.yml (locales.en.changelog)에 안전하게 병합 완료</div>\n<div class=\"term-green\">└  ✔ 릴리즈 정보 동기화가 완료되었습니다!</div>\n      ",
-      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - CLI 자체 업데이트 확인 중 (GitHub Releases)</div>\n<div class=\"term-dim\">  현재 설치 버전: v0.1.0</div>\n<div class=\"term-cyan\">  GitHub (Deguang/tug) 원격 저장소 조회 중...</div>\n<div class=\"term-green\">  새 버전 발견: v0.1.1 [패치 릴리즈 (Patch)]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ 자동 업데이트 완료! v0.1.1 버전으로 매끄럽게 전환되었습니다</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Tug 최신 업데이트가 완료되었습니다. tug 명령어로 새로운 기능을 확인하세요.</div>\n      "
+      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - CLI 자체 업데이트 확인 중 (GitHub Releases)</div>\n<div class=\"term-dim\">  현재 설치 버전: v0.1.0</div>\n<div class=\"term-cyan\">  GitHub (Deguang/tug) 원격 저장소 조회 중...</div>\n<div class=\"term-green\">  새 버전 발견: v0.1.1 [패치 릴리즈 (Patch)]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ 자동 업데이트 완료! v0.1.1 버전으로 매끄럽게 전환되었습니다</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Tug 최신 업데이트가 완료되었습니다. tug 명령어로 새로운 기능을 확인하세요.</div>\n      ",
+      "spec": "<div class=\"code-line\"><span class=\"token-comment\"># tug.yml · The single declarative blueprint for your extension</span></div>\n<div class=\"code-line\"><span class=\"token-key\">name</span>: <span class=\"token-str\">\"Gemini Polish Pro\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">version</span>: <span class=\"token-str\">\"1.3.0\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">store_id</span>: <span class=\"token-str\">\"ajboihpfgkcohkpmckojf...\"</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">locales</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">en</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - AI Browser Assistant\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"Contextual AI writing assistant for Chrome.\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">description</span>: <span class=\"token-str\">|</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Instant drafting & grammar refinement powered by Gemini.</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Highlight text anywhere to rewrite, summarize, or translate.</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">zh-CN</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - 沉浸式 AI 写作伴侣\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"划词即润色，秒级重构你的中英文表达。\"</span></div>\n<div class=\"code-line\">  <span class=\"token-comment\"># ... 10+ locales tracked under Git revision control</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">assets</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">icon</span>: <span class=\"token-str\">\"./assets/icon-128.png\"</span>          <span class=\"token-comment\"># 128x128 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">marquee</span>: <span class=\"token-str\">\"./assets/promo-1400x560.png\"</span> <span class=\"token-comment\"># 1400x560 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">screenshots</span>:</div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-1-1280x800.png\"</span></div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-2-1280x800.png\"</span></div>"
     },
     "nav_faq": "자주 묻는 질문",
     "faq_eyebrow": "궁금한 점 해결",
@@ -438,7 +523,27 @@ const translations = {
     "faq_q3": "어떤 브라우저 확장 프로그램 스토어를 지원하나요?",
     "faq_a3": "현재 Chrome Web Store 및 Microsoft Edge Partner Center(Edge Add-ons)의 기본 자동화를 완벽히 지원하며, Firefox AMO를 위한 공통 청사진 스키마를 포함합니다.",
     "faq_q4": "사전 검증(Pre-flight)이 어떻게 심사 반려를 막아주나요?",
-    "faq_a4": "업로드 전에 이미지 바이너리 헤더를 수 밀리초 만에 분석하여 스크린샷과 프로모션 이미지 규격(1280x800, 1400x560 등) 및 글자 수 제한을 정밀 검증하므로 형식 오류로 인한 심사 지연이 발생하지 않습니다."
+    "faq_a4": "업로드 전에 이미지 바이너리 헤더를 수 밀리초 만에 분석하여 스크린샷과 프로모션 이미지 규격(1280x800, 1400x560 등) 및 글자 수 제한을 정밀 검증하므로 형식 오류로 인한 심사 지연이 발생하지 않습니다.",
+    "term_tab_spec": "tug.yml",
+    "metric_1_val": "45분 → 3초",
+    "metric_1_label": "출시 속도 압축",
+    "metric_1_desc": "지루한 대시보드 수동 입력에서 3초 자동 마운트로 단축",
+    "metric_2_val": "0 API 키",
+    "metric_2_label": "인증정보 유출 위험 제로",
+    "metric_2_desc": "로컬 Chrome 세션에 CDP 직접 연결. 클라우드 키 불필요",
+    "metric_3_val": "10+ 개 언어",
+    "metric_3_label": "선언형 단일 YAML 소스",
+    "metric_3_desc": "하나의 파일로 다국어 설명 관리. 복사-붙여넣기 노동 탈출",
+    "metric_4_val": "0 픽셀 오차",
+    "metric_4_label": "밀리초 사전 검증",
+    "metric_4_desc": "순수 JS 바이트 파서로 규격 불일치를 즉시 차단해 반려 방지",
+    "term_desc": {
+      "spec": "선언형 청사진 명세",
+      "fill": "CDP 기반 자동 폼 입력 및 마운트",
+      "scan": "밀리초 단위 리소스 사전 검증",
+      "sync": "릴리스 변경 로그 동기화",
+      "upgrade": "CLI 자체 업데이트 엔진"
+    }
   },
   "ru": {
     "nav_docs": "Документация",
@@ -449,13 +554,13 @@ const translations = {
     "nav_comparison": "Преимущества",
     "nav_mascot": "Маскот",
     "nav_install": "Установка",
-    "hero_badge_prefix": "Официальный буксир готов к работе · ",
-    "hero_badge_tag": "Ускорение релизов в 10 раз",
-    "hero_title_1": "Публикуйте обновления расширений ",
+    "hero_badge_prefix": "Официальный CLI · ",
+    "hero_badge_tag": "Декларативная скорость",
+    "hero_title_1": "Публикуйте расширения ",
     "hero_title_2": "так же легко, как ",
     "hero_title_em": "git push",
     "hero_title_3": "",
-    "hero_desc": "Забудьте о ручном заполнении десятков форм и ошибках габаритов скриншотов в Chrome Web Store.<br>Описывайте все локали и медиафайлы в одном YAML-файле — Tug мгновенно подключится к браузеру через CDP и всё подготовит.",
+    "hero_desc": "Забудьте о 45 минутах ручного заполнения форм, десятках языковых вкладок и отклонениях из-за 1 пикселя.<br>Единый YAML, прямое локальное CDP-управление и публикация за 3 секунды.",
     "hero_cta_install": "Установить Tug CLI",
     "hero_cta_docs": "Документация",
     "btn_copied": "Скопировано!",
@@ -505,15 +610,16 @@ const translations = {
     "install_tab_npx": "Запуск через npx без установки",
     "footer_sub": "MIT License · Официальный маскот Tuggy (Концепт A2)",
     "footer_feedback": "Отзывы и багрепорты",
-    "term_tab_fill": "tug fill (Автозаполнение)",
-    "term_tab_scan": "tug scan (Проверка файлов)",
-    "term_tab_sync": "tug sync (Синхронизация)",
-    "term_tab_upgrade": "tug upgrade (Обновление CLI)",
+    "term_tab_fill": "tug fill",
+    "term_tab_scan": "tug scan",
+    "term_tab_sync": "tug sync",
+    "term_tab_upgrade": "tug upgrade",
     "term_terminal": {
       "fill": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug fill -z ./release/gemini-polish-v1.3.0.zip</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG FILL  Подключение к сессии Chrome через нативный CDP</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Найден черновик расширения: Store Listing (ajboihpfgk...)</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-bold\">◆ Отчет о выполнении пайплайна</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Многоязычные переводы ................ <span class=\"term-cyan\">7 языков успешно заполнено</span> (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Поля формы ........................... <span class=\"term-cyan\">13 элементов эмулировано</span> (сайт, поддержка, privacy policy)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Медиафайлы ........................... <span class=\"term-cyan\">8 локальных файлов смонтировано</span> (иконка, баннер, 4 скриншота)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Архив расширения загружен ............. release/gemini-polish-v1.3.0.zip</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Успешно! Черновик заполнен без единой ошибки. Проверьте в браузере и нажмите «Отправить»!</div>\n      ",
       "scan": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug scan</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SCAN  Предварительная проверка спецификаций графики и манифеста</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Схема tug.yml валидирована</div>\n<div class=\"term-bold\">◆ Метаданные расширения</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Поддерживаемые языки ................. 7 языков (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Обоснования разрешений .............. 4 пункта полностью соответствуют</div>\n<div class=\"term-bold\">◆ Проверка размеров промо-материалов (чистый JS парсер)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Иконка (icon_128) ................... ./icon-128.png (128x128)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Скриншоты [4 шт] .................... ./preview/store/01~04.png (1280x800)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Малое промо-изображение (440x280) ... ./preview/promo-cover-440x280.png</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Главный баннер (1400x560) ........... ./preview/promo-cover-1400x560.png</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  ✨ Все материалы соответствуют требованиям! Запустите tug fill для отправки.</div>\n      ",
       "sync": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug sync</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SYNC  Синхронизация журнала изменений и данных репозитория</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Определен источник: Deguang/gemini-graph-viewer (GitHub Releases)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Тег последнего релиза ................ v1.3.0</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Заголовок ........................... Release v1.3.0 (Comfortable & Focus Styles)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Дата публикации ..................... 2026-09-05</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Changelog успешно объединен с tug.yml (locales.en.changelog)</div>\n<div class=\"term-green\">└  ✔ Синхронизация завершена с сохранением форматирования!</div>\n      ",
-      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - Проверка наличия новой версии CLI (GitHub Releases)</div>\n<div class=\"term-dim\">  Установленная версия: v0.1.0</div>\n<div class=\"term-cyan\">  Запрос релизов с GitHub (Deguang/tug)...</div>\n<div class=\"term-green\">  Обнаружена новая версия: v0.1.1 [Патч (Patch)]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ Обновление завершено! Успешный переход на v0.1.1</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Tug обновлен. Запустите tug, чтобы ознакомиться с новинками.</div>\n      "
+      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - Проверка наличия новой версии CLI (GitHub Releases)</div>\n<div class=\"term-dim\">  Установленная версия: v0.1.0</div>\n<div class=\"term-cyan\">  Запрос релизов с GitHub (Deguang/tug)...</div>\n<div class=\"term-green\">  Обнаружена новая версия: v0.1.1 [Патч (Patch)]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ Обновление завершено! Успешный переход на v0.1.1</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Tug обновлен. Запустите tug, чтобы ознакомиться с новинками.</div>\n      ",
+      "spec": "<div class=\"code-line\"><span class=\"token-comment\"># tug.yml · The single declarative blueprint for your extension</span></div>\n<div class=\"code-line\"><span class=\"token-key\">name</span>: <span class=\"token-str\">\"Gemini Polish Pro\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">version</span>: <span class=\"token-str\">\"1.3.0\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">store_id</span>: <span class=\"token-str\">\"ajboihpfgkcohkpmckojf...\"</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">locales</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">en</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - AI Browser Assistant\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"Contextual AI writing assistant for Chrome.\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">description</span>: <span class=\"token-str\">|</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Instant drafting & grammar refinement powered by Gemini.</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Highlight text anywhere to rewrite, summarize, or translate.</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">zh-CN</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - 沉浸式 AI 写作伴侣\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"划词即润色，秒级重构你的中英文表达。\"</span></div>\n<div class=\"code-line\">  <span class=\"token-comment\"># ... 10+ locales tracked under Git revision control</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">assets</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">icon</span>: <span class=\"token-str\">\"./assets/icon-128.png\"</span>          <span class=\"token-comment\"># 128x128 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">marquee</span>: <span class=\"token-str\">\"./assets/promo-1400x560.png\"</span> <span class=\"token-comment\"># 1400x560 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">screenshots</span>:</div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-1-1280x800.png\"</span></div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-2-1280x800.png\"</span></div>"
     },
     "nav_faq": "FAQ",
     "faq_eyebrow": "Частые вопросы",
@@ -526,7 +632,27 @@ const translations = {
     "faq_q3": "Какие магазины расширений поддерживаются?",
     "faq_a3": "Tug поддерживает полную автоматизацию для Chrome Web Store и Microsoft Edge Partner Center (Edge Add-ons), а также содержит универсальную схему для Firefox AMO.",
     "faq_q4": "Как предварительная проверка предотвращает отклонение релиза?",
-    "faq_a4": "Tug мгновенно анализирует бинарные заголовки изображений перед загрузкой, проверяя размеры скриншотов (1280x800) и баннеров (1400x560), исключая задержки из-за ошибки в 1 пиксель."
+    "faq_a4": "Tug мгновенно анализирует бинарные заголовки изображений перед загрузкой, проверяя размеры скриншотов (1280x800) и баннеров (1400x560), исключая задержки из-за ошибки в 1 пиксель.",
+    "term_tab_spec": "tug.yml",
+    "metric_1_val": "45м → 3с",
+    "metric_1_label": "Молниеносный релиз",
+    "metric_1_desc": "От рутинного заполнения форм до 3-секундного монтажа",
+    "metric_2_val": "0 API-ключей",
+    "metric_2_label": "Нулевой риск утечки",
+    "metric_2_desc": "Прямой CDP к локальному Chrome. Данные не покидают ПК",
+    "metric_3_val": "10+ языков",
+    "metric_3_label": "Декларативный единый источник",
+    "metric_3_desc": "Один tug.yml для всех языков. Конец ручному копипасту",
+    "metric_4_val": "0 пикселей ошибки",
+    "metric_4_label": "Предотгрузочная валидация",
+    "metric_4_desc": "Быстрый JS-парсер проверяет размеры картинок до отклонения",
+    "term_desc": {
+      "spec": "Декларативная спецификация",
+      "fill": "Прямое заполнение через CDP",
+      "scan": "Быстрая валидация файлов",
+      "sync": "Синхронизация ченджлога",
+      "upgrade": "Самообновление CLI"
+    }
   },
   "de": {
     "nav_docs": "Dokumentation",
@@ -537,13 +663,13 @@ const translations = {
     "nav_comparison": "Vorteile",
     "nav_mascot": "Maskottchen",
     "nav_install": "Installation",
-    "hero_badge_prefix": "Offizieller CLI-Schlepper bereit · ",
-    "hero_badge_tag": "10x schnellere Store-Releases",
-    "hero_title_1": "Erweiterungen veröffentlichen, ",
-    "hero_title_2": "so reibungslos wie ",
+    "hero_badge_prefix": "Offizielles CLI · ",
+    "hero_badge_tag": "Reine Deklarative Geschwindigkeit",
+    "hero_title_1": "Browser-Erweiterungen releasen ",
+    "hero_title_2": "so nahtlos wie ",
     "hero_title_em": "git push",
     "hero_title_3": "",
-    "hero_desc": "Schluss mit lästigem Formularausfüllen und Pixel-Fehlern im Chrome Web Store Dashboard.<br>Verwalten Sie mehrsprachige Beschreibungen und Grafiken in einer lokalen YAML-Datei – Tug steuert den Browser direkt via CDP und spart Ihnen wertvolle Stunden.",
+    "hero_desc": "Schluss mit 45 Minuten Formularqualen, Dutzenden Sprachmenüs und Ablehnungen wegen 1-Pixel-Fehlern.<br>Single-Source-YAML, direkte lokale CDP-Steuerung und 3 Sekunden Bereitstellungszeit.",
     "hero_cta_install": "Tug CLI installieren",
     "hero_cta_docs": "Dokumentation lesen",
     "btn_copied": "Kopiert!",
@@ -593,15 +719,16 @@ const translations = {
     "install_tab_npx": "Direktstart via npx",
     "footer_sub": "MIT License · Offizielles Maskottchen Tuggy (Konzept A2)",
     "footer_feedback": "Feedback & Fehlermeldungen",
-    "term_tab_fill": "tug fill (Automatisches Ausfüllen)",
-    "term_tab_scan": "tug scan (Asset-Prüfung)",
-    "term_tab_sync": "tug sync (Release-Abgleich)",
-    "term_tab_upgrade": "tug upgrade (Selbst-Update)",
+    "term_tab_fill": "tug fill",
+    "term_tab_scan": "tug scan",
+    "term_tab_sync": "tug sync",
+    "term_tab_upgrade": "tug upgrade",
     "term_terminal": {
       "fill": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug fill -z ./release/gemini-polish-v1.3.0.zip</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG FILL  Verbindung mit Chrome via native CDP-Session aktiv</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Erweiterungsentwurf gefunden: Store Listing (ajboihpfgk...)</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-bold\">◆ Ausfüll-Telemetrie</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Mehrsprachige Texte ................ <span class=\"term-cyan\">7 Sprachen erfolgreich eingetragen</span> (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Formularfelder ausgefüllt ............. <span class=\"term-cyan\">13 Komponenten simuliert</span> (Webseite, Support, Datenschutz)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Assets eingehängt .................... <span class=\"term-cyan\">8 lokale Dateien übertragen</span> (Icon, Banner, 4 Screenshots)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Erweiterungs-ZIP hochgeladen ......... release/gemini-polish-v1.3.0.zip</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Fertig! Alle Angaben ohne Fehler übertragen. Bitte im Browser prüfen und einreichen!</div>\n      ",
       "scan": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug scan</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SCAN  Vorabprüfung der Bildspezifikationen und Konformität</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  tug.yml Schema-Validierung erfolgreich</div>\n<div class=\"term-bold\">◆ Metadaten-Übersicht</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Unterstützte Sprachen ................. 7 Sprachen (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Berechtigungsbegründungen ............ 4 Angaben vollständig konform</div>\n<div class=\"term-bold\">◆ Überprüfung der Bildformate (reiner JS-Byte-Parser)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Icon (icon_128) ..................... ./icon-128.png (128x128)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Screenshots [4 Bilder] .............. ./preview/store/01~04.png (1280x800)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Kleines Banner (440x280) ............ ./preview/promo-cover-440x280.png</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Großes Banner (1400x560) ............. ./preview/promo-cover-1400x560.png</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  ✨ Alle Assets entsprechen den Vorgaben! Starten Sie tug fill zur automatischen Übertragung.</div>\n      ",
       "sync": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug sync</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SYNC  Synchronisiere Release-Changelog und Metadaten</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Remote-Quelle erkannt: Deguang/gemini-graph-viewer (GitHub Releases)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Neuestes Release-Tag ................. v1.3.0</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Titel ................................ Release v1.3.0 (Comfortable & Focus Styles)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Veröffentlichungsdatum ............... 2026-09-05</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Changelog inkrementell in tug.yml (locales.en.changelog) übernommen</div>\n<div class=\"term-green\">└  ✔ Synchronisierung abgeschlossen! Formatierung beibehalten.</div>\n      ",
-      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - Prüfe und installiere CLI-Aktualisierung (GitHub Releases)</div>\n<div class=\"term-dim\">  Installierte Version: v0.1.0</div>\n<div class=\"term-cyan\">  Frage GitHub (Deguang/tug) nach neuen Versionen ab...</div>\n<div class=\"term-green\">  Neue Version gefunden: v0.1.1 [Patch-Release]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ Upgrade abgeschlossen! Erfolgreich auf v0.1.1 aktualisiert</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Tug ist auf dem neuesten Stand. Führen Sie tug aus, um neue Funktionen zu nutzen.</div>\n      "
+      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - Prüfe und installiere CLI-Aktualisierung (GitHub Releases)</div>\n<div class=\"term-dim\">  Installierte Version: v0.1.0</div>\n<div class=\"term-cyan\">  Frage GitHub (Deguang/tug) nach neuen Versionen ab...</div>\n<div class=\"term-green\">  Neue Version gefunden: v0.1.1 [Patch-Release]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ Upgrade abgeschlossen! Erfolgreich auf v0.1.1 aktualisiert</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Tug ist auf dem neuesten Stand. Führen Sie tug aus, um neue Funktionen zu nutzen.</div>\n      ",
+      "spec": "<div class=\"code-line\"><span class=\"token-comment\"># tug.yml · The single declarative blueprint for your extension</span></div>\n<div class=\"code-line\"><span class=\"token-key\">name</span>: <span class=\"token-str\">\"Gemini Polish Pro\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">version</span>: <span class=\"token-str\">\"1.3.0\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">store_id</span>: <span class=\"token-str\">\"ajboihpfgkcohkpmckojf...\"</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">locales</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">en</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - AI Browser Assistant\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"Contextual AI writing assistant for Chrome.\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">description</span>: <span class=\"token-str\">|</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Instant drafting & grammar refinement powered by Gemini.</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Highlight text anywhere to rewrite, summarize, or translate.</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">zh-CN</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - 沉浸式 AI 写作伴侣\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"划词即润色，秒级重构你的中英文表达。\"</span></div>\n<div class=\"code-line\">  <span class=\"token-comment\"># ... 10+ locales tracked under Git revision control</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">assets</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">icon</span>: <span class=\"token-str\">\"./assets/icon-128.png\"</span>          <span class=\"token-comment\"># 128x128 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">marquee</span>: <span class=\"token-str\">\"./assets/promo-1400x560.png\"</span> <span class=\"token-comment\"># 1400x560 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">screenshots</span>:</div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-1-1280x800.png\"</span></div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-2-1280x800.png\"</span></div>"
     },
     "nav_faq": "FAQ",
     "faq_eyebrow": "Häufige Fragen",
@@ -614,7 +741,27 @@ const translations = {
     "faq_q3": "Welche Extension-Stores werden unterstützt?",
     "faq_a3": "Tug bietet vollständige Automatisierung für Chrome Web Store und Microsoft Edge Partner Center (Edge Add-ons) sowie ein einheitliches Schema für Firefox AMO.",
     "faq_q4": "Wie verhindert die Vorabprüfung Store-Ablehnungen?",
-    "faq_a4": "Tug liest Bild-Header in Millisekunden aus und überprüft exakte Pixelmaße (z.B. 1280x800, 1400x560) und Textlängen vor dem Upload, um zeitraubende Ablehnungen zu vermeiden."
+    "faq_a4": "Tug liest Bild-Header in Millisekunden aus und überprüft exakte Pixelmaße (z.B. 1280x800, 1400x560) und Textlängen vor dem Upload, um zeitraubende Ablehnungen zu vermeiden.",
+    "term_tab_spec": "tug.yml",
+    "metric_1_val": "45m → 3s",
+    "metric_1_label": "Release-Geschwindigkeit",
+    "metric_1_desc": "Von 45 Min. manuellem Formularausfüllen zu 3 Sek. Auto-Mount",
+    "metric_2_val": "0 API-Keys",
+    "metric_2_label": "Kein Sicherheitsrisiko",
+    "metric_2_desc": "100% lokaler CDP-Zugriff auf Chrome. Keine Cloud-Keys nötig",
+    "metric_3_val": "10+ Sprachen",
+    "metric_3_label": "Deklarative Single Source",
+    "metric_3_desc": "Ein einziges tug.yml für alle Sprachen. Schluss mit Copy-Paste",
+    "metric_4_val": "0 Pixel Toleranz",
+    "metric_4_label": "Pre-Flight-Verifizierung",
+    "metric_4_desc": "Reiner JS-Byte-Parser stoppt Größenfehler vor Shop-Ablehnung",
+    "term_desc": {
+      "spec": "Deklarative Blueprint-Spezifikation",
+      "fill": "Native CDP-Automatisierung",
+      "scan": "Blitzschnelle Asset-Prüfung",
+      "sync": "Changelog-Synchronisation",
+      "upgrade": "CLI-Selbstupdate-Engine"
+    }
   },
   "fr": {
     "nav_docs": "Documentation",
@@ -625,13 +772,13 @@ const translations = {
     "nav_comparison": "Pourquoi Tug",
     "nav_mascot": "Mascotte",
     "nav_install": "Installation",
-    "hero_badge_prefix": "Remorqueur officiel CLI prêt · ",
-    "hero_badge_tag": "Releases de stores 10x plus rapides",
-    "hero_title_1": "Publiez vos extensions ",
+    "hero_badge_prefix": "CLI Compagnon Officiel · ",
+    "hero_badge_tag": "Vitesse déclarative pure",
+    "hero_title_1": "Déployez vos extensions ",
     "hero_title_2": "aussi simplement qu'un ",
     "hero_title_em": "git push",
     "hero_title_3": "",
-    "hero_desc": "Fini le calvaire des formulaires interminables et des erreurs d'images au pixel près dans le Chrome Web Store.<br>Définissez vos textes multilingues et visuels dans un fichier YAML local unique — Tug pilote Chrome via CDP pour pré-remplir votre fiche en quelques secondes.",
+    "hero_desc": "Oubliez 45 minutes de corvée de formulaires, 10 langues à copier-coller et les rejets pour 1 pixel.<br>Un seul fichier YAML, automatisation locale directe via CDP, publication en 3 secondes.",
     "hero_cta_install": "Installer Tug CLI",
     "hero_cta_docs": "Documentation officielle",
     "btn_copied": "Copié !",
@@ -681,15 +828,16 @@ const translations = {
     "install_tab_npx": "Exécution sans installation npx",
     "footer_sub": "MIT License · Mascotte officielle Tuggy (Concept A2)",
     "footer_feedback": "Retours et signalements",
-    "term_tab_fill": "tug fill (Remplissage auto)",
-    "term_tab_scan": "tug scan (Contrôle des fichiers)",
-    "term_tab_sync": "tug sync (Synchro de release)",
-    "term_tab_upgrade": "tug upgrade (Mise à jour CLI)",
+    "term_tab_fill": "tug fill",
+    "term_tab_scan": "tug scan",
+    "term_tab_sync": "tug sync",
+    "term_tab_upgrade": "tug upgrade",
     "term_terminal": {
       "fill": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug fill -z ./release/gemini-polish-v1.3.0.zip</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG FILL  Connexion à Chrome via session CDP native</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Brouillon détecté : Store Listing (ajboihpfgk...)</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-bold\">◆ Télémétrie de saisie</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Entrées multilingues ................. <span class=\"term-cyan\">7 langues renseignées</span> (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Champs de formulaire .................. <span class=\"term-cyan\">13 composants simulés</span> (site, support, confidentialité)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Fichiers montés ....................... <span class=\"term-cyan\">8 ressources locales attachées</span> (icône, bannière, 4 captures)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Archive ZIP téléversée ................ release/gemini-polish-v1.3.0.zip</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Succès ! Formulaire complété sans erreur. Vérifiez sur votre navigateur puis soumettez !</div>\n      ",
       "scan": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug scan</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SCAN  Vérification préalable des spécifications des ressources</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Validation du schéma tug.yml réussie</div>\n<div class=\"term-bold\">◆ Aperçu des métadonnées</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Langues prises en charge ............. 7 langues (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Justifications des permissions ....... 4 déclarations conformes</div>\n<div class=\"term-bold\">◆ Contrôle des visuels (parseur binaire pur JavaScript)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Icône (icon_128) ..................... ./icon-128.png (128x128)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Captures d'écran [4 images] ......... ./preview/store/01~04.png (1280x800)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Petite tuile promo (440x280) ......... ./preview/promo-cover-440x280.png</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Grande bannière promo (1400x560) ..... ./preview/promo-cover-1400x560.png</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  ✨ Tous les fichiers sont valides ! Lancez tug fill pour automatiser la soumission.</div>\n      ",
       "sync": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug sync</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SYNC  Synchronisation des logs de version et métadonnées distantes</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Source distante identifiée : Deguang/gemini-graph-viewer (GitHub Releases)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Dernier tag de version ............... v1.3.0</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Titre ................................ Release v1.3.0 (Comfortable & Focus Styles)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> Date de publication .................. 2026-09-05</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Changelog fusionné dans tug.yml (locales.en.changelog)</div>\n<div class=\"term-green\">└  ✔ Synchronisation terminée avec succès ! Formatage préservé.</div>\n      ",
-      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - Vérification des mises à jour du CLI (GitHub Releases)</div>\n<div class=\"term-dim\">  Version installée : v0.1.0</div>\n<div class=\"term-cyan\">  Recherche sur GitHub (Deguang/tug)...</div>\n<div class=\"term-green\">  Nouvelle version détectée : v0.1.1 [Correctif (Patch)]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ Mise à jour terminée ! Migration transparente vers v0.1.1</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Tug est à jour. Exécutez tug pour découvrir les nouveautés.</div>\n      "
+      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - Vérification des mises à jour du CLI (GitHub Releases)</div>\n<div class=\"term-dim\">  Version installée : v0.1.0</div>\n<div class=\"term-cyan\">  Recherche sur GitHub (Deguang/tug)...</div>\n<div class=\"term-green\">  Nouvelle version détectée : v0.1.1 [Correctif (Patch)]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ Mise à jour terminée ! Migration transparente vers v0.1.1</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Tug est à jour. Exécutez tug pour découvrir les nouveautés.</div>\n      ",
+      "spec": "<div class=\"code-line\"><span class=\"token-comment\"># tug.yml · The single declarative blueprint for your extension</span></div>\n<div class=\"code-line\"><span class=\"token-key\">name</span>: <span class=\"token-str\">\"Gemini Polish Pro\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">version</span>: <span class=\"token-str\">\"1.3.0\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">store_id</span>: <span class=\"token-str\">\"ajboihpfgkcohkpmckojf...\"</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">locales</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">en</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - AI Browser Assistant\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"Contextual AI writing assistant for Chrome.\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">description</span>: <span class=\"token-str\">|</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Instant drafting & grammar refinement powered by Gemini.</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Highlight text anywhere to rewrite, summarize, or translate.</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">zh-CN</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - 沉浸式 AI 写作伴侣\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"划词即润色，秒级重构你的中英文表达。\"</span></div>\n<div class=\"code-line\">  <span class=\"token-comment\"># ... 10+ locales tracked under Git revision control</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">assets</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">icon</span>: <span class=\"token-str\">\"./assets/icon-128.png\"</span>          <span class=\"token-comment\"># 128x128 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">marquee</span>: <span class=\"token-str\">\"./assets/promo-1400x560.png\"</span> <span class=\"token-comment\"># 1400x560 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">screenshots</span>:</div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-1-1280x800.png\"</span></div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-2-1280x800.png\"</span></div>"
     },
     "nav_faq": "FAQ",
     "faq_eyebrow": "Questions fréquentes",
@@ -702,7 +850,27 @@ const translations = {
     "faq_q3": "Quels stores d’extensions sont pris en charge ?",
     "faq_a3": "Tug prend en charge l’automatisation complète pour le Chrome Web Store et le Microsoft Edge Partner Center (Edge Add-ons), avec un schéma universel prêt pour Firefox AMO.",
     "faq_q4": "Comment la vérification pré-vol évite-t-elle les rejets de validation ?",
-    "faq_a4": "Tug analyse instantanément les en-têtes binaires des images pour vérifier les dimensions exactes (1280x800, 1400x560) et les limites de caractères avant l’envoi, éliminant les rejets frustrants."
+    "faq_a4": "Tug analyse instantanément les en-têtes binaires des images pour vérifier les dimensions exactes (1280x800, 1400x560) et les limites de caractères avant l’envoi, éliminant les rejets frustrants.",
+    "term_tab_spec": "tug.yml",
+    "metric_1_val": "45m → 3s",
+    "metric_1_label": "Vitesse de publication",
+    "metric_1_desc": "De 45 min de formulaires manuels à 3 secondes d’injection",
+    "metric_2_val": "0 Clés API",
+    "metric_2_label": "Zéro risque d'exposition",
+    "metric_2_desc": "Connexion CDP 100% locale sur Chrome. Aucune clé cloud requise",
+    "metric_3_val": "10+ Langues",
+    "metric_3_label": "Source unique déclarative",
+    "metric_3_desc": "Un seul tug.yml régit toutes les langues. Fini le copier-coller",
+    "metric_4_val": "0 Pixel d'erreur",
+    "metric_4_label": "Validation pré-vol",
+    "metric_4_desc": "Analyseur JS binaire interceptant les erreurs de dimension",
+    "term_desc": {
+      "spec": "Spécification déclarative YAML",
+      "fill": "Automatisation directe via CDP",
+      "scan": "Validation instantanée des médias",
+      "sync": "Synchronisation des changelogs",
+      "upgrade": "Moteur d'auto-mise à jour CLI"
+    }
   },
   "hi": {
     "nav_docs": "दस्तावेज़",
@@ -713,13 +881,13 @@ const translations = {
     "nav_comparison": "Tug ही क्यों",
     "nav_mascot": "शुभंकर",
     "nav_install": "इंस्टॉल करें",
-    "hero_badge_prefix": "आधिकारिक टगबोट सेवा में उपस्थित · ",
-    "hero_badge_tag": "10 गुना तेज़ स्टोर रिलीज़",
-    "hero_title_1": "एक्सटेंशन अपडेट्स पब्लिश करें, ",
-    "hero_title_2": "",
+    "hero_badge_prefix": "आधिकारिक साथी CLI · ",
+    "hero_badge_tag": "शून्य-डैशबोर्ड गति",
+    "hero_title_1": "ब्राउज़र एक्सटेंशन रिलीज़ करें, ",
+    "hero_title_2": "उतना ही सहज जितना ",
     "hero_title_em": "git push",
     "hero_title_3": " की तरह सहज और सुरक्षित",
-    "hero_desc": "Chrome Web Store के थकाऊ फॉर्म भरने और इमेज साइज की गलतियों से मुक्ति पाएं।<br>एकल स्थानीय YAML फ़ाइल में सभी बहुभाषी विवरण और ग्राफ़िक्स प्रबंधित करें — Tug सीधे ब्राउज़र से जुड़कर सेकंडों में सब कुछ तैयार कर देता है।",
+    "hero_desc": "डैशबोर्ड में 45 मिनट के थकाऊ फॉर्म, 10+ भाषाओं के मेनू और 1 पिक्सेल की अस्वीकृति को अलविदा कहें।<br>एकल YAML विनिर्देश और स्थानीय CDP स्वचालन के साथ सिर्फ 3 सेकंड में सबमिशन।",
     "hero_cta_install": "Tug इंस्टॉल करें",
     "hero_cta_docs": "दस्तावेज़ देखें",
     "btn_copied": "कॉपी हो गया!",
@@ -769,15 +937,16 @@ const translations = {
     "install_tab_npx": "बिना इंस्टॉलेशन npx",
     "footer_sub": "MIT License · आधिकारिक शुभंकर टग्गी (कॉन्सेप्ट A2)",
     "footer_feedback": "फीडबैक और समस्याएं",
-    "term_tab_fill": "tug fill (ऑटोमैटिक फॉर्म फिल)",
-    "term_tab_scan": "tug scan (इमेज प्री-फ्लाइट)",
-    "term_tab_sync": "tug sync (रिलीज सिंक)",
-    "term_tab_upgrade": "tug upgrade (सेल्फ-अपग्रेड)",
+    "term_tab_fill": "tug fill",
+    "term_tab_scan": "tug scan",
+    "term_tab_sync": "tug sync",
+    "term_tab_upgrade": "tug upgrade",
     "term_terminal": {
       "fill": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug fill -z ./release/gemini-polish-v1.3.0.zip</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG FILL  सीडीपी के जरिए Chrome से जुड़कर फॉर्म ऑटो-फिल चालू</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ड्राफ्ट पेज मिल गया: Store Listing (ajboihpfgk...)</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-bold\">◆ सबमिशन टेलीमेट्री रिपोर्ट</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> बहुभाषी विवरण प्रविष्टियाँ ............. <span class=\"term-cyan\">7 भाषाओं में स्विच करके भरा गया</span> (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> फॉर्म फील्ड्स भरे गए ................. <span class=\"term-cyan\">13 घटक सिम्युलेट किए गए</span> (वेबसाइट, सपोर्ट ईमेल आदि)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> फाइलें इंजेक्ट की गईं ................... <span class=\"term-cyan\">8 लोकल एसेट्स माउंटेड</span> (आइकॉन, प्रोमो बैनर, 4 स्क्रीनशॉट)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> एक्सटेंशन पैकेज अपलोड ................ release/gemini-polish-v1.3.0.zip</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 बधाई! फॉर्म बिना किसी त्रुटि के भर गया है। ब्राउज़र में जांचें और सबमिट पर क्लिक करें!</div>\n      ",
       "scan": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug scan</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SCAN  एक्सटेंशन एसेट विनिर्देशों और नियमों की पूर्व-जांच जारी</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  tug.yml स्कीमा सत्यापन सफल</div>\n<div class=\"term-bold\">◆ एक्सटेंशन मेटाडेटा अवलोकन</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> समर्थित भाषाएं ....................... 7 भाषाएं (en, zh_CN, zh_TW, ja, hi, de, fr)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> अनुमति औचित्य ........................ 4 घोषणाएं पूरी तरह से सही</div>\n<div class=\"term-bold\">◆ मीडिया विनिर्देश जांच (प्योर JS बाइट पार्सर)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> आइकॉन (icon_128) .................... ./icon-128.png (128x128)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> स्क्रीनशॉट्स [4 छवियां] ............... ./preview/store/01~04.png (1280x800)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> छोटा प्रोमो टाइल (440x280) ............ ./preview/promo-cover-440x280.png</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> बड़ा प्रोमो बैनर (1400x560) ........... ./preview/promo-cover-1400x560.png</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  ✨ सभी एसेट्स नियमों के अनुसार सही हैं! ऑटोमेशन शुरू करने के लिए tug fill चलाएं।</div>\n      ",
       "sync": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug sync</span></div>\n<div class=\"term-dim\">┌   ⚓ TUG SYNC  रिमोट रिपॉजिटरी रिलीज लॉग्स और मेटाडेटा सिंक जारी</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  रिमोट स्रोत पहचाना गया: Deguang/gemini-graph-viewer (GitHub Releases)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> नवीनतम रिलीज टैग .................... v1.3.0</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> शीर्षक ................................ Release v1.3.0 (Comfortable & Focus Styles)</div>\n<div class=\"term-line\">  <span class=\"term-green\">✔</span> प्रकाशन तिथि .......................... 2026-09-05</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  Changelog को tug.yml (locales.en.changelog) में सफलतापूर्वक मर्ज किया गया</div>\n<div class=\"term-green\">└  ✔ रिलीज सिंक पूरा हुआ! फॉर्मेटिंग सुरक्षित है।</div>\n      ",
-      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - CLI सेल्फ-अपग्रेड की जांच जारी (GitHub Releases)</div>\n<div class=\"term-dim\">  वर्तमान इंस्टॉल वर्जन: v0.1.0</div>\n<div class=\"term-cyan\">  GitHub (Deguang/tug) रिमोट रिलीज की जानकारी प्राप्त की जा रही है...</div>\n<div class=\"term-green\">  नया वर्जन उपलब्ध: v0.1.1 [पैच रिलीज (Patch)]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ अपग्रेड पूरा हुआ! v0.1.1 में सफलतापूर्वक स्थानांतरित किया गया</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Tug अप-टू-डेट है। नई सुविधाओं का आनंद लेने के लिए tug चलाएं।</div>\n      "
+      "upgrade": "\n<div class=\"term-line\"><span class=\"term-prompt\">❯</span><span class=\"term-cmd\">tug upgrade -y</span></div>\n<div class=\"term-dim\">🚀 tug upgrade - CLI सेल्फ-अपग्रेड की जांच जारी (GitHub Releases)</div>\n<div class=\"term-dim\">  वर्तमान इंस्टॉल वर्जन: v0.1.0</div>\n<div class=\"term-cyan\">  GitHub (Deguang/tug) रिमोट रिलीज की जानकारी प्राप्त की जा रही है...</div>\n<div class=\"term-green\">  नया वर्जन उपलब्ध: v0.1.1 [पैच रिलीज (Patch)]</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">◇  ✔ अपग्रेड पूरा हुआ! v0.1.1 में सफलतापूर्वक स्थानांतरित किया गया</div>\n<div class=\"term-dim\">│</div>\n<div class=\"term-green\">└  🎉 Tug अप-टू-डेट है। नई सुविधाओं का आनंद लेने के लिए tug चलाएं।</div>\n      ",
+      "spec": "<div class=\"code-line\"><span class=\"token-comment\"># tug.yml · The single declarative blueprint for your extension</span></div>\n<div class=\"code-line\"><span class=\"token-key\">name</span>: <span class=\"token-str\">\"Gemini Polish Pro\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">version</span>: <span class=\"token-str\">\"1.3.0\"</span></div>\n<div class=\"code-line\"><span class=\"token-key\">store_id</span>: <span class=\"token-str\">\"ajboihpfgkcohkpmckojf...\"</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">locales</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">en</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - AI Browser Assistant\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"Contextual AI writing assistant for Chrome.\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">description</span>: <span class=\"token-str\">|</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Instant drafting & grammar refinement powered by Gemini.</span></div>\n<div class=\"code-line\">      <span class=\"token-val\">Highlight text anywhere to rewrite, summarize, or translate.</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">zh-CN</span>:</div>\n<div class=\"code-line\">    <span class=\"token-key\">title</span>: <span class=\"token-str\">\"Gemini Polish - 沉浸式 AI 写作伴侣\"</span></div>\n<div class=\"code-line\">    <span class=\"token-key\">summary</span>: <span class=\"token-str\">\"划词即润色，秒级重构你的中英文表达。\"</span></div>\n<div class=\"code-line\">  <span class=\"token-comment\"># ... 10+ locales tracked under Git revision control</span></div>\n<div class=\"code-line\"></div>\n<div class=\"code-line\"><span class=\"token-key\">assets</span>:</div>\n<div class=\"code-line\">  <span class=\"token-key\">icon</span>: <span class=\"token-str\">\"./assets/icon-128.png\"</span>          <span class=\"token-comment\"># 128x128 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">marquee</span>: <span class=\"token-str\">\"./assets/promo-1400x560.png\"</span> <span class=\"token-comment\"># 1400x560 verified</span></div>\n<div class=\"code-line\">  <span class=\"token-key\">screenshots</span>:</div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-1-1280x800.png\"</span></div>\n<div class=\"code-line\">    - <span class=\"token-str\">\"./assets/screen-2-1280x800.png\"</span></div>"
     },
     "nav_faq": "अक्सर पूछे जाने वाले सवाल",
     "faq_eyebrow": "सामान्य प्रश्न",
@@ -790,32 +959,44 @@ const translations = {
     "faq_q3": "वर्तमान में कौन से एक्सटेंशन स्टोर समर्थित हैं?",
     "faq_a3": "Tug Chrome Web Store और Microsoft Edge Add-ons को पूरी तरह सपोर्ट करता है, और Firefox AMO के लिए भी तैयार है।",
     "faq_q4": "प्री-फ़्लाइट जांच रिजेक्शन को कैसे रोकती है?",
-    "faq_a4": "अपलोड करने से पहले ही Tug स्क्रीनशॉट और बैनर के पिक्सेल साइज की पुष्टि कर लेता है ताकि 1 पिक्सेल के अंतर पर रिजेक्शन न हो।"
+    "faq_a4": "अपलोड करने से पहले ही Tug स्क्रीनशॉट और बैनर के पिक्सेल साइज की पुष्टि कर लेता है ताकि 1 पिक्सेल के अंतर पर रिजेक्शन न हो।",
+    "term_tab_spec": "tug.yml",
+    "metric_1_val": "45m → 3s",
+    "metric_1_label": "रिलीज़ गति में उछाल",
+    "metric_1_desc": "डैशबोर्ड में मैन्युअल फॉर्म भरने से 3 सेकंड के ऑटो-माउंट तक",
+    "metric_2_val": "0 API कीज",
+    "metric_2_label": "शून्य क्रेडेंशियल जोखिम",
+    "metric_2_desc": "लोकल क्रोम से सीधा CDP कनेक्शन। क्लाउड सीक्रेट्स की ज़रूरत नहीं",
+    "metric_3_val": "10+ भाषाएँ",
+    "metric_3_label": "घोषणात्मक एकल स्रोत",
+    "metric_3_desc": "एक ही tug.yml से सभी भाषाएँ सिंक। कॉपी-पेस्ट का झंझट खत्म",
+    "metric_4_val": "0 पिक्सेल त्रुटि",
+    "metric_4_label": "प्री-फ्लाइट सत्यापन",
+    "metric_4_desc": "आयाम त्रुटियों को स्टोर अस्वीकृति से पहले ही रोकें",
+    "term_desc": {
+      "spec": "घोषणात्मक विनिर्देश",
+      "fill": "मूल CDP प्रत्यक्ष स्वचालन",
+      "scan": "इमेज प्री-फ्लाइट सत्यापन",
+      "sync": "रिलीज चेंजलॉग सिंक",
+      "upgrade": "CLI सेल्फ-अपग्रेड इंजन"
+    }
   }
 };
 
 let currentLang = 'en';
-try {
-  currentLang = localStorage.getItem('tug_lang') || 'en';
-} catch (e) {
-  currentLang = 'en';
-}
 
 function setLanguage(lang) {
-  if (!translations[lang]) return;
+  if (!translations[lang]) lang = 'en';
   currentLang = lang;
-  window.currentLang = lang;
-  try {
-    localStorage.setItem('tug_lang', lang);
-  } catch (e) {}
-  document.documentElement.lang = lang;
+  document.documentElement.setAttribute('lang', lang);
+  localStorage.setItem('tug_lang', lang);
 
   const t = translations[lang];
 
-  // Update Meta
-  document.title = t.meta_title;
+  // Update Page Meta
+  if (t.meta_title) document.title = t.meta_title;
   const metaDesc = document.querySelector('meta[name="description"]');
-  if (metaDesc) metaDesc.setAttribute('content', t.meta_desc);
+  if (metaDesc && t.meta_desc) metaDesc.setAttribute('content', t.meta_desc);
 
   // Update Elements with data-i18n
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -829,16 +1010,6 @@ function setLanguage(lang) {
     }
   });
 
-  // Update Terminal tabs and content
-  const tabFill = document.getElementById('tab-btn-fill');
-  if (tabFill) tabFill.textContent = t.term_tab_fill;
-  const tabScan = document.getElementById('tab-btn-scan');
-  if (tabScan) tabScan.textContent = t.term_tab_scan;
-  const tabSync = document.getElementById('tab-btn-sync');
-  if (tabSync) tabSync.textContent = t.term_tab_sync;
-  const tabUpgrade = document.getElementById('tab-btn-upgrade');
-  if (tabUpgrade) tabUpgrade.textContent = t.term_tab_upgrade;
-
   // Update Documentation links according to language
   const isChinese = (lang === "zh-CN" || lang === "zh-TW");
   const docsUrl = isChinese
@@ -848,12 +1019,17 @@ function setLanguage(lang) {
     el.setAttribute("href", docsUrl);
   });
 
-  // Refresh current active terminal tab output
+  // Refresh current active terminal tab output and description badge
   const activeBtn = document.querySelector('.term-tab.active');
   const activeTab = (activeBtn && activeBtn.getAttribute('data-tab')) || 'fill';
   const termOutput = document.getElementById('termOutput');
   if (termOutput && t.term_terminal && t.term_terminal[activeTab]) {
     termOutput.innerHTML = t.term_terminal[activeTab];
+  }
+
+  const pill = document.getElementById('termDescPill');
+  if (pill && t.term_desc && t.term_desc[activeTab]) {
+    pill.textContent = t.term_desc[activeTab];
   }
 
   // Update Language dropdown button label
@@ -895,3 +1071,36 @@ window.translations = translations;
 window.setLanguage = setLanguage;
 window.toggleLangDropdown = toggleLangDropdown;
 window.currentLang = currentLang;
+
+// Initialize language on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const langParam = urlParams.get('lang');
+  const storedLang = localStorage.getItem('tug_lang');
+  const browserLang = (typeof navigator !== 'undefined' && navigator.language ? navigator.language : '').toLowerCase();
+
+  let initialLang = 'en';
+  if (langParam && translations[langParam]) {
+    initialLang = langParam;
+  } else if (storedLang && translations[storedLang]) {
+    initialLang = storedLang;
+  } else if (browserLang.startsWith('zh-tw') || browserLang.startsWith('zh-hk')) {
+    initialLang = 'zh-TW';
+  } else if (browserLang.startsWith('zh')) {
+    initialLang = 'zh-CN';
+  } else if (browserLang.startsWith('ja')) {
+    initialLang = 'ja';
+  } else if (browserLang.startsWith('ko')) {
+    initialLang = 'ko';
+  } else if (browserLang.startsWith('ru')) {
+    initialLang = 'ru';
+  } else if (browserLang.startsWith('de')) {
+    initialLang = 'de';
+  } else if (browserLang.startsWith('fr')) {
+    initialLang = 'fr';
+  } else if (browserLang.startsWith('hi')) {
+    initialLang = 'hi';
+  }
+
+  setLanguage(initialLang);
+});

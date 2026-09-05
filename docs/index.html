@@ -426,8 +426,66 @@
       align-items: center;
       justify-content: center;
       gap: 1rem;
-      margin-bottom: 3.5rem;
+      margin-bottom: 1.5rem;
       flex-wrap: wrap;
+    }
+
+    .hero-quick-install {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #0B1120;
+      border: 1px solid rgba(250, 84, 28, 0.35);
+      padding: 0.5rem 0.6rem 0.5rem 1.1rem;
+      border-radius: 9999px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12), 0 0 20px rgba(250, 84, 28, 0.12);
+      max-width: 92%;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-quick-install:hover {
+      border-color: var(--accent);
+      box-shadow: 0 6px 28px rgba(250, 84, 28, 0.22);
+      transform: translateY(-1px);
+    }
+
+    .quick-install-prompt {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.95rem;
+      user-select: none;
+    }
+
+    .hero-quick-install code {
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      color: #F1F5F9;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .btn-copy-install {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(255, 255, 255, 0.08);
+      color: #CBD5E1;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-copy-install:hover {
+      background: var(--accent);
+      color: #FFFFFF;
+      border-color: var(--accent);
     }
 
     .btn-primary {
@@ -493,12 +551,12 @@
       border-color: var(--accent-border);
     }
 
-    /* 终端交互视窗 */
+    /* 终端交互视窗 (Authentic macOS Terminal) */
     .terminal-window {
-      background: var(--bg-terminal);
-      border-radius: 16px;
-      border: 1px solid #1E293B;
-      box-shadow: var(--shadow-xl);
+      background: #090D16;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.05);
       max-width: 980px;
       margin: 0 auto;
       text-align: left;
@@ -506,17 +564,35 @@
     }
 
     .terminal-header {
-      background: #111827;
-      padding: 0.85rem 1.25rem;
+      background: #0F172A;
+      padding: 0 1rem;
+      height: 44px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #1F2937;
+      border-bottom: 1px solid #1E293B;
+      user-select: none;
+      gap: 1rem;
+    }
+
+    .terminal-header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      height: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .terminal-header-left::-webkit-scrollbar {
+      display: none;
     }
 
     .terminal-controls {
       display: flex;
+      align-items: center;
       gap: 7px;
+      flex-shrink: 0;
     }
 
     .traffic-dot {
@@ -524,36 +600,86 @@
       height: 12px;
       border-radius: 50%;
     }
-    .traffic-dot.red { background: #EF4444; }
-    .traffic-dot.yellow { background: #F59E0B; }
-    .traffic-dot.green { background: #10B981; }
+    .traffic-dot.red { background: #FF5F56; border: 1px solid rgba(0, 0, 0, 0.15); }
+    .traffic-dot.yellow { background: #FFBD2E; border: 1px solid rgba(0, 0, 0, 0.15); }
+    .traffic-dot.green { background: #27C93F; border: 1px solid rgba(0, 0, 0, 0.15); }
 
     .terminal-tabs {
       display: flex;
-      gap: 0.35rem;
+      align-items: flex-end;
+      height: 100%;
+      gap: 4px;
+      flex-shrink: 0;
     }
 
     .term-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      height: 36px;
       background: transparent;
-      border: none;
-      color: #94A3B8;
+      border: 1px solid transparent;
+      border-bottom: none;
+      border-top: 2px solid transparent;
+      color: #64748B;
       font-family: var(--font-mono);
-      font-size: 0.88rem;
-      padding: 0.45rem 0.85rem;
-      border-radius: 6px;
+      font-size: 0.82rem;
+      padding: 0 0.95rem;
+      border-radius: 8px 8px 0 0;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.15s ease;
       font-weight: 500;
+      white-space: nowrap;
+      margin-bottom: -1px;
     }
 
     .term-tab:hover {
-      color: #F8FAFC;
+      color: #CBD5E1;
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .term-tab.active {
-      background: #1E293B;
-      color: #38BDF8;
+      background: #090D16;
+      color: #F8FAFC;
+      border-color: #1E293B;
+      border-top: 2px solid var(--accent);
+      border-bottom: 1px solid #090D16;
       font-weight: 600;
+    }
+
+    .terminal-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .term-desc-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #94A3B8;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      padding: 0.2rem 0.65rem;
+      white-space: nowrap;
+    }
+
+    .term-desc-pill::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10B981;
+    }
+
+    @media (max-width: 768px) {
+      .terminal-meta {
+        display: none;
+      }
     }
 
     .terminal-body {
@@ -588,6 +714,91 @@
     .term-cyan { color: #38BDF8; font-weight: 600; }
     .term-orange { color: #FB923C; font-weight: 600; }
     .term-bold { font-weight: 600; color: #F8FAFC; }
+
+    /* YAML / 代码高亮 Token */
+    .token-key { color: #38BDF8; font-weight: 600; }
+    .token-str { color: #34D399; }
+    .token-val { color: #F1F5F9; }
+    .token-comment { color: #64748B; font-style: italic; }
+    .code-line { margin-bottom: 0.25rem; white-space: pre-wrap; word-break: break-word; }
+
+    /* 量化效率指标看板 (Metrics Strip) */
+    .metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      max-width: 980px;
+      margin: 3.5rem auto 1.5rem;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .metrics-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .metrics-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .metric-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 1.4rem 1.25rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), #FB923C);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: #CBD5E1;
+    }
+
+    .metric-card:hover::before {
+      opacity: 1;
+    }
+
+    .metric-val {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 0.35rem;
+      font-family: var(--font-sans);
+    }
+
+    .metric-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy-darker);
+      margin-bottom: 0.3rem;
+    }
+
+    .metric-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
 
     /* IP 品牌故事区 */
     section.ip-story {
@@ -1084,19 +1295,37 @@
         </a>
       </div>
 
-      <!-- 交互终端模拟器 -->
+      <!-- 极客一键安装胶囊 (Quick Install) -->
+      <div style="margin-bottom: 2.75rem;">
+        <div class="hero-quick-install">
+          <span class="quick-install-prompt">$</span>
+          <code id="heroInstallCmd">curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash</code>
+          <button class="btn-copy-install" onclick="copyHeroInstall(this)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span class="copy-text" data-i18n="btn_copy">Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 交互代码与终端视窗 (Code & Terminal Showcase) -->
       <div class="terminal-window">
         <div class="terminal-header">
-          <div class="terminal-controls">
-            <div class="traffic-dot red"></div>
-            <div class="traffic-dot yellow"></div>
-            <div class="traffic-dot green"></div>
+          <div class="terminal-header-left">
+            <div class="terminal-controls">
+              <div class="traffic-dot red"></div>
+              <div class="traffic-dot yellow"></div>
+              <div class="traffic-dot green"></div>
+            </div>
+            <div class="terminal-tabs">
+              <button class="term-tab" id="tab-btn-spec" data-tab="spec" onclick="switchTermTab('spec')"><span>📄</span> tug.yml</button>
+              <button class="term-tab active" id="tab-btn-fill" data-tab="fill" onclick="switchTermTab('fill')"><span>⚡</span> tug fill</button>
+              <button class="term-tab" id="tab-btn-scan" data-tab="scan" onclick="switchTermTab('scan')"><span>🛡️</span> tug scan</button>
+              <button class="term-tab" id="tab-btn-sync" data-tab="sync" onclick="switchTermTab('sync')"><span>🔄</span> tug sync</button>
+              <button class="term-tab" id="tab-btn-upgrade" data-tab="upgrade" onclick="switchTermTab('upgrade')"><span>🚀</span> tug upgrade</button>
+            </div>
           </div>
-          <div class="terminal-tabs">
-            <button class="term-tab active" id="tab-btn-fill" data-tab="fill" onclick="switchTermTab('fill')">tug fill (Automated Filling)</button>
-            <button class="term-tab" id="tab-btn-scan" data-tab="scan" onclick="switchTermTab('scan')">tug scan (Asset Pre-flight)</button>
-            <button class="term-tab" id="tab-btn-sync" data-tab="sync" onclick="switchTermTab('sync')">tug sync (Release Sync)</button>
-            <button class="term-tab" id="tab-btn-upgrade" data-tab="upgrade" onclick="switchTermTab('upgrade')">tug upgrade (Self-Upgrade)</button>
+          <div class="terminal-meta">
+            <span class="term-desc-pill" id="termDescPill">CDP 原生自动化填表与挂载</span>
           </div>
         </div>
 
@@ -1113,6 +1342,30 @@
           <div class="term-line">  <span class="term-green">✔</span> Extension package uploaded ......... release/gemini-polish-v1.3.0.zip</div>
           <div class="term-dim">│</div>
           <div class="term-green">└  🎉 Success! All listings &amp; media mounted with 0 errors. Inspect browser and click submit!</div>
+        </div>
+      </div>
+
+      <!-- 量化效率指标看板 (Metrics Strip) -->
+      <div class="metrics-strip">
+        <div class="metric-card">
+          <div class="metric-val" data-i18n="metric_1_val">45m → 3s</div>
+          <div class="metric-label" data-i18n="metric_1_label">Release Velocity</div>
+          <div class="metric-desc" data-i18n="metric_1_desc">From 45-min dashboard form-filling to a 3-second instant mount.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" data-i18n="metric_2_val">0 API Keys</div>
+          <div class="metric-label" data-i18n="metric_2_label">Zero Credential Risk</div>
+          <div class="metric-desc" data-i18n="metric_2_desc">Direct localhost CDP connection. No tokens, no secrets leaked.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" data-i18n="metric_3_val">10+ Locales</div>
+          <div class="metric-label" data-i18n="metric_3_label">Declarative Single Source</div>
+          <div class="metric-desc" data-i18n="metric_3_desc">One tug.yml governs all languages. Zero copy-paste churn.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" data-i18n="metric_4_val">0-Pixel Error</div>
+          <div class="metric-label" data-i18n="metric_4_label">Pre-flight Verification</div>
+          <div class="metric-desc" data-i18n="metric_4_desc">Pure JS byte parser stops dimension errors before review delay.</div>
         </div>
       </div>
     </div>
@@ -1358,9 +1611,15 @@
       const transObj = window.translations || (typeof translations !== 'undefined' ? translations : null);
       const cur = window.currentLang || (typeof currentLang !== 'undefined' ? currentLang : 'en');
       const t = transObj ? (transObj[cur] || transObj['en']) : null;
-      if (t && t.term_terminal && t.term_terminal[tab]) {
-        const out = document.getElementById('termOutput');
-        if (out) out.innerHTML = t.term_terminal[tab];
+      if (t) {
+        if (t.term_terminal && t.term_terminal[tab]) {
+          const out = document.getElementById('termOutput');
+          if (out) out.innerHTML = t.term_terminal[tab];
+        }
+        if (t.term_desc && t.term_desc[tab]) {
+          const pill = document.getElementById('termDescPill');
+          if (pill) pill.textContent = t.term_desc[tab];
+        }
       }
     }
 
@@ -1387,6 +1646,23 @@
         btn.style.color = '#10B981';
         setTimeout(() => {
           btn.textContent = orig;
+          btn.style.color = '';
+        }, 2000);
+      });
+    }
+
+    function copyHeroInstall(btn) {
+      const code = document.getElementById('heroInstallCmd').textContent.trim();
+      const t = window.translations ? (window.translations[window.currentLang || 'en'] || {}) : {};
+      navigator.clipboard.writeText(code).then(() => {
+        const textSpan = btn.querySelector('.copy-text');
+        const orig = textSpan ? textSpan.textContent : '';
+        if (textSpan) textSpan.textContent = t.btn_copied || 'Copied!';
+        btn.style.borderColor = '#10B981';
+        btn.style.color = '#10B981';
+        setTimeout(() => {
+          if (textSpan) textSpan.textContent = orig;
+          btn.style.borderColor = '';
           btn.style.color = '';
         }, 2000);
       });
