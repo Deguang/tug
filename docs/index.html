@@ -444,6 +444,23 @@
       flex-shrink: 0;
     }
 
+    .hero-browser-item.coming-soon {
+      opacity: 0.5;
+      position: relative;
+    }
+
+    .coming-soon-badge {
+      font-size: 0.6rem;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid var(--accent-border);
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      font-weight: 600;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
     .hero-actions {
       display: flex;
       align-items: center;
@@ -1300,9 +1317,10 @@
           <img src="assets/browsers/edge.svg" alt="Edge" width="22" height="22">
           <span>Edge</span>
         </div>
-        <div class="hero-browser-item">
+        <div class="hero-browser-item coming-soon">
           <img src="assets/browsers/firefox.svg" alt="Firefox" width="22" height="22">
           <span>Firefox</span>
+          <span class="coming-soon-badge">Soon</span>
         </div>
       </div>
 
@@ -1614,7 +1632,7 @@
     </div>
   </footer>
 
-  <script>
+  <script type="module">
     function selectLang(lang) {
       setLanguage(lang);
       const dropdown = document.getElementById('langDropdown');
@@ -1644,14 +1662,19 @@
       npx: 'npx github:Deguang/tug fill'
     };
 
-    function switchInstallTab(type) {
+
+    import { highlight } from 'https://esm.sh/sugar-high';
+
+    window.switchInstallTab = function(type) {
       document.querySelectorAll('.install-tab-btn').forEach(b => b.classList.remove('active'));
       event.target.classList.add('active');
-      document.getElementById('installCmdText').textContent = installSnippets[type];
-    }
+      const text = installSnippets[type];
+      document.getElementById('installCmdText').innerHTML = highlight(text, { lang: 'bash' });
+      document.getElementById('installCmdText').setAttribute('data-raw', text);
+    };
 
-    function copyInstallTabCmd(btn) {
-      const text = document.getElementById('installCmdText').textContent;
+    window.copyInstallTabCmd = function(btn) {
+      const text = document.getElementById('installCmdText').getAttribute('data-raw') || document.getElementById('installCmdText').textContent;
       const t = window.translations[window.currentLang || 'en'];
       navigator.clipboard.writeText(text).then(() => {
         const orig = btn.textContent;
@@ -1664,7 +1687,7 @@
       });
     }
 
-    function copyHeroInstall(btn) {
+    window.copyHeroInstall = function(btn) {
       const code = document.getElementById('heroInstallCmd').textContent.trim();
       const t = window.translations ? (window.translations[window.currentLang || 'en'] || {}) : {};
       navigator.clipboard.writeText(code).then(() => {
