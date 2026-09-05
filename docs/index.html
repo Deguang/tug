@@ -528,9 +528,9 @@
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      background: rgba(255, 255, 255, 0.08);
-      color: #CBD5E1;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: var(--accent);
+      color: #FFFFFF;
+      border: 1px solid var(--accent);
       border-radius: 9999px;
       padding: 0.3rem 0.8rem;
       font-size: 0.75rem;
@@ -542,9 +542,9 @@
     }
 
     .btn-copy-install:hover {
-      background: var(--accent);
+      background: var(--accent-hover);
       color: #FFFFFF;
-      border-color: var(--accent);
+      border-color: var(--accent-hover);
     }
 
     .btn-primary {
@@ -1623,7 +1623,10 @@
         </div>
 
         <div class="install-snippet" id="installCmdSnippet">
-          <pre><code id="installCmdText" class="language-shell" data-raw="curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash">curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash</code></pre>
+          <div style="display: flex; gap: 0.75rem; align-items: center; overflow-x: auto;">
+            <span class="quick-install-prompt">$</span>
+            <pre><code id="installCmdText" class="language-shell" data-raw="curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash">curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash</code></pre>
+          </div>
           <button class="btn-copy" onclick="copyInstallTabCmd(this)" data-i18n="btn_copy">Copy</button>
         </div>
       </div>
