@@ -8,8 +8,6 @@ import chalk from 'chalk';
 import * as p from '@clack/prompts';
 import { initCommand } from './commands/init.js';
 import { scanCommand } from './commands/scan.js';
-import { dockCommand } from './commands/dock.js';
-import { pullCommand } from './commands/pull.js';
 import { syncCommand } from './commands/sync.js';
 import { upgradeCommand } from './commands/upgrade.js';
 import { fillCommand } from './commands/fill.js';
@@ -43,18 +41,6 @@ program
   .action(fillCommand);
 
 program
-  .command('dock')
-  .description('启动本地服务，等待浏览器注入端拉取数据')
-  .option('-p, --port <port>', '服务端口号', '4321')
-  .action(dockCommand);
-
-program
-  .command('pull')
-  .description('启动服务并等待浏览器回传表单数据，写入 tug.yml')
-  .option('-p, --port <port>', '服务端口号', '4321')
-  .action(pullCommand);
-
-program
   .command('sync')
   .description('从插件发版源同步最新发版详情与 Changelog，增量更新本地 tug.yml')
   .option('-r, --repo <owner/repo>', '指定远端仓库地址')
@@ -77,9 +63,7 @@ if (process.argv.length <= 2) {
       options: [
         { value: 'fill', label: '⚡ tug fill', hint: '【推荐】通过 CDP 直连 Chrome 自动填表与挂载物料' },
         { value: 'scan', label: '🔍 tug scan', hint: '校验本地配置、物料尺寸与权限' },
-        { value: 'dock', label: '⚓ tug dock', hint: '启动本地服务，供浏览器油猴/书签注入使用' },
         { value: 'sync', label: '🔄 tug sync', hint: '从远端发版源拉取最新 Changelog' },
-        { value: 'pull', label: '📥 tug pull', hint: '接收浏览器端已填表单，回写至本地配置' },
         { value: 'init', label: '✨ tug init', hint: '初始化生成 tug.yml 模板' },
         { value: 'upgrade', label: '🚀 tug upgrade', hint: '检查并升级 tug CLI 工具自身' },
       ],
@@ -97,14 +81,8 @@ if (process.argv.length <= 2) {
       case 'scan':
         await scanCommand();
         break;
-      case 'dock':
-        await dockCommand({});
-        break;
       case 'sync':
         await syncCommand({});
-        break;
-      case 'pull':
-        await pullCommand({});
         break;
       case 'init':
         await initCommand();

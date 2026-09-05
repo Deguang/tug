@@ -101,8 +101,6 @@ Tug 将自动比对 `manifest.json` 权限、校验各语言字段长度，并�
 | `tug fill` | **【核心推荐】** 通过 CDP 直连 Chrome 自动填表与原生挂载本地物料 (免安装任何扩展) |
 | `tug init` | 在当前目录生成标准 `tug.yml` 配置文件模板 |
 | `tug scan` | 毫秒级预检配置完整性、权限比对与图片物料尺寸合规性 |
-| `tug dock` | 启动本地 HTTP 数据服务端 (默认端口 4321，供油猴脚本连接) |
-| `tug pull` | 启动服务并监听浏览器端 Tampermonkey 脚本回传表单数据，逆向写入 `tug.yml` |
 | `tug sync` | 从远程发版源 (如 GitHub Releases) 提取最新 Tag 与 Changelog 并增量同步到 `tug.yml` |
 | `tug upgrade` | 检查并自动升级 Tug CLI 工具自身 |
 

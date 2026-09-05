@@ -102,8 +102,6 @@ Tug audits `manifest.json` permission justifications, validates multilingual len
 | `tug fill` | **[Core]** Connects to Chrome via native CDP to automatically populate listings and mount assets |
 | `tug init` | Scaffolds a standard `tug.yml` listing configuration |
 | `tug scan` | Pre-flight validation for metadata integrity, manifest diffs, and image dimensions |
-| `tug dock` | Launches local HTTP data server (default port 4321) for Tampermonkey fallback injector |
-| `tug pull` | Listens for browser injector callbacks to reverse-extract store form data into `tug.yml` |
 | `tug sync` | Syncs release tags and changelogs from upstream GitHub Releases incrementally into `tug.yml` |
 | `tug upgrade` | Self-upgrades the Tug CLI binary directly from official GitHub Releases |
 
