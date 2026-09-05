@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tug · Declarative Browser Extension Companion CLI</title>
+  <meta name="description" content="Streamline Chrome Web Store releases with single-source YAML, zero-dependency asset validation, and native CDP direct automation. No API keys required.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/tug-a2.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-warm: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #F1F5F9;
+      --bg-terminal: #0B0F19;
+      --border-light: #E2E8F0;
+      --border-subtle: #EDF2F7;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-dim: #94A3B8;
+      
+      /* Tug A2 Official Brand Colors */
+      --accent: #FA541C;
+      --accent-hover: #E03E0B;
+      --accent-light: #FFF2E8;
+      --accent-border: #FFD8BF;
+      --navy-deep: #1E293B;
+      --navy-darker: #0F172A;
+      --seafoam-bg: #E6F0EE;
+      --seafoam-accent: #0D9488;
+      
+      --green-dark: #15803D;
+      --green-light: #DCFCE7;
+      
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', SFMono-Regular, Consolas, monospace;
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 25px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+      --shadow-xl: 0 20px 35px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-warm);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 顶部导航 */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background-color: rgba(248, 250, 252, 0.86);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-avatar-wrap {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--seafoam-bg);
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease;
+    }
+
+    .brand:hover .brand-avatar-wrap {
+      transform: scale(1.06) rotate(-2deg);
+    }
+
+    .brand-avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--navy-darker);
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      background: var(--accent-light);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* 多语言下拉选择器 */
+    .lang-selector-wrap {
+      position: relative;
+    }
+
+    .btn-lang-dropdown {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+      background: var(--bg-card);
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s;
+    }
+
+    .btn-lang-dropdown:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+      background: var(--accent-light);
+    }
+
+    .lang-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      box-shadow: var(--shadow-xl);
+      padding: 0.4rem;
+      min-width: 148px;
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      z-index: 100;
+    }
+
+    .lang-dropdown-menu.show {
+      display: flex;
+    }
+
+    .lang-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: none;
+      background: transparent;
+      color: var(--text-main);
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.12s ease;
+    }
+
+    .lang-item:hover {
+      background: var(--bg-card-hover);
+      color: var(--accent);
+    }
+
+    .lang-item.active {
+      background: var(--accent-light);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .btn-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s;
+    }
+
+    .btn-github:hover {
+      border-color: var(--text-muted);
+      background: #FFFFFF;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    /* 主容器 */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Hero Section */
+    section.hero {
+      padding: 4.5rem 0 3.5rem;
+      text-align: center;
+    }
+
+    .hero-badge-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.4rem 1rem 0.4rem 0.5rem;
+      border-radius: 9999px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-badge-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--seafoam-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-badge-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-badge-tag {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    h1.hero-title {
+      font-size: 3.6rem;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--navy-darker);
+      max-width: 900px;
+      margin: 0 auto 1.5rem;
+    }
+
+    h1.hero-title em {
+      font-style: normal;
+      color: var(--accent);
+      position: relative;
+    }
+
+    p.hero-desc {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: white;
+      padding: 0.8rem 1.75rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(250, 84, 28, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 6px 20px rgba(250, 84, 28, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg-card);
+      color: var(--navy-darker);
+      border: 1px solid var(--border-light);
+      padding: 0.8rem 1.6rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #FFFFFF;
+      border-color: var(--text-muted);
+      transform: translateY(-1px);
+    }
+
+    /* 一键安装代码胶囊 */
+    .quick-install-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 0.45rem 0.5rem 0.45rem 1rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3.5rem;
+    }
+
+    .quick-install-bar code {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+
+    .btn-copy {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-warm);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .btn-copy:hover {
+      background: #FFFFFF;
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    /* 终端交互视窗 */
+    .terminal-window {
+      background: var(--bg-terminal);
+      border-radius: 16px;
+      border: 1px solid #1E293B;
+      box-shadow: var(--shadow-xl);
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: left;
+      overflow: hidden;
+    }
+
+    .terminal-header {
+      background: #111827;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1F2937;
+    }
+
+    .terminal-controls {
+      display: flex;
+      gap: 7px;
+    }
+
+    .traffic-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .traffic-dot.red { background: #EF4444; }
+    .traffic-dot.yellow { background: #F59E0B; }
+    .traffic-dot.green { background: #10B981; }
+
+    .terminal-tabs {
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .term-tab {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-weight: 500;
+    }
+
+    .term-tab:hover {
+      color: #F8FAFC;
+    }
+
+    .term-tab.active {
+      background: #1E293B;
+      color: #38BDF8;
+      font-weight: 600;
+    }
+
+    .terminal-body {
+      padding: 1.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: #E2E8F0;
+      min-height: 380px;
+      overflow-x: auto;
+    }
+
+    .term-line {
+      display: flex;
+      margin-bottom: 0.35rem;
+    }
+
+    .term-prompt {
+      color: var(--accent);
+      margin-right: 0.65rem;
+      user-select: none;
+      font-weight: 700;
+    }
+
+    .term-cmd {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .term-dim { color: #64748B; }
+    .term-green { color: #34D399; font-weight: 600; }
+    .term-cyan { color: #38BDF8; font-weight: 600; }
+    .term-orange { color: #FB923C; font-weight: 600; }
+    .term-bold { font-weight: 600; color: #F8FAFC; }
+
+    /* IP 品牌故事区 */
+    section.ip-story {
+      padding: 4.5rem 0;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .ip-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      border: 1px solid var(--border-light);
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 800px) {
+      .ip-card {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    .ip-visual-box {
+      flex-shrink: 0;
+      width: 220px;
+      height: 220px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--seafoam-bg);
+      border: 1px solid var(--border-light);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      position: relative;
+    }
+
+    .ip-visual-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ip-content h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--navy-darker);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .ip-content p {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .ip-badges {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .ip-tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      background: var(--bg-warm);
+      border: 1px solid var(--border-light);
+      color: var(--text-main);
+    }
+
+    /* 对比区 (Comparison) */
+    section.comparison {
+      padding: 5rem 0;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .section-eyebrow {
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    h2.section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--navy-darker);
+      margin-bottom: 1rem;
+    }
+
+    p.section-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 3.5rem;
+    }
+
+    .comp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .comp-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .comp-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2.2rem;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .comp-card.nightmare {
+      border-left: 4px solid #EF4444;
+    }
+
+    .comp-card.tug-way {
+      border-left: 4px solid var(--accent);
+      background: #FFFFFF;
+      box-shadow: var(--shadow-md);
+    }
+
+    .comp-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .comp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .comp-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .comp-list li strong {
+      color: var(--text-main);
+    }
+
+    .comp-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      margin-top: 0.15rem;
+    }
+
+    .comp-icon.bad {
+      background: #FEE2E2;
+      color: #DC2626;
+    }
+
+    .comp-icon.good {
+      background: var(--accent-light);
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* 核心特性网格 (Features) */
+    section.features {
+      padding: 5rem 0;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    @media (max-width: 900px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feat-card {
+      background: var(--bg-card);
+      border-radius: 14px;
+      padding: 2rem;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .feat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: #CBD5E1;
+    }
+
+    .feat-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+      font-weight: 700;
+    }
+
+    .feat-card h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy-darker);
+      margin-bottom: 0.6rem;
+    }
+
+    .feat-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* 安装区域 */
+    section.install-section {
+      padding: 5.5rem 0;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .install-box {
+      background: #FFFFFF;
+      border-radius: 16px;
+      border: 1px solid var(--border-light);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .install-tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .install-tab-btn {
+      background: transparent;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .install-tab-btn:hover {
+      background: var(--bg-warm);
+      color: var(--text-main);
+    }
+
+    .install-tab-btn.active {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .install-snippet {
+      background: var(--bg-terminal);
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      color: #F8FAFC;
+    }
+
+    /* 页脚 */
+    footer.site-footer {
+      border-top: 1px solid var(--border-light);
+      background: #FFFFFF;
+      padding: 3rem 0;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+  </style>
+  <script src="i18n.js"></script>
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <div class="brand-avatar-wrap">
+          <img src="assets/logo/tug-logo.jpg" alt="Tug Logo">
+        </div>
+        <span class="brand-title">Tug</span>
+        <span class="brand-badge">v0.1.0</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#features" data-i18n="nav_features">Features</a></li>
+        <li><a href="#comparison" data-i18n="nav_comparison">Why Tug</a></li>
+        <li><a href="#mascot" data-i18n="nav_mascot">Mascot</a></li>
+        <li><a href="#install" data-i18n="nav_install">Install</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <!-- 9 语言选择下拉菜单 -->
+        <div class="lang-selector-wrap">
+          <button class="btn-lang-dropdown" onclick="toggleLangDropdown(event)" id="langDropdownBtn" aria-label="Select Language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <span id="currentLangLabel">English</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.6;">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          
+          <div class="lang-dropdown-menu" id="langDropdown">
+            <button class="lang-item" data-lang="en" onclick="selectLang('en')">English</button>
+            <button class="lang-item" data-lang="zh-CN" onclick="selectLang('zh-CN')">简体中文</button>
+            <button class="lang-item" data-lang="zh-TW" onclick="selectLang('zh-TW')">繁體中文</button>
+            <button class="lang-item" data-lang="ja" onclick="selectLang('ja')">日本語</button>
+            <button class="lang-item" data-lang="ko" onclick="selectLang('ko')">한국어</button>
+            <button class="lang-item" data-lang="ru" onclick="selectLang('ru')">Русский</button>
+            <button class="lang-item" data-lang="de" onclick="selectLang('de')">Deutsch</button>
+            <button class="lang-item" data-lang="fr" onclick="selectLang('fr')">Français</button>
+            <button class="lang-item" data-lang="hi" onclick="selectLang('hi')">हिन्दी</button>
+          </div>
+        </div>
+
+        <a href="https://github.com/Deguang/tug" target="_blank" class="btn-github">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero 区块 -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge-container">
+        <div class="hero-badge-avatar">
+          <img src="assets/logo/tug-logo.jpg" alt="Tug Mascot">
+        </div>
+        <span data-i18n="hero_badge_prefix">Official Companion CLI · </span>
+        <span class="hero-badge-tag" data-i18n="hero_badge_tag">Native CDP Automation</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span data-i18n="hero_title_1">Ship browser extensions </span><br>
+        <span data-i18n="hero_title_2">as seamlessly as </span><em data-i18n="hero_title_em">git push</em><span data-i18n="hero_title_3"></span>
+      </h1>
+
+      <p class="hero-desc" data-i18n="hero_desc" data-i18n-html="true">
+        Say goodbye to repetitive form-filling and pixel-dimension errors in the Chrome Web Store dashboard.<br>
+        Define multilingual listings and store graphics in a single local YAML file—Tug handles native browser mounting and validation in seconds.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#install" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span data-i18n="hero_cta_install">Install Tug CLI</span>
+        </a>
+        <a href="https://github.com/Deguang/tug#readme" target="_blank" class="btn-secondary" data-i18n="hero_cta_docs">
+          View Documentation
+        </a>
+      </div>
+
+      <div class="quick-install-bar">
+        <code>curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash</code>
+        <button class="btn-copy" onclick="copyInstallCmd(this, 'curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash')" data-i18n="btn_copy">Copy</button>
+      </div>
+
+      <!-- 交互终端模拟器 -->
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-controls">
+            <div class="traffic-dot red"></div>
+            <div class="traffic-dot yellow"></div>
+            <div class="traffic-dot green"></div>
+          </div>
+          <div class="terminal-tabs">
+            <button class="term-tab active" id="tab-btn-fill" data-tab="fill" onclick="switchTermTab('fill')">tug fill (Automated Filling)</button>
+            <button class="term-tab" id="tab-btn-scan" data-tab="scan" onclick="switchTermTab('scan')">tug scan (Asset Pre-flight)</button>
+            <button class="term-tab" id="tab-btn-sync" data-tab="sync" onclick="switchTermTab('sync')">tug sync (Release Sync)</button>
+            <button class="term-tab" id="tab-btn-upgrade" data-tab="upgrade" onclick="switchTermTab('upgrade')">tug upgrade (Self-Upgrade)</button>
+          </div>
+        </div>
+
+        <div class="terminal-body" id="termOutput">
+          <!-- 终端内容将由 i18n 动态填充 -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IP 品牌故事与吉祥物说明 -->
+  <section class="ip-story" id="mascot">
+    <div class="container">
+      <div class="ip-card">
+        <div class="ip-visual-box">
+          <img src="assets/logo/tug-logo.jpg" alt="Tuggy the Tugboat">
+        </div>
+        <div class="ip-content">
+          <span class="section-eyebrow" data-i18n="mascot_eyebrow">Brand Metaphor</span>
+          <h3 data-i18n="mascot_title">Meet Tuggy · Small Hull, Massive Torque</h3>
+          <p data-i18n="mascot_p" data-i18n-html="true">
+            <strong>Why named Tug?</strong><br>
+            In busy maritime ports, massive container ships cannot dock or maneuver by themselves—they depend on compact, agile tugboats with immense pulling power to guide them safely into harbor. Similarly, modern browser extension dashboards have grown bloated and tedious. Tuggy holds its signature orange <strong>Towing Ring</strong>, forging a rock-solid link between your local Git workspace and remote extension stores, bearing the heavy mechanical friction on your behalf.
+          </p>
+          <div class="ip-badges">
+            <span class="ip-tag" data-i18n="mascot_tag1">Strict 3-Color Semantics</span>
+            <span class="ip-tag" data-i18n="mascot_tag2">Crisp at 32×32 Favicon</span>
+            <span class="ip-tag" data-i18n="mascot_tag3">Neo-Skeuomorphic Subtle Depth</span>
+            <span class="ip-tag" data-i18n="mascot_tag4">Developer-First Open Source</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 体验对比 -->
+  <section class="comparison" id="comparison">
+    <div class="container">
+      <span class="section-eyebrow" data-i18n="comp_eyebrow">Workflow Evolution</span>
+      <h2 class="section-title" data-i18n="comp_title">Ditch Dashboard Friction. Adopt Modern Extension CI.</h2>
+      <p class="section-desc" data-i18n="comp_desc">
+        Slow web consoles, rigid pixel restrictions, and repetitive multiline copy-pasting shouldn’t bottleneck a developer’s creative momentum.
+      </p>
+
+      <div class="comp-grid">
+        <div class="comp-card nightmare">
+          <h3>
+            <span class="comp-icon bad">✕</span>
+            <span data-i18n="comp_bad_title">Traditional Manual Dashboard Grind</span>
+          </h3>
+          <ul class="comp-list">
+            <li>
+              <span class="comp-icon bad">✕</span>
+              <div data-i18n="comp_bad_1" data-i18n-html="true"><strong>Repetitive Locale Churn</strong>: Switching across 10+ language dropdowns on every release, copying and pasting descriptions paragraph by paragraph.</div>
+            </li>
+            <li>
+              <span class="comp-icon bad">✕</span>
+              <div data-i18n="comp_bad_2" data-i18n-html="true"><strong>Fragile Dimension Gates</strong>: A single-pixel mismatch abruptly rejects screenshot uploads; strict 1400×560 marquee banners get clipped.</div>
+            </li>
+            <li>
+              <span class="comp-icon bad">✕</span>
+              <div data-i18n="comp_bad_3" data-i18n-html="true"><strong>Zero Version History</strong>: Dashboard updates leave no Git diff audit trail, completely divorced from code commit history.</div>
+            </li>
+            <li>
+              <span class="comp-icon bad">✕</span>
+              <div data-i18n="comp_bad_4" data-i18n-html="true"><strong>Token & Privacy Liabilities</strong>: Third-party CI services demand highly privileged Store API refresh tokens and credentials.</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="comp-card tug-way">
+          <h3>
+            <span class="comp-icon good">✔</span>
+            <span data-i18n="comp_good_title">The Modern Tug Workflow</span>
+          </h3>
+          <ul class="comp-list">
+            <li>
+              <span class="comp-icon good">✔</span>
+              <div data-i18n="comp_good_1" data-i18n-html="true"><strong>Declarative Single Source</strong>: One <code>tug.yml</code> consolidates all multilingual copy and assets under rigorous Git version control.</div>
+            </li>
+            <li>
+              <span class="comp-icon good">✔</span>
+              <div data-i18n="comp_good_2" data-i18n-html="true"><strong>Zero-Dependency Asset Pre-flight</strong>: Built-in pure JavaScript byte parser validates PNG and JPEG dimensions in milliseconds before upload.</div>
+            </li>
+            <li>
+              <span class="comp-icon good">✔</span>
+              <div data-i18n="comp_good_3" data-i18n-html="true"><strong>Native CDP Direct Automation</strong>: Drives real browser sessions purely on localhost via Chrome DevTools Protocol—zero third-party proxy exposure.</div>
+            </li>
+            <li>
+              <span class="comp-icon good">✔</span>
+              <div data-i18n="comp_good_4" data-i18n-html="true"><strong>Human-in-the-Loop Safety</strong>: Tug populates draft fields and mounts assets; the final "Submit for Review" click is always confirmed by you.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 核心能力 -->
+  <section class="features" id="features">
+    <div class="container">
+      <span class="section-eyebrow" data-i18n="feat_eyebrow">Core Architecture</span>
+      <h2 class="section-title" data-i18n="feat_title">Four Engineering Pillars Built for Extension Pros</h2>
+      <p class="section-desc" data-i18n="feat_desc">
+        Engineered for zero-dependency purity, predictable ergonomics, and bulletproof safety.
+      </p>
+
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon-box">⚓</div>
+          <h4 data-i18n="feat_1_title">Declarative Listing Orchestration</h4>
+          <p data-i18n="feat_1_desc">Maintain product titles, multilingual descriptions, support channels, and compliance justifications in a clean, version-controlled tug.yml.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon-box">⚡</div>
+          <h4 data-i18n="feat_2_title">Native CDP Automation Engine</h4>
+          <p data-i18n="feat_2_desc">Drive real Chrome DevTools Protocol events directly into store dashboard draft pages—bypassing cumbersome Google Cloud OAuth and API quotas.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon-box">📐</div>
+          <h4 data-i18n="feat_3_title">Zero-Dependency Byte Parser</h4>
+          <p data-i18n="feat_3_desc">Zero native C++ build headaches (no sharp or node-gyp). Pure JavaScript byte-stream parsing guarantees instant execution across macOS, Linux, and Windows.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon-box">🚀</div>
+          <h4 data-i18n="feat_4_title">Frictionless Self-Upgrade</h4>
+          <p data-i18n="feat_4_desc">Free from public npm registry bottlenecks. Directly linked to official GitHub Releases for seamless, instant self-upgrades via `tug upgrade`.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon-box">🛡️</div>
+          <h4 data-i18n="feat_5_title">Mount First, Review Safely</h4>
+          <p data-i18n="feat_5_desc">Draft inputs and media files are mounted safely in your live browser for full visual verification before final review submission.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon-box">📦</div>
+          <h4 data-i18n="feat_6_title">Cross-Store Universal Blueprint</h4>
+          <p data-i18n="feat_6_desc">Engineered with a universal listing schema ready for Chrome Web Store, Microsoft Edge Add-ons, and Firefox AMO.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 安装指引 -->
+  <section class="install-section" id="install">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span class="section-eyebrow" data-i18n="install_eyebrow">Get Started</span>
+        <h2 class="section-title" data-i18n="install_title">Start Shipping with Tug</h2>
+        <p class="section-desc" style="margin-left: auto; margin-right: auto;" data-i18n="install_desc">
+          Distributed independently from public npm registries via official secure GitHub channels.
+        </p>
+      </div>
+
+      <div class="install-box">
+        <div class="install-tabs">
+          <button class="install-tab-btn active" onclick="switchInstallTab('curl')" data-i18n="install_tab_curl">One-line Shell Script (Recommended)</button>
+          <button class="install-tab-btn" onclick="switchInstallTab('brew')" data-i18n="install_tab_brew">Homebrew (macOS)</button>
+          <button class="install-tab-btn" onclick="switchInstallTab('npm')" data-i18n="install_tab_npm">Install via GitHub Source</button>
+          <button class="install-tab-btn" onclick="switchInstallTab('npx')" data-i18n="install_tab_npx">Zero-install npx</button>
+        </div>
+
+        <div class="install-snippet" id="installCmdSnippet">
+          <span id="installCmdText">curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash</span>
+          <button class="btn-copy" onclick="copyInstallTabCmd(this)" data-i18n="btn_copy_cmd">Copy Command</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div style="display: flex; align-items: center; gap: 0.8rem;">
+        <div class="brand-avatar-wrap" style="width: 28px; height: 28px;">
+          <img src="assets/logo/tug-logo.jpg" alt="Tug Logo">
+        </div>
+        <div>
+          <strong>Tug</strong> · Browser Extension Orchestration & Release Companion<br>
+          <span style="font-size: 0.8rem; color: var(--text-dim);" data-i18n="footer_sub">MIT License · Official Mascot Tuggy (Concept A2)</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/Deguang/tug" target="_blank">GitHub</a>
+        <a href="https://github.com/Deguang/tug/releases" target="_blank">Releases</a>
+        <a href="https://github.com/Deguang/tug/issues" target="_blank" data-i18n="footer_feedback">Issues & Feedback</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function selectLang(lang) {
+      setLanguage(lang);
+      const dropdown = document.getElementById('langDropdown');
+      if (dropdown) dropdown.classList.remove('show');
+    }
+
+    // 切换终端标签
+    function switchTermTab(tab) {
+      document.querySelectorAll('.term-tab').forEach(b => b.classList.remove('active'));
+      const btn = document.getElementById('tab-btn-' + tab);
+      if (btn) btn.classList.add('active');
+      
+      const t = window.translations[window.currentLang || 'en'];
+      if (t && t.term_terminal && t.term_terminal[tab]) {
+        document.getElementById('termOutput').innerHTML = t.term_terminal[tab];
+      }
+    }
+
+    // 安装命令切换
+    const installSnippets = {
+      curl: 'curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash',
+      brew: 'brew install Deguang/tap/tug',
+      npm: 'npm install -g Deguang/tug',
+      npx: 'npx github:Deguang/tug fill'
+    };
+
+    function switchInstallTab(type) {
+      document.querySelectorAll('.install-tab-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('installCmdText').textContent = installSnippets[type];
+    }
+
+    function copyInstallTabCmd(btn) {
+      const text = document.getElementById('installCmdText').textContent;
+      const t = window.translations[window.currentLang || 'en'];
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = t.btn_copied;
+        btn.style.color = '#10B981';
+        setTimeout(() => {
+          btn.textContent = orig;
+          btn.style.color = '';
+        }, 2000);
+      });
+    }
+
+    function copyInstallCmd(btn, text) {
+      const t = window.translations[window.currentLang || 'en'];
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = t.btn_copied;
+        btn.style.color = '#10B981';
+        setTimeout(() => {
+          btn.textContent = orig;
+          btn.style.color = '';
+        }, 2000);
+      });
+    }
+
+    // 页面初始化加载多语言
+    window.addEventListener('DOMContentLoaded', () => {
+      setLanguage(window.currentLang || 'en');
+    });
+  </script>
+</body>
+</html>

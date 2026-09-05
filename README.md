@@ -9,19 +9,28 @@
 - **tug-cli**: 本地 Node.js CLI，读取配置、校验物料、启动数据服务
 - **tug-injector**: 浏览器端 Tampermonkey 脚本，自动填充商店表单
 
-## 快速开始
+## 安装方式 (脱离 npm 独立分发)
 
-### 安装
+`tug` 采用 GitHub 独立分发，避免公网 npm 包名冲突与安全隐患：
 
+### 方式 1：一键 Shell 脚本安装（推荐）
 ```bash
-# 安装依赖
-npm install
+curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash
+```
 
-# 构建
-npm run build
+### 方式 2：Homebrew 安装
+```bash
+brew install Deguang/tap/tug
+```
 
-# 全局链接（可选）
-npm link
+### 方式 3：直接通过 GitHub 仓库安装
+```bash
+npm install -g Deguang/tug
+```
+
+### 方式 4：免安装即刻运行
+```bash
+npx github:Deguang/tug fill
 ```
 
 ### 使用流程
@@ -45,7 +54,20 @@ tug dock
 2. 创建新脚本，将 `src/injector/tug-injector.user.js` 的内容粘贴进去
 3. 保存并启用
 
-### 填充表单 (Tug in)
+### 方案 A：CDP 自动化填报【推荐·免安装任何扩展】
+
+1. 用调试端口启动常用 Chrome（保留你的已登录账号）：
+   ```bash
+   /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+   ```
+2. 打开 Chrome Web Store 或 Edge 后台插件详情页。
+3. 在终端执行：
+   ```bash
+   tug fill
+   ```
+   CDP 将自动接管并模拟原生输入，**同时原生挂载本地截图等图片物料**，无需人工干预！
+
+### 方案 B：油猴脚本注入填报 (Tug in)
 
 1. 执行 `tug dock` 启动本地服务
 2. 打开 Chrome Web Store 或 Edge Partner Center 开发者后台
@@ -63,6 +85,7 @@ tug dock
 
 | 命令 | 说明 |
 |------|------|
+| `tug fill` | **【推荐】** 通过 CDP 直连 Chrome 自动填表与挂载本地物料 (免装扩展) |
 | `tug init` | 生成 `tug.yml` 配置文件 |
 | `tug scan` | 校验配置、比对权限、检查物料 |
 | `tug dock` | 启动本地 HTTP 服务 (默认端口 4321) |

@@ -185,6 +185,26 @@ export class LocalServer {
       }
     });
 
+    // 静态暴露油猴脚本供直接点击安装或书签调用 (解决问题 4)
+    this.router.get(['/injector.user.js', '/injector.js', '/install'], (ctx) => {
+      // 兼容源码运行和打包运行 (dist 目录与 src 目录)
+      const possiblePaths = [
+        path.resolve(process.cwd(), 'src/injector/tug-injector.user.js'),
+        path.resolve(path.dirname(new URL(import.meta.url).pathname), '../src/injector/tug-injector.user.js'),
+        path.resolve(path.dirname(new URL(import.meta.url).pathname), 'injector/tug-injector.user.js'),
+      ];
+
+      const scriptPath = possiblePaths.find((p) => fs.existsSync(p));
+      if (!scriptPath) {
+        ctx.status = 404;
+        ctx.body = '// tug-injector.user.js not found';
+        return;
+      }
+
+      ctx.set('Content-Type', 'application/javascript; charset=utf-8');
+      ctx.body = fs.readFileSync(scriptPath, 'utf-8');
+    });
+
     this.app.use(this.router.routes());
     this.app.use(this.router.allowedMethods());
   }
@@ -220,13 +240,14 @@ export class LocalServer {
     return new Promise((resolve) => {
       this.app.listen(this.port, this.host, () => {
         console.log(`\n  ${chalk.bgCyan.black.bold(' ⚓ DOCK ONLINE ')} ${chalk.dim(`服务已挂载于 http://${this.host}:${this.port}`)}`);
-        console.log(chalk.dim('  ┌─────────────────────────────────────────────────────────┐'));
-        console.log(`  │  ${chalk.cyan('数据接口')}  ${chalk.dim('.....................')} http://${this.host}:${this.port}/api/tug-data │`);
-        console.log(`  │  ${chalk.cyan('健康探针')}  ${chalk.dim('.....................')} http://${this.host}:${this.port}/api/health   │`);
-        console.log(`  │  ${chalk.cyan('回传通道')}  ${chalk.dim('.....................')} http://${this.host}:${this.port}/api/tug-pull │`);
-        console.log(chalk.dim('  └─────────────────────────────────────────────────────────┘'));
-        console.log(`\n  ${chalk.green('✔')} ${chalk.bold('请在浏览器中打开 Chrome / Edge 开发者后台')}`);
-        console.log(`  ${chalk.dim('Tampermonkey 脚本将自动检测并激活悬浮控制台。按 Ctrl+C 可停止。')}\n`);
+        console.log(chalk.dim('  ┌─────────────────────────────────────────────────────────────┐'));
+        console.log(`  │  ${chalk.cyan('数据接口')}  ${chalk.dim('.....................')} http://${this.host}:${this.port}/api/tug-data   │`);
+        console.log(`  │  ${chalk.cyan('健康探针')}  ${chalk.dim('.....................')} http://${this.host}:${this.port}/api/health     │`);
+        console.log(`  │  ${chalk.cyan('回传通道')}  ${chalk.dim('.....................')} http://${this.host}:${this.port}/api/tug-pull   │`);
+        console.log(`  │  ${chalk.cyan('油猴脚本')}  ${chalk.dim('.....................')} http://${this.host}:${this.port}/injector.user.js│`);
+        console.log(chalk.dim('  └─────────────────────────────────────────────────────────────┘'));
+        console.log(`\n  ${chalk.yellow('💡 油猴安装')}：浏览器直接访问 ${chalk.underline(`http://${this.host}:${this.port}/injector.user.js`)} 即可一键弹窗安装。`);
+        console.log(`  ${chalk.green('⚡ 免扩展模式')}：推荐直接另开终端运行 ${chalk.cyan.bold('tug fill')}，直连 CDP 自动化更顺畅！\n`);
         resolve();
       });
     });

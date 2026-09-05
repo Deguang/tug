@@ -82,6 +82,9 @@ export async function scanCommand(): Promise<void> {
   if (scheme.assets.promo_large) {
     printStatusRow('大推广图 (1400x560)', scheme.assets.promo_large, !errors.some((e) => e.file === scheme.assets.promo_large));
   }
+  if (scheme.assets.package) {
+    printStatusRow('插件安装包 (ZIP)', scheme.assets.package, !errors.some((e) => e.file === scheme.assets.package));
+  }
 
   console.log('');
 

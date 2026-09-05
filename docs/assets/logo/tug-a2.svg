@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Optional background fill (can be removed or kept transparent) -->
+  <rect width="512" height="512" rx="104" fill="#E8F1EF"/>
+
+  <g transform="translate(48, 70)">
+    <!-- 1. Orange Hull Body -->
+    <path d="M42 278 C42 345 105 352 170 352 L280 352 C350 352 388 320 388 268 C388 220 310 240 240 252 C150 266 58 270 42 278 Z" 
+          fill="#FA541C"/>
+
+    <!-- 2. Orange Head / Wheelhouse Dome -->
+    <path d="M182 86 C248 86 286 128 286 200 L286 250 L182 250 L182 86 Z" 
+          fill="#FA541C"/>
+
+    <!-- 3. Navy Cabin Structure, Chimney & Captain Cap -->
+    <!-- Chimney -->
+    <path d="M125 48 C125 40 135 34 148 34 L176 34 C189 34 199 40 199 48 L199 180 L125 180 Z" 
+          fill="#243142"/>
+    <!-- Cap Roof & Visor -->
+    <path d="M182 48 C245 48 302 54 320 84 C326 94 320 106 304 106 L182 106 Z" 
+          fill="#243142"/>
+    
+    <!-- 4. Navy Gunwale / Belt & Arm -->
+    <path d="M22 238 C22 220 38 212 54 212 C78 212 86 230 118 230 L220 230 C270 230 330 205 365 205 C396 205 414 224 414 250 C414 278 385 304 350 304 C310 304 276 270 230 270 L54 270 C36 270 22 256 22 238 Z" 
+          fill="#243142"/>
+
+    <!-- 5. Front Towing Ring (Orange Center & Navy Border) -->
+    <circle cx="376" cy="256" r="38" fill="#243142"/>
+    <circle cx="376" cy="256" r="22" fill="#FA541C"/>
+    <!-- Ring Top Tab -->
+    <path d="M370 216 C370 210 382 210 382 216 L382 226 L370 226 Z" fill="#FA541C"/>
+
+    <!-- 6. Cute Facial Features (Navy Eyes + Smile) -->
+    <!-- Left Eye -->
+    <ellipse cx="228" cy="168" rx="14" ry="17" fill="#243142"/>
+    <circle cx="233" cy="162" r="4.5" fill="#FA541C"/>
+    
+    <!-- Right Eye -->
+    <ellipse cx="290" cy="166" rx="14" ry="17" fill="#243142"/>
+    <circle cx="295" cy="160" r="4.5" fill="#FA541C"/>
+    
+    <!-- Cute Smile -->
+    <path d="M248 184 C252 196 266 196 270 184" 
+          stroke="#243142" stroke-width="6" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>

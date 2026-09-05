@@ -33,8 +33,9 @@ export const PrivacySchema = z.object({
   data_usage: DataUsageSchema,
 });
 
-// 物料路径
+// 物料与安装包路径
 export const AssetsSchema = z.object({
+  package: z.string().optional(), // 插件 zip 包路径，如 ./extension.zip
   icon_128: z.string().min(1, 'icon_128 路径不能为空'),
   screenshots: z.array(z.string()).min(1, '至少需要一张截图').max(5, '截图最多 5 张'),
   promo_small: z.string().optional(),
