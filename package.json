@@ -1,6 +1,6 @@
 {
   "name": "tug",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "浏览器插件上架助手 - CLI 与浏览器注入端协同工具",
   "type": "module",
   "bin": {
