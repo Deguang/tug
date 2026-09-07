@@ -7,7 +7,8 @@ import { z } from 'zod';
 // 全局配置
 export const GlobalSchema = z.object({
   category: z.string().min(1, '商店分类不能为空'),
-  support_email: z.string().email('支持邮箱格式不合法'),
+  support_email: z.string().email("支持邮箱格式不合法"),
+  support_url: z.string().url("支持页面 URL 格式不合法").optional(),
   privacy_policy_url: z.string().url('隐私政策 URL 格式不合法'),
   home_page_url: z.string().url('首页 URL 格式不合法').optional(),
   repository: z.string().optional(), // 仓库地址或 owner/repo

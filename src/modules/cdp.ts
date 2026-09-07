@@ -223,6 +223,77 @@ export class CdpDriver {
   /**
    * 列出所有打开的页面标签
    */
+  
+  async scrapeState(targetId: string, targetLocale: string = 'en') {
+    let client;
+    try {
+      client = await CDP({ host: this.host, port: this.port, target: targetId });
+    } catch (e) {
+      throw new Error("无法连接到标签页: " + (e as Error).message);
+    }
+    const { Runtime, DOM } = client;
+    await Runtime.enable();
+    await DOM.enable();
+
+    const script = `
+      (() => {
+        const state = {
+          texts: {},
+          images: {
+            screenshots: 0,
+            promo_small: 0,
+            promo_large: 0,
+            icon: 0
+          }
+        };
+        
+        const nameInput = document.querySelector('input[aria-label="Name"], input[name="name"]');
+        if (nameInput) state.texts.name = nameInput.value;
+        
+        const descInput = document.querySelector('textarea[aria-label="Description"], textarea[name="description"]');
+        if (descInput) state.texts.description = descInput.value;
+
+        const summaryInput = document.querySelector('textarea[aria-label="Summary"], input[aria-label="Summary"]');
+        if (summaryInput) state.texts.short_description = summaryInput.value;
+        
+        // Count images based on delete buttons or uploaded thumbnails
+        // Chrome Web Store uses input[type="file"] next to uploaded items
+        const fileInputs = Array.from(document.querySelectorAll('input[type="file"]'));
+        for (const input of fileInputs) {
+          const wrapper = input.closest('div');
+          if (!wrapper) continue;
+          
+          const text = wrapper.innerText.toLowerCase();
+          const hasImage = wrapper.querySelector('img') ? 1 : 0;
+          
+          // Actually, in CWS, uploaded screenshots usually have a delete button (aria-label="Delete" or similar)
+          // We can count the number of delete buttons or imgs inside the specific section
+          
+          if (text.includes('1280x800') || text.includes('1280 x 800') || text.includes('640x400') || text.includes('screenshot') || text.includes('截图')) {
+            const container = wrapper.parentElement ? wrapper.parentElement.parentElement : wrapper;
+            if (container) {
+               // Count how many images are uploaded in this section
+               // Usually they are presented as thumbnails with a delete button
+               const imgs = container.querySelectorAll('img').length;
+               // We might overcount if there are placeholder images, but usually they are <img> tags
+               state.images.screenshots = Math.max(0, imgs - 1); // rough estimate, assuming 1 is placeholder or just use imgs
+            }
+          }
+        }
+        
+        return JSON.stringify(state);
+      })();
+    `;
+
+    const res = await Runtime.evaluate({ expression: script, returnByValue: true });
+    await client.close();
+    
+    if (res.exceptionDetails) {
+      throw new Error("Scrape error");
+    }
+    return JSON.parse(res.result.value);
+  }
+
   async listPageTargets(): Promise<CdpTargetInfo[]> {
     const targets = (await CDP.List({ host: this.host, port: this.port })) as CdpTargetInfo[];
     return targets.filter((t) => t.type === 'page');
@@ -523,6 +594,7 @@ export class CdpDriver {
             const privacyUrl = ${JSON.stringify(scheme.global.privacy_policy_url || '')};
             const homeUrl = ${JSON.stringify(scheme.global.home_page_url || '')};
             const email = ${JSON.stringify(scheme.global.support_email || '')};
+            const supportUrl = ${JSON.stringify(scheme.global.support_url || '')};
 
             document.querySelectorAll('input[type="text"], input[type="url"], input[type="email"]').forEach(el => {
               const ctx = ((el.getAttribute('aria-label') || '') + (el.placeholder || '') + (el.name || '') + el.id).toLowerCase();
@@ -530,8 +602,10 @@ export class CdpDriver {
                 triggerNativeInput(el, privacyUrl);
               } else if ((ctx.includes('home') || ctx.includes('website')) && homeUrl) {
                 triggerNativeInput(el, homeUrl);
-              } else if (ctx.includes('support') && email) {
-                triggerNativeInput(el, email);
+              } else if (ctx.includes('support') && (ctx.includes('url') || ctx.includes('网址') || ctx.includes('链接') || el.type === 'url')) {
+                if (supportUrl) triggerNativeInput(el, supportUrl);
+              } else if (ctx.includes('support') || ctx.includes('email') || ctx.includes('邮箱')) {
+                if (email) triggerNativeInput(el, email);
               }
             });
 
