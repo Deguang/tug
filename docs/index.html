@@ -1156,42 +1156,6 @@
       white-space: nowrap;
     }
 
-    /* 页脚 */
-    footer.site-footer {
-      border-top: 1px solid var(--border-light);
-      background: #FFFFFF;
-      padding: 3rem 0;
-      margin-top: 4rem;
-    }
-
-    .footer-content {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .footer-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: color 0.15s;
-    }
-
-    .footer-links a:hover {
-      color: var(--accent);
-    }
-
     /* FAQ 常见问题区 */
     section.faq-section {
       padding: 5rem 0;
@@ -1632,26 +1596,12 @@
     </div>
   </section>
 
-  <!-- 页脚 -->
-  <footer class="site-footer">
-    <div class="footer-content">
-      <div style="display: flex; align-items: center; gap: 0.8rem;">
-        <div class="brand-avatar-wrap" style="width: 28px; height: 28px;">
-          <img src="assets/logo/tug-logo.jpg" alt="Tug Logo">
-        </div>
-        <div>
-          <strong>Tug</strong> · Browser Extension Orchestration & Release Companion<br>
-          <span style="font-size: 0.8rem; color: var(--text-dim);" data-i18n="footer_sub">MIT License · Official Mascot Tuggy</span>
-        </div>
-      </div>
-      <div class="footer-links">
-        <a href="https://github.com/Deguang/tug" target="_blank">GitHub</a>
-        <a href="https://github.com/Deguang/tug#readme" target="_blank" class="docs-link" data-i18n="nav_docs">Docs</a>
-        <a href="https://github.com/Deguang/tug/releases" target="_blank">Releases</a>
-        <a href="https://github.com/Deguang/tug/issues" target="_blank" data-i18n="footer_feedback">Issues & Feedback</a>
-      </div>
-    </div>
-  </footer>
+  <!-- 页脚：Li Deguang 应用矩阵 Footer。部署时 deploy-pages.yml 会把两个标记之间
+       替换为带静态链接的 SEO 版本；拉取失败时保留下面的运行时版本。 -->
+  <!-- deguang-footer:start -->
+  <deguang-footer></deguang-footer>
+  <script src="https://app.lideguang.com/deguang-footer.js" type="module" async></script>
+  <!-- deguang-footer:end -->
 
   <script type="module">
     function selectLang(lang) {

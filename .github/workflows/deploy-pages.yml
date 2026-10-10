@@ -31,6 +31,30 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # Swap the runtime footer for the static one so crawlers see real links. Pulled
+      # from GitHub rather than app.lideguang.com: Cloudflare rewrites the served copy
+      # (Rocket Loader mangles the script type and adds /cdn-cgi/ paths that 404 here).
+      # Any failure keeps the runtime footer already in the page.
+      - name: Fetch Hybrid Footer
+        run: |
+          set -u
+          if curl -fsSL --max-time 20 https://raw.githubusercontent.com/Deguang/Deguang.github.io/main/footer-snippet.html -o /tmp/footer.html \
+             && grep -q '<deguang-footer>' /tmp/footer.html; then
+            python3 - <<'PY'
+          import re
+          snippet = open('/tmp/footer.html', encoding='utf-8').read()
+          snippet = snippet.replace('src="./deguang-footer.js"', 'src="https://app.lideguang.com/deguang-footer.js"')
+          path = 'docs/index.html'
+          page = open(path, encoding='utf-8').read()
+          page, n = re.subn(r'(<!-- deguang-footer:start -->).*?(<!-- deguang-footer:end -->)',
+                            lambda m: m.group(1) + '\n' + snippet.strip() + '\n  ' + m.group(2), page, flags=re.S)
+          open(path, 'w', encoding='utf-8').write(page)
+          print(f'footer markers replaced: {n}')
+          PY
+          else
+            echo "::warning::footer snippet unavailable; keeping the runtime footer"
+          fi
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
