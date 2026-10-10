@@ -210,13 +210,13 @@ export class CdpDriver {
    */
   async findStoreTarget(): Promise<CdpTargetInfo | null> {
     const targets = (await CDP.List({ host: this.host, port: this.port })) as CdpTargetInfo[];
-    const storeTarget = targets.find(
-      (t) =>
-        t.type === 'page' &&
-        (t.url.includes('chromewebstore.google.com') ||
-          t.url.includes('chrome.google.com/webstore/devconsole') ||
-          t.url.includes('partner.microsoft.com'))
-    );
+    const pages = targets.filter((t) => t.type === 'page');
+    // A public listing (chromewebstore.google.com/detail/…) carries the same title
+    // as the item being edited, so it must never win over the dashboard itself.
+    const storeTarget =
+      pages.find((t) => /\/webstore\/devconsole\/[^/]+\/[^/]+\/edit/.test(t.url)) ||
+      pages.find((t) => t.url.includes('chrome.google.com/webstore/devconsole') || t.url.includes('chromewebstore.google.com/devconsole')) ||
+      pages.find((t) => t.url.includes('partner.microsoft.com'));
     return storeTarget || null;
   }
 
@@ -436,14 +436,20 @@ export class CdpDriver {
               const hostPermissions = ${JSON.stringify(scheme.privacy.host_permissions || {})};
               const hostJustification = Object.values(hostPermissions).join(' ');
 
-              document.querySelectorAll('textarea').forEach(el => {
-                let p = el.parentElement;
-                let text = '';
-                for (let i = 0; i < 6 && p; i++) {
-                  text += ' ' + (p.textContent || '');
-                  p = p.parentElement;
+              // This field's own label and hint, never a neighbour's.
+              function ownFieldText(el) {
+                // Stop at the first ancestor that also holds another control, and leave out
+                // the textarea's own value, which may mention other fields' keywords.
+                const controls = 'textarea, input:not([type="hidden"]), select, [role="combobox"]';
+                let scope = el;
+                while (scope.parentElement && scope.parentElement.querySelectorAll(controls).length === 1) {
+                  scope = scope.parentElement;
                 }
-                const lower = text.toLowerCase();
+                return (scope.textContent || '').replace(el.textContent || '', '');
+              }
+
+              document.querySelectorAll('textarea').forEach(el => {
+                const lower = ownFieldText(el).toLowerCase();
 
                 for (const [perm, just] of Object.entries(permissions)) {
                   if (lower.includes(perm.toLowerCase()) && lower.includes('justification')) {
@@ -641,7 +647,22 @@ export class CdpDriver {
             })()
           `;
           await Runtime.evaluate({ expression: switchScript });
-          await new Promise((r) => setTimeout(r, 700));
+          await new Promise((r) => setTimeout(r, 1500));
+
+          // If the switch didn't take, filling now would overwrite whichever locale is
+          // still showing — typically the default one — with this locale's text.
+          const switched = await Runtime.evaluate({
+            expression: `(() => {
+              const code = ${JSON.stringify(loc)}.toLowerCase().replace('_', '-');
+              const cb = Array.from(document.querySelectorAll('[role="combobox"]')).find(e => (e.textContent || '').includes('Language'));
+              return !!cb && (cb.textContent || '').toLowerCase().includes('– ' + code);
+            })()`,
+            returnByValue: true,
+          });
+          if (switched.result.value !== true) {
+            pageErrors.push(`语言 ${loc} 切换失败，已跳过（未改动任何文案）`);
+            continue;
+          }
 
           // 填充当前语言的文案
           const locDesc = locData.description || '';
@@ -676,15 +697,21 @@ export class CdpDriver {
               const desc = ${JSON.stringify(locDesc)};
               const shortDesc = ${JSON.stringify(locShortDesc)};
 
-              document.querySelectorAll('textarea').forEach(el => {
-                let p = el.parentElement;
-                let text = '';
-                for (let i = 0; i < 5 && p; i++) {
-                  text += ' ' + (p.textContent || '');
-                  p = p.parentElement;
+              function ownFieldText(el) {
+                // Stop at the first ancestor that also holds another control, and leave out
+                // the textarea's own value, which may mention other fields' keywords.
+                const controls = 'textarea, input:not([type="hidden"]), select, [role="combobox"]';
+                let scope = el;
+                while (scope.parentElement && scope.parentElement.querySelectorAll(controls).length === 1) {
+                  scope = scope.parentElement;
                 }
-                const ctx = ((el.getAttribute('aria-label') || '') + (el.placeholder || '') + text).toLowerCase();
-                if (ctx.includes('description') || ctx.includes('详细描述') || !el.value) {
+                return (scope.textContent || '').replace(el.textContent || '', '');
+              }
+
+              // Only the field labelled Description; an empty textarea is not a licence to write.
+              document.querySelectorAll('textarea').forEach(el => {
+                const ctx = ((el.getAttribute('aria-label') || '') + (el.placeholder || '') + ownFieldText(el)).toLowerCase();
+                if (ctx.includes('description') || ctx.includes('详细描述')) {
                   triggerNativeInput(el, desc);
                 }
               });
@@ -701,9 +728,22 @@ export class CdpDriver {
           `;
 
           const locEval = await Runtime.evaluate({ expression: fillLocaleScript, returnByValue: true });
-          textFieldsFilled += (locEval.result.value as number) || 0;
+          const filledHere = (locEval.result.value as number) || 0;
+          textFieldsFilled += filledHere;
+          if (filledHere === 0) {
+            pageErrors.push(`语言 ${loc} 未找到 Description 输入框，未填写`);
+            continue;
+          }
+
+          // Save before switching away, so an edit can't be dropped with the locale.
+          await Runtime.evaluate({
+            expression: `(() => {
+              const btn = Array.from(document.querySelectorAll('button')).find(b => (b.textContent || '').includes('Save draft'));
+              if (btn && !btn.disabled) btn.click();
+            })()`,
+          });
+          await new Promise((r) => setTimeout(r, 2000));
           localesFilled.push(loc);
-          await new Promise((r) => setTimeout(r, 400));
         }
 
         // 若循环录入了多语言，切回默认语言 (en) 供开发者直观核实
