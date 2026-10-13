@@ -50,12 +50,7 @@ curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh
 brew install Deguang/tap/tug
 ```
 
-### 方式 3：通过 GitHub 源码全局安装
-```bash
-npm install -g Deguang/tug
-```
-
-### 方式 4：免安装即刻运行
+### 方式 3：免安装即刻运行
 ```bash
 npx github:Deguang/tug fill
 ```

@@ -73,30 +73,21 @@ async function executeAutoUpgrade(repo: string, latestTag: string): Promise<void
     }
   } catch {}
 
-  // 2. 检查是否可以通过 npm 全局升级 (npm install -g Deguang/tug)
+  // 2. 通过官方一键脚本覆盖更新
   try {
-    s.message(`正在通过 GitHub 更新全局 CLI (${repo})...`);
-    execSync(`npm install -g ${repo}`, { stdio: 'pipe' });
-    s.stop(chalk.green(`✔ 升级成功！已全局更新至 ${latestTag}`));
+    s.message('正在通过官方安装脚本执行快速覆盖升级...');
+    execSync(`curl -fsSL https://raw.githubusercontent.com/${repo}/main/scripts/install.sh | bash`, { stdio: 'pipe' });
+    s.stop(chalk.green(`✔ 升级成功！已更新至 ${latestTag}`));
     p.outro(chalk.green.bold('🎉 恭喜！tug 已完成自动升级。'));
     return;
-  } catch (err) {
-    // 3. 降级：通过官方一键脚本覆盖更新
-    try {
-      s.message('正在通过官方安装脚本执行快速覆盖升级...');
-      execSync(`curl -fsSL https://raw.githubusercontent.com/${repo}/main/scripts/install.sh | bash`, { stdio: 'pipe' });
-      s.stop(chalk.green(`✔ 升级成功！已更新至 ${latestTag}`));
-      p.outro(chalk.green.bold('🎉 恭喜！tug 已完成自动升级。'));
-      return;
-    } catch (e) {
-      s.stop(chalk.red('自动执行升级遇到异常'));
-      p.note(
-        `• 错误信息: ${(e as Error).message || (err as Error).message}\n` +
-        `• 备用方案: 请尝试手动执行 npm install -g ${repo}`,
-        '手动升级提示'
-      );
-      p.cancel('自动升级流程未完成。');
-    }
+  } catch (e) {
+    s.stop(chalk.red('自动执行升级遇到异常'));
+    p.note(
+      `• 错误信息: ${(e as Error).message}\n` +
+      `• 备用方案: 请尝试手动执行 brew upgrade tug 或运行官方安装脚本`,
+      '手动升级提示'
+    );
+    p.cancel('自动升级流程未完成。');
   }
 }
 
@@ -209,14 +200,13 @@ export async function upgradeCommand(options: UpgradeCommandOptions = {}): Promi
 
       console.log(chalk.yellow('\n  已跳过自动升级。若后续需要手动安装，可执行:'));
       console.log(chalk.cyan(`    • Homebrew: brew upgrade tug`));
-      console.log(chalk.cyan(`    • 一键脚本: curl -fsSL https://raw.githubusercontent.com/${repo}/main/scripts/install.sh | bash`));
-      console.log(chalk.cyan(`    • 源码安装: npm install -g ${repo}\n`));
+      console.log(chalk.cyan(`    • 一键脚本: curl -fsSL https://raw.githubusercontent.com/${repo}/main/scripts/install.sh | bash\n`));
       return;
     }
 
     console.log(chalk.green(`\n  ✓ 当前已经是最新版本 (v${currentVersion})！\n`));
   } catch (err) {
     console.log(chalk.yellow(`\n  ⚠ 检查更新失败: ${(err as Error).message}`));
-    console.log(chalk.gray(`  你可以手动执行以下命令尝试更新:\n    npm install -g ${repo}\n`));
+    console.log(chalk.gray(`  你可以手动执行以下命令尝试更新:\n    brew upgrade tug\n`));
   }
 }

@@ -1581,7 +1581,6 @@
         <div class="install-tabs">
           <button class="install-tab-btn active" onclick="switchInstallTab('curl')" data-i18n="install_tab_curl">Shell Script</button>
           <button class="install-tab-btn" onclick="switchInstallTab('brew')" data-i18n="install_tab_brew">Homebrew</button>
-          <button class="install-tab-btn" onclick="switchInstallTab('npm')" data-i18n="install_tab_npm">GitHub Source</button>
           <button class="install-tab-btn" onclick="switchInstallTab('npx')" data-i18n="install_tab_npx">npx</button>
         </div>
 
@@ -1629,7 +1628,6 @@
     const installSnippets = {
       curl: 'curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh | bash',
       brew: 'brew install Deguang/tap/tug',
-      npm: 'npm install -g Deguang/tug',
       npx: 'npx github:Deguang/tug fill'
     };
 

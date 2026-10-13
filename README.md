@@ -51,12 +51,7 @@ curl -fsSL https://raw.githubusercontent.com/Deguang/tug/main/scripts/install.sh
 brew install Deguang/tap/tug
 ```
 
-### Option 3: Global Install via GitHub Source
-```bash
-npm install -g Deguang/tug
-```
-
-### Option 4: Zero-Install npx
+### Option 3: Zero-Install npx
 ```bash
 npx github:Deguang/tug fill
 ```
