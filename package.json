@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "tsup src/cli.ts --format esm --dts --clean",
+    "prepare": "npm run build",
     "dev": "tsup src/cli.ts --format esm --watch",
     "start": "node dist/cli.js"
   },

@@ -1,7 +1,8 @@
 class Tug < Formula
   desc "Browser extension store publishing companion and local metadata orchestrator"
   homepage "https://github.com/Deguang/tug"
-  url "https://github.com/Deguang/tug/archive/refs/tags/v0.1.0.tar.gz"
+  url "https://github.com/Deguang/tug/releases/download/v0.2.1/tug-v0.2.1.tar.gz"
+  sha256 "ca2dfcdfad7aa70f34294245a2702cc61b11e4a0d9819e104c0a2852d84034af"
   license "MIT"
 
   depends_on "node"

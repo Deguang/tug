@@ -30,7 +30,7 @@ echo "🚀 正在安装 tug (Browser Extension Store Companion)..."
 BINARY_URL="https://github.com/${REPO}/releases/latest/download/tug-${OS}-${ARCH}"
 TARGET_PATH="${INSTALL_DIR}/tug"
 
-if [ -n "$ARCH" ] && curl --output /dev/null --silent --head --fail "$BINARY_URL"; then
+if [ -n "$ARCH" ] && curl --output /dev/null --silent --head --fail -L "$BINARY_URL"; then
   echo "📦 正在从 GitHub Releases 下载预编译单文件版本 (${OS}-${ARCH})..."
   curl -fsSL "$BINARY_URL" -o "$TARGET_PATH"
   chmod +x "$TARGET_PATH"
